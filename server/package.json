@@ -1,0 +1,37 @@
+{
+  "name": "modaro-booking-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "dev:local": "tsx src/local.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "worker": "tsx src/worker.ts",
+    "seed": "tsx src/seed.ts",
+    "admin:create": "tsx src/create-admin.ts",
+    "test": "tsx --test --test-concurrency=1 test/booking.test.ts"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "modero-website": "file:..",
+    "mongoose": "^8.19.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.18.0",
+    "@types/supertest": "^6.0.3",
+    "mongodb-memory-server": "^10.2.0",
+    "supertest": "^7.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

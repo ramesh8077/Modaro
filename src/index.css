@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap");
+@import "tailwindcss";
+@theme {
+  --color-ivory: #F5F1E8; --color-forest: #183B32; --color-charcoal: #242824;
+  --color-olive: #858B72; --color-brass: #B69A68;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+html { scroll-padding-top: 72px; }
+body { margin: 0; background: #F5F1E8; color: #242824; font-family: var(--font-sans); line-height: 1.7; overflow-x: clip; }
+section[id] { scroll-margin-top: 72px; }
+:focus-visible { outline: 2px solid #B69A68; outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
+.h2 { font-size: clamp(2.25rem, 5.2vw, 4.5rem); }
+.btn { display: inline-flex; min-height: 44px; align-items: center; padding: 0 1.75rem; font-size: .875rem; letter-spacing: .06em; transition: background-color .3s, color .3s, border-color .3s; }
+.field { min-height: 44px; width: 100%; border: 1px solid rgba(36,40,36,.25); background: #fffdf7; padding: .65rem .75rem; color: #242824; }
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after { transition-duration: .01ms !important; animation: none !important; scroll-behavior: auto !important; } }
+@keyframes drift { to { transform: translateX(-50%); } }
+/* Without motion, section tones are static (the animated wrapper tint is skipped). */
+@media (prefers-reduced-motion: reduce) {
+  [data-tone="mist"] { background: #E6ECE8; } [data-tone="sage"] { background: #D3D9C6; }
+  [data-tone="night"] { background: #183B32; color: #F5F1E8; }
+}
+
+/* Custom cursor (see components/Cursor.jsx). Native cursor is hidden only while html.has-custom-cursor is set. */
+.mc {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.mc-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 50%;
+  transform-origin: center;
+  background: radial-gradient(
+    circle at 35% 32%,
+    #fff9e9 0%,
+    #ffe08a 22%,
+    var(--mc-accent) 55%,
+    #98600f 100%
+  );
+  box-shadow:
+    0 0 4px rgba(255, 247, 219, 1),
+    0 0 10px rgba(255, 197, 75, .98),
+    0 0 22px rgba(226, 157, 34, .78),
+    0 0 34px rgba(190, 124, 22, .42);
+  will-change: transform, filter;
+}
+
+.mc-dot::before {
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 126, .82) 0%,
+    rgba(224, 157, 39, .42) 36%,
+    rgba(196, 129, 26, 0) 76%
+  );
+  content: "";
+  filter: blur(var(--mc-glow));
+  opacity: .72;
+  transition: opacity .24s ease;
+}
+
+.mc[data-state="link"] .mc-dot,
+.mc[data-state="label"] .mc-dot {
+  box-shadow:
+    0 0 5px rgba(255, 249, 226, 1),
+    0 0 13px rgba(255, 193, 62, 1),
+    0 0 27px rgba(224, 145, 26, .88);
+}
+
+.mc[data-state="link"] .mc-dot::before,
+.mc[data-state="label"] .mc-dot::before {
+  opacity: .95;
+}
+
+.mc-trail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 36% 50%,
+    rgba(255, 245, 211, 1) 0%,
+    rgba(255, 204, 93, .96) 24%,
+    rgba(216, 147, 34, .72) 52%,
+    rgba(196, 129, 26, 0) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.mc-burst-particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: #f5e3bd;
+  box-shadow:
+    0 0 5px rgba(255, 250, 225, 1),
+    0 0 11px rgba(255, 188, 54, .92);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.mc-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 227, 163, .62) 0%,
+    rgba(238, 170, 47, .38) 20%,
+    rgba(210, 137, 28, .12) 48%,
+    rgba(210, 137, 28, 0) 72%
+  );
+  filter: blur(1px);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.mc-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--mc-accent);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 0 12px rgba(216, 151, 38, .62);
+  translate: 0 5px;
+  transition:
+    opacity .22s ease,
+    translate .22s cubic-bezier(.16, 1, .3, 1);
+}
+
+.mc[data-state="label"] .mc-label {
+  opacity: 1;
+  translate: 0 0;
+}
+
+html.has-custom-cursor,
+html.has-custom-cursor body {
+  cursor: none;
+}
+
+html.has-custom-cursor
+:is(
+  a,
+  button,
+  [role="tab"],
+  [role="button"],
+  summary,
+  label,
+  [data-cursor]
+) {
+  cursor: none;
+}
+
+html.has-custom-cursor
+:is(
+  input,
+  textarea,
+  [contenteditable]:not([contenteditable="false"])
+) {
+  cursor: text;
+}
+
+html.has-custom-cursor select,
+html.has-custom-cursor [data-cursor="native"] {
+  cursor: auto;
+}
+
+html.has-custom-cursor dialog[open],
+html.has-custom-cursor dialog[open] * {
+  cursor: auto;
+}
+
+html.has-custom-cursor dialog[open] :is(a, button) {
+  cursor: pointer;
+}
+
+html.has-custom-cursor.is-selecting,
+html.has-custom-cursor.is-selecting * {
+  cursor: text !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc {
+    display: none;
+  }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor * {
+    cursor: revert !important;
+  }
+}
