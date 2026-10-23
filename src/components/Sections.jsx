@@ -1,32 +1,404 @@
-import { ArrowUpRight, MapPin, Trees, Users, Waves } from "lucide-react";
+// Sections.jsx — Completely redesigned for Villa Modaro
+// Inspired by: Four Seasons (editorial grids), Roseate Hotels (design-led identity),
+// Taj Hotels (occasion-based sections), LuxuryEscapes (visual storytelling)
+
+import { useRef, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ArrowUpRight, MapPin, Trees, Users, Waves, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Img from "./Img";
 import { homeSite as site } from "../data/home";
 
-const wrap = "mx-auto max-w-[1440px] px-6 lg:px-12";
-const kicker = "text-[11px] uppercase tracking-[0.28em] text-brass";
+const kicker = "kicker-lux";
+const wrap = "container-lux";
 
+// ============================================================
+// 01 — VILLA SHOWCASE
+// (Inspired by Four Seasons "Featured Properties" + Roseate editorial grid)
+// ============================================================
 export function Villa() {
-  return <section id="villa" className={`${wrap} py-16 lg:py-24`}><div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-charcoal/15 pb-5"><div><p className={kicker}>01 THE RETREAT</p><p className="mt-2 text-sm text-olive">Private villa near Mohand Forest</p></div><Link to="/the-villa" className="inline-flex min-h-11 items-center gap-2 text-sm hover:text-brass">Explore the villa <ArrowUpRight size={16} /></Link></div><div className="grid gap-12 lg:grid-cols-12 lg:gap-8"><div className="relative lg:col-span-7"><div className="aspect-[4/3] overflow-hidden"><Img img={site.images.villaMain} data-parallax="5" className="h-[108%] w-full" /></div><figure data-reveal className="absolute -bottom-12 right-4 hidden w-[31%] border-8 border-ivory bg-ivory p-0.5 lg:block"><div className="aspect-square overflow-hidden"><Img img={site.images.villaSmall} className="size-full" /></div><figcaption className="px-3 py-2 text-[10px] uppercase tracking-[0.16em] text-olive">Poolside living</figcaption></figure></div><div data-reveal className="flex flex-col justify-center lg:col-span-4 lg:col-start-9"><p className={kicker}>A PRIVATE WORLD OF TOGETHERNESS</p><h2 className="h2 mt-4">A place to come together. Space to slow down.</h2><p className="mt-7 max-w-md text-[15px]">Some places are more than a stay â€” they are where meaningful moments unfold. Villa Modaro brings natural light, open air, and room for the people who matter into one private retreat.</p><div className="mt-8 grid grid-cols-2 gap-3 border-y border-charcoal/15 py-5 text-sm text-olive sm:grid-cols-4 lg:grid-cols-2"><span className="flex items-center gap-2"><Waves size={15} className="text-brass" /> Pool</span><span className="flex items-center gap-2"><Trees size={15} className="text-brass" /> Gardens</span><span className="flex items-center gap-2"><Users size={15} className="text-brass" /> Private</span><span className="flex items-center gap-2"><span className="text-brass"></span> Pickleball</span></div><div className="mt-7 flex flex-wrap gap-3"><Link to="/the-villa" className="btn bg-forest text-ivory hover:bg-charcoal">View the property</Link><a href="#booking" className="btn border border-charcoal hover:bg-charcoal hover:text-ivory">Check availability</a></div></div></div></section>;
 }
 
+// ============================================================
+// 02 — BRAND STORY
+// (Inspired by Roseate "design-led" brand editorial + Four Seasons "brand heart")
+// ============================================================
 export function Story() {
-  return <section id="story" className="bg-[#ebe8dc]"><div className={`${wrap} grid gap-12 py-24 lg:grid-cols-12 lg:items-center lg:py-32`}><div data-reveal className="order-2 lg:order-1 lg:col-span-5 lg:col-start-2"><p className={kicker}>02 OUR STORY</p><p className="mt-3 inline-flex items-center gap-2 text-sm text-olive"><span className="h-px w-8 bg-brass" /> Land found 2020</p><h2 className="h2 mt-5">Born from the wish to be together.</h2><p className="mt-7 max-w-lg">A wish to gather again found its ground along the expressway in 2020. Over the following years, the land was thoughtfully shaped into a private retreat for connection, milestones, and unhurried time in nature.</p><Link to="/our-story" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm hover:text-brass">Read the story <ArrowUpRight size={16} /></Link></div><figure className="order-1 lg:order-2 lg:col-span-5 lg:col-start-8"><div className="aspect-[4/5] overflow-hidden"><Img img={site.images.story} data-parallax="5" className="h-[108%] w-full" /></div><figcaption className="mt-3 border-t border-charcoal/20 pt-2 text-xs uppercase tracking-[0.15em] text-olive">A green arrival at Villa Modaro</figcaption></figure></div></section>;
+  return (
+    <section aria-labelledby="brand-story-heading" className="overflow-hidden bg-white py-8 text-charcoal">
+      <div className="grid items-stretch bg-[#fff4ef] lg:grid-cols-2">
+        <div className="relative min-h-[340px] overflow-hidden sm:min-h-[440px] lg:min-h-[620px]">
+          <Img img={{ ...site.images.story, alt: "Tree-lined arrival to Villa Modaro near Mohand Forest" }} className="absolute inset-0 size-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/45 via-transparent to-transparent" />
+          <div className="absolute bottom-4 left-4 border border-white/35 bg-[#183b32]/90 px-4 py-3 text-ivory backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5">
+            <p className="text-[9px] uppercase tracking-[0.22em] text-brass">A PRIVATE RETREAT</p>
+            <p className="mt-1 font-display text-lg">Near Mohand Forest</p>
+          </div>
+        </div>
+
+        <div className="mx-auto flex w-full max-w-3xl flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-16 xl:px-20">
+          <p className={kicker}>OUR STORY · VILLA MODARO</p>
+          <h2 id="brand-story-heading" className="mt-4 font-display text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+            A place to come together, <em>and stay awhile.</em>
+          </h2>
+          <p className="mt-5 text-sm leading-7 text-charcoal/70 sm:text-base sm:leading-8">
+            Villa Modaro began with a simple wish: to make more room for the people who matter. Set along the Balupur–Paonta Sahib Expressway near Mohand Forest, it brings poolside afternoons, garden walks, shared meals and celebrations together in one private stay.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-charcoal/70 sm:text-base sm:leading-8">
+            Every space is an invitation to slow down, reconnect and make the occasion your own.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link to="/our-story" className="inline-flex min-h-11 items-center gap-2 bg-[#183b32] px-5 text-xs text-ivory transition-colors hover:bg-[#24483d]">
+              Discover our story <ArrowUpRight size={15} />
+            </Link>
+            <span className="inline-flex items-center gap-2 text-xs text-charcoal/60"><MapPin size={14} className="text-brass" /> Dehradun, Uttarakhand</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
+
+// ============================================================
+// 03 — EXPERIENCES EDITORIAL
+// (Inspired by Taj Hotels "Discover Our Experiences" + filter tabs)
+// ============================================================
+const expCategories = ["Pool", "Nature", "Activities", "Social"];
 
 export function Experiences() {
-  return <section id="experiences" className={`${wrap} py-16 lg:py-24`}><div className="mb-12 flex flex-wrap items-end justify-between gap-6"><div><p className={kicker}>03 EASY DAYS</p><h2 data-reveal className="h2 mt-4 max-w-3xl">Easy days, shared well.</h2></div><Link to="/experiences" className="inline-flex min-h-11 items-center gap-2 text-sm hover:text-brass">See every experience <ArrowUpRight size={16} /></Link></div><div className="grid gap-x-8 gap-y-14 lg:grid-cols-12">{site.experiences.map((e, i) => <figure key={e.title} data-reveal className={`group ${e.span}`}><div className={`overflow-hidden ${i % 2 ? "aspect-[3/4] lg:aspect-[4/5]" : "aspect-[4/3]"}`}><Img img={e.img} className="size-full transition-transform duration-700 group-hover:scale-[1.04]" /></div><figcaption className="mt-4 flex flex-col gap-1 border-t border-charcoal/20 pt-4 sm:flex-row sm:justify-between sm:gap-8"><div><span className="text-[10px] uppercase tracking-[0.2em] text-brass">0{i + 1}</span><h3 className="mt-1 text-3xl">{e.title}</h3></div><p className="max-w-xs text-sm text-charcoal/75">{e.text}</p></figcaption></figure>)}</div></section>;
+  const [active, setActive] = useState("Pool");
+  const sectionRef = useRef(null);
+  const filteredExperiences = !active
+    ? site.experiences
+    : site.experiences.filter((experience) => experience.category === active);
+
+  useGSAP(() => {
+    const cards = sectionRef.current?.querySelectorAll("[data-experience-card]");
+    if (!cards?.length) return;
+    gsap.fromTo(cards,
+      { autoAlpha: 0, y: 24 },
+      { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.1, ease: "power2.out", clearProps: "all" }
+    );
+  }, { scope: sectionRef, dependencies: [active], revertOnUpdate: true });
+
+  return (
+    <section ref={sectionRef} id="experiences" className="w-full px-3 pb-6 pt-1 sm:px-5 lg:px-8 lg:pb-8 lg:pt-2" aria-labelledby="exp-heading">
+      <header className="mb-6 border-b border-charcoal/15 pb-5 sm:mb-8 sm:pb-6">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <h2 id="exp-heading" className="h2 mt-4 max-w-2xl">Easy days, shared well.</h2>
+          </div>
+          <Link to="/experiences" className="inline-flex min-h-11 items-center gap-2 text-sm transition-colors hover:text-brass">
+            See every experience <ArrowUpRight size={15} />
+          </Link>
+        </div>
+      </header>
+
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 sm:mb-8" role="tablist" aria-label="Experience categories">
+        <div className="flex flex-wrap gap-2">
+          {expCategories.map((cat) => (
+            <button key={cat} type="button" role="tab" aria-selected={active === cat}
+              onClick={() => setActive(cat)}
+              className={`min-h-10 rounded-full border px-5 text-xs tracking-[0.12em] transition-colors ${active === cat
+                ? "border-brass bg-brass text-charcoal"
+                : "border-charcoal/20 bg-transparent text-charcoal/70 hover:border-brass hover:text-charcoal"}`}>
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:gap-7" role="tabpanel" aria-label={`${active || "All"} experiences`}>
+        {filteredExperiences.map((e) => (
+          <figure
+            key={e.title}
+            data-experience-card
+            className={`group relative ${filteredExperiences.length === 1 ? "sm:col-span-2" : ""}`}
+          >
+            <div className={`img-zoom relative overflow-hidden bg-olive/15 ${filteredExperiences.length === 1 ? "aspect-[16/8]" : "aspect-[16/10]"}`}>
+              <Img
+                img={e.img}
+                className="size-full transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent transition-colors duration-300 group-hover:from-charcoal/90" />
+              <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-5 text-ivory sm:p-7 lg:p-8">
+                <span className="text-[10px] uppercase tracking-[0.22em] text-ivory/75">{e.category}</span>
+                <h3 className="font-display text-3xl leading-none sm:text-4xl lg:text-5xl">{e.title}</h3>
+                <p className="max-w-md text-sm leading-6 text-ivory/80">{e.text}</p>
+              </figcaption>
+            </div>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
 }
+
+// ============================================================
+// 04 — CELEBRATIONS
+// (Inspired by Roseate "your occasion" + Four Seasons "Weddings & Events")
+// ============================================================
+const occasions = [
+  { label: "Birthdays", icon: "🎂", desc: "Mark another year with those who matter most — in a space that feels entirely yours." },
+  { label: "Anniversaries", icon: "💍", desc: "Celebrate love and milestones in quiet luxury, away from the ordinary." },
+  { label: "Family Gatherings", icon: "👨‍👩‍👧‍👦", desc: "Bring generations together under one roof with room to breathe and reconnect." },
+  { label: "Private Get-togethers", icon: "🥂", desc: "Friends, celebrations, and unforgettable evenings in a setting you'll have all to yourself." },
+];
 
 export function Celebrations({ onPlan }) {
-  const items = ["Birthdays", "Intimate anniversaries", "Family gatherings", "Private get-togethers"];
-  return <section id="celebrations" className="bg-forest text-ivory"><div className={`${wrap} grid gap-12 py-24 lg:grid-cols-12 lg:items-center lg:py-32`}><figure className="relative lg:col-span-7"><div className="aspect-[3/2] overflow-hidden"><Img img={site.images.celebrations} data-parallax="4" className="h-[108%] w-full" /></div><figcaption className="mt-3 flex justify-between text-xs uppercase tracking-[0.15em] text-ivory/60"><span>04 CELEBRATIONS</span><span>An outdoor table at dusk</span></figcaption></figure><div data-reveal className="lg:col-span-4 lg:col-start-9"><p className={kicker}>MADE FOR YOUR PEOPLE</p><h2 className="h2 mt-4">Your people. Your occasion. Your place.</h2><p className="mt-6 text-ivory/75">A private setting for the occasions you want to remember â€” without turning them into a package.</p><ul className="mt-7">{items.map((i, k) => <li key={i} className="flex items-center gap-4 border-t border-ivory/25 py-3 font-display text-2xl"><span className="text-sm text-brass">0{k + 1}</span>{i}</li>)}</ul><Link to="/celebrations" onClick={onPlan} className="btn mt-7 bg-brass text-charcoal hover:bg-ivory">Explore celebrations</Link></div></div></section>;
+  const [activeOccasion, setActiveOccasion] = useState(0);
+  return (
+    <section id="celebrations" className="overflow-hidden bg-ivory text-charcoal" aria-labelledby="celeb-heading">
+      <div className={`${wrap} grid gap-8 py-12 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-16`}>
+
+        {/* Image */}
+        <figure className="relative lg:col-span-7">
+          <div className="img-zoom aspect-[3/2] overflow-hidden">
+            <Img img={site.images.celebrations} data-parallax="4" className="h-[108%] w-full" />
+          </div>
+          {/* Floating occasion badge */}
+          <div
+            className="absolute bottom-6 left-6 hidden border border-[#8a642d]/45 bg-[#f3e8d2] px-5 py-4 shadow-sm lg:block"
+          >
+            <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-[#76521f]">A moment to celebrate</p>
+            <p className="font-display text-lg text-charcoal">{occasions[activeOccasion].icon} {occasions[activeOccasion].label}</p>
+          </div>
+          <figcaption className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.15em] text-charcoal/55">
+            <span>04 — CELEBRATIONS</span>
+            <span>An outdoor table at dusk</span>
+          </figcaption>
+        </figure>
+
+        {/* Content */}
+        <div data-reveal className="lg:col-span-4 lg:col-start-9">
+          <p className="kicker-lux text-[#684711]">MADE FOR YOUR PEOPLE</p>
+          <span className="gold-rule-left my-5" />
+          <h2 id="celeb-heading" className="h2 max-w-xl">
+            Gather for what matters.
+          </h2>
+          <p className="mt-4 max-w-lg text-[15px] leading-6 text-charcoal/70">
+            Birthdays, anniversaries, and family time in a private setting made for being together.
+          </p>
+
+          {/* Occasion tabs */}
+          <ul className="mt-5">
+            {occasions.map((occ, i) => (
+              <li key={occ.label}>
+                <button
+                  onClick={() => setActiveOccasion(i)}
+                  className={`w-full border-t border-[#8a642d]/25 py-3 text-left transition-colors ${
+                    activeOccasion === i ? "border-[#704a14]" : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`font-display text-2xl transition-colors ${
+                        activeOccasion === i ? "text-[#76521f]" : "text-charcoal"
+                      }`}
+                    >
+                      {occ.label}
+                    </span>
+                    <span className="text-lg" aria-hidden="true">{occ.icon}</span>
+                  </div>
+                  {activeOccasion === i && (
+                    <p className="mt-2 max-w-lg text-sm leading-relaxed text-charcoal/65">{occ.desc}</p>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            to="/celebrations"
+            onClick={onPlan}
+            className="btn mt-6 inline-flex items-center gap-2 bg-[#8a642d] text-ivory hover:bg-[#704a14]"
+          >
+            Explore celebrations <ChevronRight size={15} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
+// ============================================================
+// 05 — GALLERY MASONRY (enhanced)
+// (Inspired by Luxury Escapes visual grid + Roseate photography-led identity)
+// ============================================================
+export function GalleryMasonry({ items, title }) {
+  return (
+    <section id="gallery-preview" className="bg-[#f0ece0]" aria-labelledby="gallery-heading">
+      <div className={`${wrap} pt-8 pb-12 lg:pt-10 lg:pb-16`}>
+        <div className="mb-8 text-center">
+          <h2 id="gallery-heading" className="h2">{title || "A first look at Villa Modaro"}</h2>
+        </div>
+
+        {/* Masonry grid */}
+        <div className="masonry-grid">
+          {(items || []).map((img, i) => (
+            <div
+              key={i}
+              className="masonry-item img-zoom group relative cursor-pointer"
+              data-reveal
+            >
+              <Img
+                img={img}
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-forest/0 transition-all duration-300 group-hover:bg-forest/40">
+                <span className="translate-y-3 text-[10px] uppercase tracking-[0.3em] text-ivory opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  View
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link to="/gallery" className="btn border border-charcoal hover:bg-charcoal hover:text-ivory">
+            View full gallery
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// 06 — LOCATION (enhanced)
+// (Inspired by Taj Hotels "Find Us" + Four Seasons property location sections)
+// ============================================================
 export function Location() {
-  return <section id="location" className="bg-[#e8e5d9]"><div className={`${wrap} grid gap-10 py-24 lg:grid-cols-12 lg:items-center lg:py-32`}><div className="lg:col-span-5"><p className={kicker}>05 FIND YOUR WAY HERE</p><h2 className="h2 mt-4">Connected to the city. Close to nature.</h2><p className="mt-6 max-w-md">Villa Modaro sits along the Balupurâ€“Paonta Sahib Expressway, near Mohand Forest. Ask us about availability, group size, and celebration requirements.</p><a href="#booking" className="btn mt-7 border border-charcoal hover:bg-charcoal hover:text-ivory">Ask about availability</a></div><div className="grid grid-cols-2 gap-3 lg:col-span-6 lg:col-start-7"><div className="aspect-[4/5] overflow-hidden"><Img img={site.images.story} className="size-full" /></div><div className="mt-10 aspect-[4/5] overflow-hidden"><Img img={site.images.villaSmall} className="size-full" /></div></div><div className="grid gap-4 border-t border-charcoal/20 pt-5 text-sm text-olive sm:grid-cols-3 lg:col-span-12"><span className="flex items-center gap-2"><MapPin size={15} className="text-brass" /> Balupurâ€“Paonta Sahib Expressway</span><span className="flex items-center gap-2"><Trees size={15} className="text-brass" /> Near Mohand Forest</span><span>Directions available on request</span></div></div></section>;
+  const distances = [
+    { icon: "🚗", label: "45 min", sub: "from Dehradun city" },
+    { icon: "🛣️", label: "6 hrs", sub: "from New Delhi" },
+    { icon: "🌲", label: "5 min", sub: "to Mohand Forest Reserve" },
+    { icon: "✈️", label: "1 hr", sub: "from Jolly Grant Airport" },
+  ];
+
+  return (
+    <section id="location" className="bg-[#eae6d8]" aria-labelledby="location-heading">
+      <div className={`${wrap} section-pad`}>
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+
+          {/* Text + distances */}
+          <div className="lg:col-span-5">
+            <p className={kicker}>06 — FIND YOUR WAY HERE</p>
+            <span className="gold-rule-left my-5" />
+            <h2 id="location-heading" className="h2">
+              Connected to the city. Close to nature.
+            </h2>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-charcoal/70">
+              Villa Modaro sits along the Balupur–Paonta Sahib Expressway, near
+              Mohand Forest. Ask us about availability, group size, and
+              celebration requirements.
+            </p>
+
+            {/* Distance matrix */}
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {distances.map((d) => (
+                <div
+                  key={d.label}
+                  className="border border-charcoal/10 bg-white px-4 py-4"
+                >
+                  <span className="text-xl" aria-hidden="true">{d.icon}</span>
+                  <p className="mt-2 font-display text-2xl text-forest">{d.label}</p>
+                  <p className="text-[12px] text-olive">{d.sub}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 space-y-2 text-sm text-charcoal/60">
+              <p className="flex items-center gap-2">
+                <MapPin size={13} className="text-brass shrink-0" />
+                Balupur–Paonta Sahib Expressway
+              </p>
+              <p className="flex items-center gap-2">
+                <Trees size={13} className="text-brass shrink-0" />
+                Near Mohand Forest Reserve
+              </p>
+            </div>
+
+            <a
+              href="#booking"
+              className="btn mt-8 border border-charcoal hover:bg-charcoal hover:text-ivory"
+            >
+              Ask about availability
+            </a>
+          </div>
+
+          {/* Images */}
+          <div className="grid grid-cols-2 gap-3 lg:col-span-6 lg:col-start-7">
+            <div className="img-zoom aspect-[4/5] overflow-hidden">
+              <Img img={site.images.story} className="size-full" />
+            </div>
+            <div className="img-zoom mt-10 aspect-[4/5] overflow-hidden">
+              <Img img={site.images.villaSmall} className="size-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
+// ============================================================
+// 07 — CLOSING CTA (Cinematic redesign)
+// (Inspired by Four Seasons full-bleed brand CTA section)
+// ============================================================
 export function ClosingInvite() {
-  return <section className={`${wrap} py-16 lg:py-24`}><div className="relative overflow-hidden bg-forest text-ivory"><div className="absolute inset-y-0 right-0 w-1/2 lg:w-2/5"><Img img={site.images.celebrations} className="size-full opacity-80" /></div><div className="relative max-w-2xl px-6 py-16 lg:px-16 lg:py-20"><p className={kicker}>READY WHEN YOU ARE</p><h2 className="h2 mt-4">Make room for your next memory.</h2><p className="mt-5 max-w-md text-ivory/75">Choose your dates and see the current Villa Modaro stay option.</p><a href="#booking" className="btn mt-7 bg-brass text-charcoal hover:bg-ivory">Check availability</a></div></div></section>;
+  return (
+    <section
+      className="w-full px-4 pt-4 pb-8 sm:px-6 lg:px-8 lg:pt-5 lg:pb-10"
+      aria-label="Call to action"
+    >
+      <div className="relative overflow-hidden bg-forest text-ivory">
+        {/* Full-height background image */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-3/5">
+          <Img
+            img={site.images.celebrations}
+            className="size-full opacity-60"
+          />
+          {/* Gradient overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, #183B32 0%, #183B32 30%, rgba(24,59,50,0.5) 65%, rgba(24,59,50,0.2) 100%)",
+            }}
+            aria-hidden
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-3xl px-6 py-8 sm:px-8 lg:px-12 lg:py-10">
+          <p className={kicker}>READY WHEN YOU ARE</p>
+          <span className="gold-rule-left my-3" />
+          <h2 className="h2 max-w-2xl">
+            Make room for your next memory.
+          </h2>
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-ivory/75 sm:text-[15px]">
+            Choose your dates and let us create something unforgettable.
+            Villa Modaro is waiting — whenever you're ready.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a href="#booking" className="btn btn-shimmer min-h-11 px-8 tracking-widest text-xs">
+              Check Availability
+            </a>
+            <a
+              href="/booking"
+              className="btn min-h-11 border border-ivory/40 text-ivory hover:border-brass hover:text-brass"
+            >
+              Plan Your Stay
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
+
+// Legacy exports kept for backward compatibility with other pages
+export { Villa as default };

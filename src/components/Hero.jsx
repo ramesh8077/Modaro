@@ -28,7 +28,7 @@ export default function Hero() {
         <p data-hero className="mt-6 max-w-md text-base text-ivory/90 sm:text-lg">A private escape for meaningful gatherings, poolside afternoons, and moments close to nature.</p>
         <div data-hero className="mt-9 flex flex-wrap gap-3">
           <a href="#villa" className="btn bg-brass text-charcoal hover:bg-ivory">Explore the Villa</a>
-          <a href="#enquiry" className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Plan Your Stay</a>
+          <a href="/booking" className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Plan Your Stay</a>
         </div>
       </div>
       {/* <figure className="absolute bottom-28 right-6 hidden w-56 border border-ivory/35 bg-charcoal/25 p-2 backdrop-blur-sm lg:block xl:right-12"><div className="aspect-[4/3] overflow-hidden"><img src={poolside} alt="Shaded seating beside the villa pool" width="1536" height="1024" className="size-full object-cover" /></div><figcaption className="flex items-center justify-between px-1 pt-2 text-[10px] uppercase tracking-[0.18em] text-ivory/75"><span>Poolside living</span><span className="text-brass">01</span></figcaption></figure> */}

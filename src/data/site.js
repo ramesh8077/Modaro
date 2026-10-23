@@ -34,10 +34,10 @@ export const site = {
     { title: "Reconnect", text: "Reconnect with the people and moments that matter most. Surrounded by nature and the comfort of thoughtfully designed spaces, find time to share meaningful conversations, create lasting memories, and rediscover the joy of being together.", img: img("Garden path among greenery", "center", 1400, 1000) },
   ],
   experiences: [
-    { title: "Poolside living", text: "Slow afternoons and easy gatherings by the water.", img: img("Poolside seating", "center", 1400, 1000), span: "lg:col-span-7" },
-    { title: "Pickleball and play", text: "Friendly games, shared between friends and family.", img: img("Pickleball court", "center", 900, 1200), span: "lg:col-span-5 lg:mt-24" },
-    { title: "Garden escapes", text: "Landscaped paths for quiet walks among the greenery.", img: img("Landscaped gardens", "center", 900, 1200), span: "lg:col-span-5" },
-    { title: "Time together", text: "Easy conversation and nowhere else to be.", img: img("Friends and family together", "center", 1400, 1000), span: "lg:col-span-7 lg:mt-24" },
+    { title: "Poolside living", text: "Slow afternoons and easy gatherings by the water.", category: "Pool", img: img("Poolside seating", "center", 1400, 1000), span: "lg:col-span-7" },
+    { title: "Pickleball and play", text: "Friendly games, shared between friends and family.", category: "Activities", img: img("Pickleball court", "center", 900, 1200), span: "lg:col-span-5 lg:mt-24" },
+    { title: "Garden escapes", text: "Landscaped paths for quiet walks among the greenery.", category: "Nature", img: img("Landscaped gardens", "center", 900, 1200), span: "lg:col-span-5" },
+    { title: "Time together", text: "Easy conversation and nowhere else to be.", category: "Social", img: img("Friends and family together", "center", 1400, 1000), span: "lg:col-span-7 lg:mt-24" },
   ],
   gallery: [
     { ...img("Villa exterior", "center", 1200, 1600), cls: "row-span-2" },
