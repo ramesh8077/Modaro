@@ -1,26 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap");
 @import "tailwindcss";
 @theme {
-  --color-ivory: #F5F1E8; --color-forest: #183B32; --color-charcoal: #242824;
-  --color-olive: #858B72; --color-brass: #B69A68;
+  --color-ivory: #F7F4EE; --color-forest: #34445A; --color-charcoal: #252D39;
+  --color-olive: #687587; --color-brass: #B69A68;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 html { scroll-padding-top: 72px; }
-body { margin: 0; background: #F5F1E8; color: #242824; font-family: var(--font-sans); line-height: 1.7; overflow-x: clip; }
+body { margin: 0; background: #F7F4EE; color: #252D39; font-family: var(--font-sans); line-height: 1.7; overflow-x: clip; }
 section[id] { scroll-margin-top: 72px; }
 :focus-visible { outline: 2px solid #B69A68; outline-offset: 3px; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
 .h2 { font-size: clamp(2.25rem, 5.2vw, 4.5rem); }
-.btn { display: inline-flex; min-height: 44px; align-items: center; padding: 0 1.75rem; font-size: .875rem; letter-spacing: .06em; transition: background-color .3s, color .3s, border-color .3s; }
+.btn { display: inline-flex; min-height: 44px; align-items: center; padding: 0 1.75rem; font-size: .875rem; letter-spacing: .06em; background: #315D4A; border: 1px solid #315D4A; color: #fff !important; transition: background-color .3s, color .3s, border-color .3s; }
+.btn:hover { background: #25483A; border-color: #25483A; color: #fff !important; }
 .field { min-height: 44px; width: 100%; border: 1px solid rgba(36,40,36,.25); background: #fffdf7; padding: .65rem .75rem; color: #242824; }
 @media (prefers-reduced-motion: reduce) { *, ::before, ::after { transition-duration: .01ms !important; animation: none !important; scroll-behavior: auto !important; } }
 @keyframes drift { to { transform: translateX(-50%); } }
 /* Without motion, section tones are static (the animated wrapper tint is skipped). */
 @media (prefers-reduced-motion: reduce) {
-  [data-tone="mist"] { background: #E6ECE8; } [data-tone="sage"] { background: #D3D9C6; }
-  [data-tone="night"] { background: #183B32; color: #F5F1E8; }
+  [data-tone="mist"] { background: #E7EBF0; } [data-tone="sage"] { background: #DCE2E8; }
+  [data-tone="night"] { background: #34445A; color: #F7F4EE; }
 }
+
 
 /* ============================================================
    LUXURY DESIGN SYSTEM — New Utilities (Villa Modaro Redesign)
@@ -84,7 +86,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
   line-height: 1.15;
   letter-spacing: -0.01em;
   font-style: italic;
-  color: #183B32;
+  color: #34445A;
 }
 
 /* Gold ornamental horizontal line */
@@ -110,28 +112,25 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 .container-lux { margin-left: auto; margin-right: auto; max-width: 1440px; padding-left: 1.5rem; padding-right: 1.5rem; }
 @media (min-width: 1024px) { .container-lux { padding-left: 3rem; padding-right: 3rem; } }
 
-/* Masonry grid for gallery */
+/* Fixed-ratio gallery preview grid */
 .masonry-grid {
-  columns: 2;
-  column-gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
-@media (min-width: 768px) { .masonry-grid { columns: 3; } }
-@media (min-width: 1024px) { .masonry-grid { columns: 4; } }
+@media (min-width: 768px) { .masonry-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .masonry-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .masonry-item {
-  break-inside: avoid;
-  margin-bottom: 0.75rem;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   display: block;
 }
 
 /* Shimmer CTA button variant */
-.btn-shimmer {
-  background: linear-gradient(110deg, #B69A68 0%, #d4b98a 40%, #B69A68 60%, #9a8050 100%);
-  background-size: 200% auto;
-  color: #242824;
-  animation: shimmer 3s linear infinite;
-}
-.btn-shimmer:hover { background-size: 200% auto; filter: brightness(1.08); }
+.btn-shimmer { background: #315D4A; color: #fff; animation: none; }
+.btn-shimmer:hover { background: #25483A; }
+.header-book-btn { border-radius: 9999px; background: #315D4A; color: #fff; transition: background-color .2s ease; }
+.header-book-btn:hover { background: #25483A; }
 
 /* Trust strip marquee container */
 .marquee-track {
@@ -181,24 +180,28 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 
 /* Amenity icon card */
 .amenity-card {
-  border: 1px solid rgba(138,100,45,0.62);
-  background: #f3e8d2;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border: 1px solid #e2c99f;
+  background: #fce8d8;
+  box-shadow: 0 12px 32px rgba(94, 69, 37, 0.08);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .amenity-card:hover {
-  background: #ead6b2;
-  border-color: #704a14;
+  background: #f9dfca;
+  border-color: #cba75f;
+  box-shadow: 0 18px 38px rgba(94, 69, 37, 0.14);
+  transform: translateY(-3px);
 }
 #amenities .gold-rule {
   background: linear-gradient(90deg, transparent, #704a14, transparent);
 }
 .amenity-cta {
-  background: linear-gradient(110deg, #8a642d 0%, #a27b3c 42%, #8a642d 65%, #704d20 100%);
-  color: #fffaf0;
+  background: #315D4A;
+  color: #fff;
+  border: 1px solid #315D4A;
   transition: filter 0.25s ease;
 }
 .amenity-cta:hover {
-  filter: brightness(0.9);
+  background: #25483A;
 }
 
 /* Newsletter input */

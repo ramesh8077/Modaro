@@ -1,12 +1,12 @@
 // DiningSection — Inspired by Roseate Hotels ("a fascinating dining destination")
 // and Taj Hotels "Dining at Taj" editorial sections
 import Img from "./Img";
-import { assets } from "../data/assets";
+import { homePhotoSets } from "../data/homePhotoLibrary";
 
 const diningFeatures = [
   {
     icon: "🕯️",
-    title: "The Garden Pavilion",
+    title: "Covered Garden Dining",
     desc: "An open-air setting for long lunches, relaxed dinners and time together.",
   },
   {
@@ -33,7 +33,7 @@ export default function DiningSection() {
           {/* Left — Image */}
           <div className="img-zoom relative min-h-[340px] lg:min-h-full order-1">
             <Img
-              img={{ ...assets.outdoorDining, alt: "Al fresco dining at Villa Modaro" }}
+              img={homePhotoSets.dining}
               className="absolute inset-0 h-full w-full object-cover opacity-75"
             />
             {/* Warm amber overlay */}
@@ -48,7 +48,7 @@ export default function DiningSection() {
             {/* Floating badge */}
             <div className="glass-card absolute bottom-8 left-8 hidden px-5 py-4 lg:block">
               <p className="kicker-lux mb-1 text-ivory/70">THE DINING SETTING</p>
-              <p className="font-display text-xl text-ivory">Garden Pavilion</p>
+              <p className="font-display text-xl text-ivory">Covered Garden Dining</p>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ export default function DiningSection() {
               id="dining-heading"
               className="h2 max-w-md text-ivory"
             >
-              Gather around the garden table.
+              Dining at Villa Modaro
             </h2>
 
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ivory/70">

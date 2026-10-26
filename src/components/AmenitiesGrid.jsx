@@ -1,54 +1,45 @@
-// AmenitiesGrid — light ivory and brass treatment for the property highlights
-import { BedDouble, Car, Mountain, PartyPopper, Trees, Utensils, Waves, Trophy } from "lucide-react";
+// AmenitiesGrid — crisp, light image-led treatment for the property highlights
 import Img from "./Img";
-import { assets } from "../data/assets";
+import { homePhotoSets } from "../data/homePhotoLibrary";
 
 const amenities = [
   {
-    icon: Waves,
-    image: assets.pool,
+    image: homePhotoSets.amenities[0],
     title: "Infinity Pool",
     desc: "Cool off in the water, then let the afternoon unfold beside the pool.",
   },
   {
-    icon: Trees,
-    image: assets.pavilion,
-    title: "Landscaped Gardens",
-    desc: "Shaded paths and greenery invite an unhurried walk outdoors.",
+    image: homePhotoSets.amenities[1],
+    title: "Outdoor Dining",
+    desc: "Share an evening meal outdoors beneath the garden lights.",
   },
   {
-    icon: Trophy,
-    image: assets.pickleball,
+    image: homePhotoSets.amenities[2],
     title: "Pickleball",
     desc: "A little friendly competition adds a playful pause to the day.",
   },
   {
-    icon: Utensils,
-    image: assets.dining,
+    image: homePhotoSets.amenities[3],
     title: "Private Dining",
     desc: "Ask us about dining options for your stay.",
   },
   {
-    icon: Car,
-    image: assets.driveway,
+    image: homePhotoSets.amenities[4],
     title: "Transfers on Request",
     desc: "Ask about travel to and from the villa.",
   },
   {
-    icon: BedDouble,
-    image: assets.bedroomOne,
+    image: homePhotoSets.amenities[5],
     title: "Four Bedrooms",
     desc: "Settle in, slow down, and wake ready for another easy day.",
   },
   {
-    icon: PartyPopper,
-    image: assets.outdoorDining,
+    image: homePhotoSets.amenities[6],
     title: "Celebrations",
     desc: "A private setting for birthdays, anniversaries, and time together.",
   },
   {
-    icon: Mountain,
-    image: assets.entry,
+    image: homePhotoSets.amenities[7],
     title: "Close to Nature",
     desc: "Green surroundings and open skies bring a quieter pace to your stay.",
   },
@@ -58,42 +49,39 @@ export default function AmenitiesGrid() {
   return (
     <section
       id="amenities"
-      className="bg-ivory text-charcoal"
+      className="bg-white text-[#252D39]"
       aria-labelledby="amenities-heading"
     >
-      <div className="container-lux pb-12 pt-3 lg:pb-16 lg:pt-4">
+      <div className="container-lux pb-10 pt-8 lg:pb-12 lg:pt-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
         {/* Header */}
         <div className="mb-8 text-center sm:mb-10">
           <h2
             id="amenities-heading"
-            className="h2 mx-auto max-w-2xl text-charcoal"
+            className="h2 mx-auto max-w-2xl text-[#252D39]"
           >
-            Space to feel at home.
+            Pool, gardens & more
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[15px] text-charcoal/65">
+          <p className="mx-auto mt-4 max-w-xl text-base font-medium text-[#4e5149]">
             Poolside afternoons, garden walks, and room for everyone to gather.
           </p>
         </div>
 
         {/* Amenities Grid */}
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 2xl:grid-cols-4">
           {amenities.map((item) => (
             <div
               key={item.title}
-              className="amenity-card group cursor-default overflow-hidden"
+              className="amenity-card group cursor-default overflow-hidden rounded-none"
             >
-              <div className="relative aspect-[16/8] overflow-hidden">
-                <Img img={item.image} className="size-full transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/35 to-transparent" />
+              <div className="relative aspect-[1.54] overflow-hidden">
+                <Img img={item.image} className="size-full object-cover transition-transform duration-700 group-hover:scale-[1.035]" />
               </div>
-              <div className="p-4">
-                <span className="mb-3 grid size-9 place-items-center rounded-full border border-[#704a14] bg-[#8a642d] text-[#fff8e8]" aria-hidden="true">
-                  <item.icon size={18} strokeWidth={1.5} />
-                </span>
-                <h3 className="mb-2 font-display text-xl text-charcoal transition-colors group-hover:text-[#76521f]">
+              <div className="min-h-[172px] p-5 sm:p-6">
+                <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#9a6b23]">Villa Modaro</p>
+                <h3 className="mb-2 font-display text-2xl font-medium leading-tight text-[#252b36] sm:text-[1.7rem]">
                   {item.title}
                 </h3>
-                <p className="text-[13px] leading-relaxed text-charcoal/65">
+                <p className="text-sm font-medium leading-relaxed text-[#686b70]">
                   {item.desc}
                 </p>
               </div>
@@ -105,13 +93,10 @@ export default function AmenitiesGrid() {
         <div className="mt-8 text-center sm:mt-10">
           <a
             href="#booking"
-            className="btn amenity-cta inline-flex min-h-[50px] items-center gap-2 px-10 text-sm tracking-widest"
+            className="btn amenity-cta inline-flex min-h-[52px] items-center gap-2 px-10 text-sm font-semibold tracking-widest text-white"
           >
             Check Availability
           </a>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-charcoal/50">
-            Exclusively available for private bookings
-          </p>
         </div>
       </div>
     </section>

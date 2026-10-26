@@ -26,33 +26,38 @@ export function Villa() {
 // ============================================================
 export function Story() {
   return (
-    <section aria-labelledby="brand-story-heading" className="overflow-hidden bg-white py-8 text-charcoal">
-      <div className="grid items-stretch bg-[#fff4ef] lg:grid-cols-2">
-        <div className="relative min-h-[340px] overflow-hidden sm:min-h-[440px] lg:min-h-[620px]">
+    <section aria-labelledby="brand-story-heading" className="w-full overflow-hidden border-0 bg-[#fff4ef] py-8 text-charcoal" style={{ border: "none", boxShadow: "none" }}>
+      <div className="grid w-full grid-cols-1 items-stretch bg-[#fff4ef] lg:grid-cols-[1fr_1fr]">
+        <div className="relative min-w-0 min-h-[340px] w-full overflow-hidden sm:min-h-[440px] lg:min-h-[620px]">
           <Img img={{ ...site.images.story, alt: "Tree-lined arrival to Villa Modaro near Mohand Forest" }} className="absolute inset-0 size-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/45 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 border border-white/35 bg-[#183b32]/90 px-4 py-3 text-ivory backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5">
+          <div className="absolute bottom-4 left-4 border border-white/35 bg-[#34445a]/90 px-4 py-3 text-ivory backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5">
             <p className="text-[9px] uppercase tracking-[0.22em] text-brass">A PRIVATE RETREAT</p>
             <p className="mt-1 font-display text-lg">Near Mohand Forest</p>
           </div>
         </div>
 
-        <div className="mx-auto flex w-full max-w-3xl flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-16 xl:px-20">
-          <p className={kicker}>OUR STORY · VILLA MODARO</p>
-          <h2 id="brand-story-heading" className="mt-4 font-display text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-            A place to come together, <em>and stay awhile.</em>
+        <div className="relative flex w-full min-w-0 flex-col justify-center overflow-hidden bg-[#080808] px-6 py-12 text-white sm:px-10 sm:py-14 lg:px-14 lg:py-16 xl:px-20">
+          <p className={`${kicker} !font-bold !text-[#d6b46a]`}>OUR STORY · VILLA MODARO</p>
+          <h2 id="brand-story-heading" className="mt-5 max-w-none font-display text-4xl font-medium leading-[1.16] tracking-[-0.01em] text-white sm:text-5xl lg:text-[3rem]">
+            <span className="block">A private place to gather.</span>
           </h2>
-          <p className="mt-5 text-sm leading-7 text-charcoal/70 sm:text-base sm:leading-8">
+          <p className="mt-6 max-w-2xl text-base font-medium leading-7 text-white/90 sm:text-[18px] sm:leading-8">
             Villa Modaro began with a simple wish: to make more room for the people who matter. Set along the Balupur–Paonta Sahib Expressway near Mohand Forest, it brings poolside afternoons, garden walks, shared meals and celebrations together in one private stay.
           </p>
-          <p className="mt-3 text-sm leading-7 text-charcoal/70 sm:text-base sm:leading-8">
+          <p className="mt-3 max-w-2xl text-base font-medium leading-7 text-white/90 sm:text-[18px] sm:leading-8">
             Every space is an invitation to slow down, reconnect and make the occasion your own.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4">
-            <Link to="/our-story" className="inline-flex min-h-11 items-center gap-2 bg-[#183b32] px-5 text-xs text-ivory transition-colors hover:bg-[#24483d]">
+          <div className="mt-6 grid grid-cols-3 border-y border-white/25 py-4 sm:max-w-xl">
+            <div className="pr-3"><p className="font-display text-lg leading-none text-white sm:text-xl">Private</p><p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-white/90 sm:text-xs">Villa stay</p></div>
+            <div className="border-l border-white/25 px-3"><p className="font-display text-lg leading-none text-white sm:text-xl">Open</p><p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-white/90 sm:text-xs">Garden & pool</p></div>
+            <div className="border-l border-white/25 pl-3"><p className="font-display text-lg leading-none text-white sm:text-xl">Together</p><p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-white/90 sm:text-xs">Room to gather</p></div>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <Link to="/our-story" className="group inline-flex min-h-12 items-center gap-3 border border-[#34445a] bg-[#34445a] px-6 text-xs font-medium text-ivory shadow-[0_8px_22px_rgba(39,50,66,0.2)] transition-all hover:border-[#a77b37] hover:bg-[#26364a]">
               Discover our story <ArrowUpRight size={15} />
             </Link>
-            <span className="inline-flex items-center gap-2 text-xs text-charcoal/60"><MapPin size={14} className="text-brass" /> Dehradun, Uttarakhand</span>
+            <span className="inline-flex items-center gap-2 text-xs font-semibold text-white"><MapPin size={15} className="text-[#d6b46a]" /> Dehradun, Uttarakhand</span>
           </div>
         </div>
       </div>
@@ -87,7 +92,7 @@ export function Experiences() {
       <header className="mb-6 border-b border-charcoal/15 pb-5 sm:mb-8 sm:pb-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <h2 id="exp-heading" className="h2 mt-4 max-w-2xl">Easy days, shared well.</h2>
+            <h2 id="exp-heading" className="h2 mt-4 max-w-2xl">Things to do at the villa</h2>
           </div>
           <Link to="/experiences" className="inline-flex min-h-11 items-center gap-2 text-sm transition-colors hover:text-brass">
             See every experience <ArrowUpRight size={15} />
@@ -175,7 +180,7 @@ export function Celebrations({ onPlan }) {
           <p className="kicker-lux text-[#684711]">MADE FOR YOUR PEOPLE</p>
           <span className="gold-rule-left my-5" />
           <h2 id="celeb-heading" className="h2 max-w-xl">
-            Gather for what matters.
+            Celebrate together
           </h2>
           <p className="mt-4 max-w-lg text-[15px] leading-6 text-charcoal/70">
             Birthdays, anniversaries, and family time in a private setting made for being together.
@@ -236,7 +241,7 @@ export function GalleryMasonry({ items, title }) {
 
         {/* Masonry grid */}
         <div className="masonry-grid">
-          {(items || []).map((img, i) => (
+          {(items || []).slice(0, 12).map((img, i) => (
             <div
               key={i}
               className="masonry-item img-zoom group relative cursor-pointer"
@@ -244,7 +249,7 @@ export function GalleryMasonry({ items, title }) {
             >
               <Img
                 img={img}
-                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Hover overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-forest/0 transition-all duration-300 group-hover:bg-forest/40">
@@ -288,7 +293,7 @@ export function Location() {
             <p className={kicker}>06 — FIND YOUR WAY HERE</p>
             <span className="gold-rule-left my-5" />
             <h2 id="location-heading" className="h2">
-              Connected to the city. Close to nature.
+              Find us near Mohand Forest
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-charcoal/70">
               Villa Modaro sits along the Balupur–Paonta Sahib Expressway, near
@@ -366,7 +371,7 @@ export function ClosingInvite() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to right, #183B32 0%, #183B32 30%, rgba(24,59,50,0.5) 65%, rgba(24,59,50,0.2) 100%)",
+                "linear-gradient(to right, #34445a 0%, #34445a 30%, rgba(52,68,90,0.5) 65%, rgba(52,68,90,0.2) 100%)",
             }}
             aria-hidden
           />
@@ -377,7 +382,7 @@ export function ClosingInvite() {
           <p className={kicker}>READY WHEN YOU ARE</p>
           <span className="gold-rule-left my-3" />
           <h2 className="h2 max-w-2xl">
-            Make room for your next memory.
+            Plan your stay
           </h2>
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-ivory/75 sm:text-[15px]">
             Choose your dates and let us create something unforgettable.

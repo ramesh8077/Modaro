@@ -234,13 +234,13 @@ Object.assign(experiencesPage, {
     photoRecord(assets.court, "Outdoor pickleball court set among the gardens", "A friendly game"),
     photoRecord(assets.dining, "Guests sharing dinner around the villa dining table", "Time together"),
   ][i] })),
-  pool: { ...experiencesPage.pool, img: photoRecord(assets.poolDinner, "Outdoor dinner setting beside the pool", "An afternoon by the water"), detail: photoRecord(assets.outdoorSeating, "Poolside lounge seating under a garden umbrella", "The poolside") },
-  garden: { ...experiencesPage.garden, img: photoRecord(assets.outdoorDining, "Covered outdoor dining area prepared for a gathering", "Outdoor living"), img2: photoRecord(importedPhoto(outdoorGathering, "Friends gathered outdoors at Villa Modaro"), "Friends gathered outdoors at Villa Modaro", "A garden gathering") },
+  pool: { ...experiencesPage.pool, img: photoRecord(assets.poolDinner, "Guests sharing an evening meal at an outdoor table", "An outdoor dinner together"), detail: photoRecord(assets.outdoorSeating, "Outdoor dining table beside the pool under a garden umbrella", "Shaded poolside dining") },
+  garden: { ...experiencesPage.garden, img: photoRecord(assets.pavilion, "Open garden pavilion surrounded by lawn and greenery", "The garden pavilion"), img2: photoRecord(importedPhoto(outdoorGathering, "Friends sharing dinner outdoors at Villa Modaro"), "Friends sharing dinner outdoors at Villa Modaro", "An evening outdoors") },
   pickle: { ...experiencesPage.pickle, img: photoRecord(assets.pickleball, "Guests playing pickleball on the garden court", "The court"), img2: photoRecord(assets.yoga, "Yoga mats on the lawn beside the pickleball court", "A slower start") },
   together: { ...experiencesPage.together, img: photoRecord(assets.living, "Friends relaxing together in the villa living room", "The best moments have company") },
   day: [
     { ...experiencesPage.day[0], img: photoRecord(assets.bedroomTwo, "Villa bedroom with a double bed and lounge chair", "Morning quiet") },
-    { ...experiencesPage.day[1], img: photoRecord(assets.kitchen, "Bright contemporary kitchen with a central island", "An easy afternoon") },
+    { ...experiencesPage.day[1], img: photoRecord(assets.pool, "Blue-tiled swimming pool framed by palms and greenery", "An afternoon by the pool") },
     { ...experiencesPage.day[2], img: photoRecord(assets.bar, "Guests gathered around the villa bar and pool table", "Evening together") },
   ],
   gallery: [

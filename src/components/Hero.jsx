@@ -22,13 +22,13 @@ export default function Hero() {
     <section id="top" className="relative flex h-svh min-h-150 items-end overflow-hidden bg-forest text-ivory">
       <video ref={video} src={Video} poster={entryPoster} autoPlay muted={muted} loop playsInline onVolumeChange={() => setMuted(video.current?.muted ?? true)} className="absolute inset-0 h-full w-full object-cover" data-hero-img data-parallax="3" />
       <div className="absolute inset-0 bg-charcoal/45" aria-hidden />
-      <div className="relative mx-auto w-full max-w-360 px-6 pb-24 lg:px-12 lg:pb-28">
-        <p data-hero className="mb-5 text-xs tracking-[0.3em]">VILLA MODARO · THE LUXURY STAY</p>
-        <h1 data-hero className="text-[clamp(2rem,8.5vw,6rem)]">Where celebration<br />meets calm.</h1>
-        <p data-hero className="mt-6 max-w-md text-base text-ivory/90 sm:text-lg">A private escape for meaningful gatherings, poolside afternoons, and moments close to nature.</p>
+      <div className="relative mx-auto w-full max-w-360 px-6 pb-72 lg:px-12 lg:pb-80">
+        <p data-hero className="mb-5 text-xs tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.8)]" style={{ color: "#f2d58b" }}>VILLA MODARO · THE LUXURY STAY</p>
+        <h1 data-hero className="text-[clamp(2rem,8.5vw,6rem)] [text-shadow:0_3px_18px_rgba(0,0,0,0.8)]" style={{ color: "#f2d58b" }}>Where celebration<br />meets calm.</h1>
+        <p data-hero className="mt-6 max-w-md text-base sm:text-lg [text-shadow:0_2px_10px_rgba(0,0,0,0.85)]" style={{ color: "#ffffff" }}>A private escape for meaningful gatherings, poolside afternoons, and moments close to nature.</p>
         <div data-hero className="mt-9 flex flex-wrap gap-3">
-          <a href="#villa" className="btn bg-brass text-charcoal hover:bg-ivory">Explore the Villa</a>
-          <a href="/booking" className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Plan Your Stay</a>
+          <a href="#villa" className="btn border border-white/80 bg-transparent text-white transition-colors hover:bg-white/15">Explore the Villa</a>
+          <a href="/booking" className="btn border border-white/80 bg-transparent text-white transition-colors hover:bg-white/15">Plan Your Stay</a>
         </div>
       </div>
       {/* <figure className="absolute bottom-28 right-6 hidden w-56 border border-ivory/35 bg-charcoal/25 p-2 backdrop-blur-sm lg:block xl:right-12"><div className="aspect-[4/3] overflow-hidden"><img src={poolside} alt="Shaded seating beside the villa pool" width="1536" height="1024" className="size-full object-cover" /></div><figcaption className="flex items-center justify-between px-1 pt-2 text-[10px] uppercase tracking-[0.18em] text-ivory/75"><span>Poolside living</span><span className="text-brass">01</span></figcaption></figure> */}

@@ -32,7 +32,10 @@ export default function Nav() {
     return unlock;
   }, [pathname]);
   useEffect(() => {
-    const f = () => setSolid(window.scrollY > 40);
+    const f = () => {
+      const y = window.scrollY;
+      setSolid(y > 40);
+    };
     f();
     window.addEventListener("scroll", f, { passive: true });
     return () => window.removeEventListener("scroll", f);
@@ -44,14 +47,14 @@ export default function Nav() {
   };
   const close = () => dlg.current.close();
 
-  const linkCls = "min-h-[44px] inline-flex items-center text-sm tracking-wide hover:text-brass transition-colors duration-200";
+  const linkCls = `min-h-[44px] inline-flex items-center text-sm tracking-wide transition-colors duration-200 ${solid ? "hover:text-brass" : "text-white hover:text-white/80"}`;
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
         solid
           ? "bg-[#f1ece2] text-[#183b32] shadow-[0_1px_0_rgba(24,59,50,0.12)] backdrop-blur-sm"
-          : "bg-[#f1ece2] text-[#183b32]"
+          : "bg-transparent text-white"
       }`}
     >
       <nav
@@ -69,7 +72,7 @@ export default function Nav() {
             alt="Villa Modaro Luxury Stay"
             width="500"
             height="500"
-            className="h-28 w-28 max-w-none object-contain"
+            className={`h-16 w-16 max-w-full object-contain ${solid ? "" : "brightness-0 invert"}`}
           />
         </L>
 
@@ -79,7 +82,7 @@ export default function Nav() {
             <L
               to="/"
               aria-current={pathname === "/" ? "page" : undefined}
-              className={`${linkCls} ${pathname === "/" ? "text-brass" : ""}`}
+              className={`${linkCls} ${pathname === "/" ? (solid ? "text-brass" : "text-white") : ""}`}
             >
               Home
             </L>
@@ -89,7 +92,7 @@ export default function Nav() {
               <L
                 to={h}
                 aria-current={pathname === h ? "page" : undefined}
-                className={`${linkCls} ${pathname === h ? "text-brass" : ""}`}
+                className={`${linkCls} ${pathname === h ? (solid ? "text-brass" : "text-white") : ""}`}
               >
                 {l}
               </L>
@@ -99,7 +102,7 @@ export default function Nav() {
           <li>
             <a
               href="/#dining"
-              className={`${linkCls} ${pathname === "/" ? "" : "opacity-80"}`}
+              className={`${linkCls} ${pathname === "/" ? "" : solid ? "opacity-80" : "text-white"}`}
             >
               Dining
             </a>
@@ -110,7 +113,7 @@ export default function Nav() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href="/booking"
-            className="btn btn-shimmer min-h-[40px] px-7 text-xs tracking-widest shadow-md"
+            className="btn header-book-btn min-h-[40px] px-7 text-xs tracking-widest shadow-md"
           >
             Book Now
           </a>
@@ -147,7 +150,7 @@ export default function Nav() {
               alt="Villa Modaro"
               width="500"
               height="500"
-              className="h-28 w-28 max-w-none object-contain"
+              className="h-16 w-16 max-w-full object-contain"
             />
           </L>
           <button
@@ -198,7 +201,7 @@ export default function Nav() {
             <a
               href="/booking"
               onClick={close}
-              className="btn btn-shimmer inline-flex w-full justify-center py-4 text-xs tracking-widest"
+              className="btn header-book-btn inline-flex w-full justify-center py-4 text-xs tracking-widest"
             >
               Book Your Stay
             </a>
