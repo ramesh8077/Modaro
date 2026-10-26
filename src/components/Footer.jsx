@@ -1,6 +1,7 @@
 // Footer.jsx — Luxury 4-column footer
 // Inspired by: Four Seasons (4-col structure), Roseate Hotels (brand-forward footer)
 import { site } from "../data/site";
+import Logo from "../assets/ModeroLogo.png";
 import L from "./NavLink";
 
 export default function Footer() {
@@ -34,8 +35,9 @@ export default function Footer() {
 
           {/* Col 1 — Brand */}
           <div>
-            <p className="kicker-lux mb-2 text-ivory/40">VILLA MODARO</p>
-            <p className="font-display text-4xl tracking-[0.2em] text-ivory">MODARO</p>
+            <L to="/" aria-label="Villa Modaro home" className="mb-3 inline-flex items-center justify-center">
+              <img src={Logo} alt="Villa Modaro Luxury Stay" width="500" height="500" className="h-20 w-20 object-contain brightness-0 invert" />
+            </L>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">
               Where celebration meets calm — a private retreat near Mohand
               Forest, Uttarakhand.

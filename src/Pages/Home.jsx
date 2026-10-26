@@ -371,12 +371,11 @@ function DiscoverStay() {
       {/* Exclusive offers — warm ivory and muted gold */}
       <section aria-labelledby="featured-heading" className="relative isolate overflow-hidden bg-[#f9dbbd] py-10 text-charcoal sm:py-12 lg:py-14">
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
-          <Reveal className="mb-6 flex items-end justify-between gap-4 sm:mb-8">
-            <div>
-              <p className="kicker-lux" style={{ color: "#80601d" }}>HANDPICKED FOR YOUR NEXT ESCAPE</p>
-              <h2 id="featured-heading" className="pm-gold-em-dark mt-3 font-display text-4xl text-charcoal sm:text-5xl"><Words text="Featured stays" /></h2>
+          <Reveal className="mb-6 flex flex-col items-center gap-4 sm:relative sm:mb-8 sm:flex-row sm:justify-center">
+            <div className="w-full">
+              <h2 id="featured-heading" className="pm-gold-em-dark mx-auto mt-3 text-center font-display text-4xl text-charcoal sm:text-5xl"><Words text="Featured stays" /></h2>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:absolute sm:right-0 sm:gap-3">
               <Link to="/the-villa" className="mr-1 hidden min-h-10 items-center gap-1 text-xs text-[#80601d] underline-offset-4 hover:underline sm:inline-flex">View all <ArrowUpRight size={14} /></Link>
               <button type="button" onClick={() => move(rail, -1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Scroll offers left" className="pm-glass-light pm-magnet grid size-9 place-items-center rounded-full text-charcoal hover:bg-[#d6b46a] hover:text-[#27364a] sm:size-10"><ArrowLeft size={17} /></button>
               <button type="button" onClick={() => move(rail, 1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Scroll offers right" className="pm-glass-light pm-magnet grid size-9 place-items-center rounded-full text-charcoal hover:bg-[#d6b46a] hover:text-[#27364a] sm:size-10"><ArrowRight size={17} /></button>
@@ -408,27 +407,33 @@ function DiscoverStay() {
       </section>
 
       {/* Browse tiles — ivory with glass captions */}
-      <section aria-labelledby="browse-heading" className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#faf6ee_0%,#f4eddd_100%)] py-12 text-charcoal sm:py-16">
+      <section aria-labelledby="browse-heading" className="relative isolate overflow-hidden pt-6 pb-12 text-charcoal sm:pt-8 sm:pb-16">
+        <div aria-hidden="true" className="absolute inset-0 z-0">
+          <Img img={homePhotoSets.story} className="size-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/15" />
+        </div>
         <span aria-hidden="true" className="pm-orb pm-orb-gold -right-24 top-0 size-80" />
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
-          <Reveal as="header" className="mb-6 flex items-end justify-between gap-4">
+          <Reveal as="header" className="relative mb-10 flex items-center justify-center gap-4">
             <div>
-              <h2 id="browse-heading" className="pm-gold-em-dark font-display text-3xl sm:text-4xl"><Words text="Explore the villa" /></h2>
+              <h2 id="browse-heading" className="pm-gold-em mx-auto w-fit bg-black/45 px-6 py-2 text-center font-display text-4xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.9)] sm:text-5xl"><Words text="Explore the villa" /></h2>
             </div>
-            <div className="hidden items-center gap-2 sm:flex">
+            <div className="absolute right-0 hidden items-center gap-2 sm:flex">
               <button type="button" onClick={() => move(browseRail, -1)} aria-label="Scroll discovery tiles left" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-[#34445a] hover:text-white"><ArrowLeft size={16} /></button>
               <button type="button" onClick={() => move(browseRail, 1)} aria-label="Scroll discovery tiles right" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-[#34445a] hover:text-white"><ArrowRight size={16} /></button>
             </div>
           </Reveal>
-          <div ref={browseRail} className="-mx-6 flex gap-4 overflow-x-auto overscroll-x-contain px-6 pb-3 pt-1 [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
-            {[...browseTiles, ...browseTiles].map((tile, index) => (
-              <Reveal as={Link} key={`${tile.title}-${index}`} to={tile.to} aria-hidden={index >= browseTiles.length} tabIndex={index >= browseTiles.length ? -1 : undefined} variant="zoom" delay={(index % browseTiles.length) * 110} className="pm-edge group relative aspect-[1.28] w-full shrink-0 overflow-hidden rounded-none bg-olive/20 shadow-[0_18px_40px_-22px_rgba(18,53,45,.6)] sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-3rem)/4)]">
-                <span className="pm-curtain absolute inset-0 block">
-                  <Img img={tile.image} className="size-full transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-t from-[#27364a]/70 via-transparent to-transparent" />
-              </Reveal>
-            ))}
+          <div className="relative left-1/2 w-screen -translate-x-1/2 [perspective:1400px]">
+            <div ref={browseRail} className="flex gap-4 overflow-x-auto overscroll-x-contain px-0 pb-3 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ transformStyle: "preserve-3d" }}>
+              {[...browseTiles, ...browseTiles].map((tile, index) => (
+                <Reveal as={Link} key={`${tile.title}-${index}`} to={tile.to} aria-hidden={index >= browseTiles.length} tabIndex={index >= browseTiles.length ? -1 : undefined} variant="zoom" delay={(index % browseTiles.length) * 110} className={`pm-edge group relative aspect-[1.28] w-full shrink-0 overflow-hidden rounded-none bg-olive/20 shadow-[0_18px_40px_-22px_rgba(18,53,45,.6)] [transform:translateZ(42px)] sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-3rem)/4)] ${index % browseTiles.length === 2 ? "z-10 -translate-y-3 [transform:translateZ(110px)_scale(1.06)]" : ""}`}>
+                  <span className="pm-curtain absolute inset-0 block">
+                    <Img img={tile.image} className="size-full transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" />
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-t from-[#27364a]/70 via-transparent to-transparent" />
+                </Reveal>
+              ))}
+            </div>
           </div>
           <div className="mt-3 flex justify-center gap-2 sm:hidden">
             <button type="button" onClick={() => move(browseRail, -1)} aria-label="Scroll discovery tiles left" className="pm-glass-light grid size-9 place-items-center rounded-full"><ArrowLeft size={16} /></button>
@@ -437,23 +442,24 @@ function DiscoverStay() {
         </div>
       </section>
 
-      {/* Editorial stories — champagne with light-glass cards */}
-      <section aria-label="Villa Modaro experiences" className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#f4eddd_0%,#fff4ef_45%,#f7ead9_100%)] py-12 text-charcoal sm:py-16 lg:py-20">
-        <span aria-hidden="true" className="pm-orb pm-orb-gold -left-28 top-1/3 size-[26rem]" />
-        <span aria-hidden="true" className="pm-orb pm-orb-sage -right-24 bottom-10 size-96" />
+      {/* Villa experiences — deep forest palette with calm, static cards */}
+      <section aria-labelledby="experiences-heading" className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#f2f2f2_0%,#e5e5e5_52%,#dcdcdc_100%)] py-7 text-[#252D39] sm:py-9 lg:py-10">
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
+          <header className="mb-7 sm:mb-9">
+            <h2 id="experiences-heading" className="mx-auto mt-3 max-w-3xl text-center font-display text-4xl leading-tight text-[#252D39] sm:text-5xl">Moments made to be shared</h2>
+          </header>
           <div className="grid gap-5 sm:gap-6 lg:grid-cols-3">
             {editorialStories.map((story, index) => {
               const featured = index === 0;
               return (
-                <Reveal as="article" key={story.title} delay={index === 0 ? 0 : (index - 1) * 120} onPointerMove={spot} className={`pm-glass-light pm-edge pm-shine group relative overflow-hidden rounded-none ${featured ? "md:grid md:grid-cols-2 lg:col-span-3" : "flex flex-col"}`}>
+                <Reveal as="article" key={story.title} delay={index === 0 ? 0 : (index - 1) * 120} className={`group relative overflow-hidden rounded-none border border-white/10 bg-white text-[#252D39] ${featured ? "md:grid md:grid-cols-2 lg:col-span-3" : "flex flex-col"}`}>
                   <div className={`pm-curtain relative overflow-hidden bg-olive/20 ${featured ? "aspect-[1.35] min-h-[280px] sm:min-h-[360px] md:aspect-auto md:min-h-[420px]" : "aspect-[1.55]"}`}><Img img={story.image} className="absolute inset-0 size-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" /></div>
                   <div className={`flex flex-1 flex-col ${featured ? "justify-center px-6 py-8 sm:px-9 sm:py-10 lg:px-12" : "px-5 py-6 sm:px-6 sm:py-7"}`}>
-                    <p className="kicker-lux" style={{ color: "#8a6a22" }}>{story.category}</p>
-                    <h3 className={`mt-3 font-display ${featured ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"}`}>{story.title}</h3>
-                    <span className="pm-rule pm-rule-draw my-4 w-full sm:my-5" />
-                    <p className="text-sm leading-7 text-charcoal/70 sm:text-base">{story.text}</p>
-                    <Link to={story.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-full px-5 text-xs font-medium">{story.action}<ArrowUpRight size={15} /></Link>
+                    <p className="kicker-lux text-[#d2b16b]">{story.category}</p>
+                    <h3 className={`mt-3 font-display text-[#252D39] ${featured ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"}`}>{story.title}</h3>
+                    <span aria-hidden="true" className="my-4 w-full border-t border-white/15 sm:my-5" />
+                    <p className="text-sm leading-7 text-[#50545A] sm:text-base">{story.text}</p>
+                    <Link to={story.to} className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 border border-[#d2b16b]/60 bg-[#315D4A] px-5 text-xs font-medium text-[#fff4ef] transition-colors hover:bg-[#3b6b55]">{story.action}<ArrowUpRight size={15} /></Link>
                   </div>
                 </Reveal>
               );
@@ -476,11 +482,11 @@ function InteriorSpaces() {
     <section aria-labelledby="interior-heading" className="relative isolate -mt-px overflow-hidden border-0 bg-[#fff4ef] pt-0 pb-10 text-charcoal sm:pb-12 lg:pb-16" style={{ border: "none", outline: "none", boxShadow: "none" }}>
       <span aria-hidden="true" className="pm-orb pm-orb-sage -right-24 bottom-0 size-[28rem]" />
       <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
-        <Reveal as="header" className="mb-8 flex flex-wrap items-end justify-between gap-5 sm:mb-10">
-          <div>
-            <h2 id="interior-heading" className="max-w-3xl font-display text-4xl font-medium text-charcoal sm:text-5xl lg:text-6xl">Inside the villa</h2>
+        <Reveal as="header" className="mb-8 flex flex-col items-center gap-5 sm:relative sm:mb-10 sm:flex-row sm:justify-center">
+          <div className="w-full">
+            <h2 id="interior-heading" className="mx-auto max-w-3xl text-center font-display text-4xl font-medium text-charcoal sm:text-5xl lg:text-6xl">Inside the villa</h2>
           </div>
-          <Link to="/the-villa" className="pm-glass-light inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs text-charcoal transition-colors hover:bg-[#e8dfce]">Explore the villa<ArrowUpRight size={15} /></Link>
+          <Link to="/the-villa" className="pm-glass-light inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs text-charcoal transition-colors hover:bg-[#e8dfce] sm:absolute sm:right-0">Explore the villa<ArrowUpRight size={15} /></Link>
         </Reveal>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
           {interiorSpaces.map((space, index) => (
@@ -544,8 +550,11 @@ function ExclusiveMoments() {
     <section
       aria-labelledby="exclusive-heading"
       className="relative isolate overflow-hidden py-14 text-white sm:py-20 lg:py-24"
-      style={{ backgroundImage: "linear-gradient(160deg, #17110c 0%, #2a1d12 55%, #17110c 100%)" }}
     >
+      <div aria-hidden="true" className="absolute inset-0 z-0">
+        <Img img={homePhotoSets.interior[0]} className="size-full object-cover opacity-60" />
+        <div className="absolute inset-0 bg-[#17110c]/55" />
+      </div>
       <span aria-hidden="true" className="pm-orb pm-orb-gold left-1/4 -top-24 size-[26rem]" />
       <span aria-hidden="true" className="pm-orb pm-orb-amber -right-24 bottom-0 size-[30rem]" />
       <Sparkles />
@@ -566,7 +575,7 @@ function ExclusiveMoments() {
                   {active !== index && <div className="absolute inset-0 grid place-items-center bg-[#17110c]/45 p-6 text-center"><div><p className="kicker-lux" style={{ color: "#ecd9a8" }}>{moment.category}</p><h3 className="mt-3 font-display text-3xl text-white sm:text-4xl">{moment.title}</h3></div></div>}
                   <button type="button" onClick={() => showSlide(index)} className="absolute inset-0 z-10 cursor-pointer" aria-label={`Show ${moment.title}`} />
                 </div>
-                {active === index && <div onPointerMove={spot} className="rounded-none border-x-0 border-b-0 bg-[#30251f] px-6 py-6 text-[#fff4ef] shadow-[0_12px_32px_rgba(0,0,0,.2)] sm:px-10 sm:py-8"><p className="kicker-lux" style={{ color: "#d6b46a" }}>{moment.category}</p><h3 className="mt-2 font-display text-3xl text-[#fff4ef] sm:text-4xl">{moment.title}</h3><p className="mt-3 max-w-xl text-sm leading-relaxed text-[#fff4ef] sm:text-base">{moment.text}</p><Link to={moment.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-5 inline-flex min-h-10 items-center gap-2 rounded-full px-4 text-xs font-medium">{moment.action}<ArrowUpRight size={14} /></Link></div>}
+                {active === index && <div onPointerMove={spot} className="rounded-none border-x-0 border-b-0 bg-white px-6 py-6 text-[#252D39] shadow-[0_12px_32px_rgba(0,0,0,.2)] sm:px-10 sm:py-8"><p className="kicker-lux" style={{ color: "#a8832f" }}>{moment.category}</p><h3 className="mt-2 font-display text-3xl text-[#252D39] sm:text-4xl">{moment.title}</h3><p className="mt-3 max-w-xl text-sm leading-relaxed text-[#50545A] sm:text-base">{moment.text}</p><Link to={moment.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-5 inline-flex min-h-10 items-center gap-2 rounded-full px-4 text-xs font-medium">{moment.action}<ArrowUpRight size={14} /></Link></div>}
               </article>
             ))}
           </div>
@@ -644,9 +653,6 @@ export default function Home() {
         <Experiences />
       </Reveal>
       <ExclusiveMoments />
-
-      {/* Gold ticker bands */}
-      <GoldMarquee />
 
       {/* 8. Food — dining at the villa */}
       <Reveal variant="soft">

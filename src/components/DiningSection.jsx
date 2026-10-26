@@ -5,17 +5,14 @@ import { homePhotoSets } from "../data/homePhotoLibrary";
 
 const diningFeatures = [
   {
-    icon: "🕯️",
     title: "Covered Garden Dining",
     desc: "An open-air setting for long lunches, relaxed dinners and time together.",
   },
   {
-    icon: "👨‍🍳",
     title: "A Chef on Request",
     desc: "Ask about chef-prepared meals, from a slow breakfast to dinner with your guests.",
   },
   {
-    icon: "🍾",
     title: "Celebration Dining",
     desc: "Plan a shared meal for birthdays, anniversaries and family gatherings.",
   },
@@ -25,9 +22,10 @@ export default function DiningSection() {
   return (
     <section
       id="dining"
-      className="overflow-hidden bg-[#183b32] text-ivory"
+      className="overflow-hidden bg-black text-ivory"
       aria-labelledby="dining-heading"
     >
+      <div aria-hidden="true" className="h-2 w-full bg-white" />
       <div className="grid lg:grid-cols-2 lg:min-h-[600px]">
 
           {/* Left — Image */}
@@ -53,7 +51,7 @@ export default function DiningSection() {
           </div>
 
           {/* Right — Content */}
-          <div className="order-2 flex flex-col justify-center px-8 py-16 lg:px-16 lg:py-20">
+          <div className="order-2 flex flex-col justify-center bg-black px-8 py-16 lg:px-16 lg:py-20">
             <p className="kicker-lux mb-4">OUTDOOR DINING</p>
             <span className="gold-rule-left mb-6" />
 

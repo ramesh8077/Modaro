@@ -359,7 +359,7 @@ export function ClosingInvite() {
       className="w-full px-4 pt-4 pb-8 sm:px-6 lg:px-8 lg:pt-5 lg:pb-10"
       aria-label="Call to action"
     >
-      <div className="relative overflow-hidden bg-forest text-ivory">
+      <div className="relative overflow-hidden bg-[#080808] text-ivory">
         {/* Full-height background image */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-3/5">
           <Img
@@ -371,7 +371,7 @@ export function ClosingInvite() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to right, #34445a 0%, #34445a 30%, rgba(52,68,90,0.5) 65%, rgba(52,68,90,0.2) 100%)",
+                "linear-gradient(to right, #080808 0%, #080808 30%, rgba(8,8,8,0.5) 65%, rgba(8,8,8,0.2) 100%)",
             }}
             aria-hidden
           />
