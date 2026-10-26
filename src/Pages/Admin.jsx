@@ -1,5 +1,5 @@
 import { useState } from "react";
-const API = import.meta.env.VITE_BOOKING_API_URL || "http://localhost:4000/api";
+const API = import.meta.env.VITE_BOOKING_API_URL || "/api";
 const call = (url, options) => fetch(API + url, { credentials: "include", ...options }).then(async (r) => { const body = await r.json(); if (!r.ok) throw new Error(body.message || "Request failed"); return body; });
 export default function Admin() {
   const [loggedIn, setLoggedIn] = useState(false); const [form, setForm] = useState({ email: "", password: "" }); const [dashboard, setDashboard] = useState(null); const [reservations, setReservations] = useState([]); const [error, setError] = useState("");
