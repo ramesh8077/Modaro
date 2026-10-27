@@ -15,7 +15,6 @@ import {
 } from "../components/Sections";
 
 // Brand new sections (from reference site analysis)
-import AmenitiesGrid from "../components/AmenitiesGrid";
 import DiningSection from "../components/DiningSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 
@@ -27,7 +26,7 @@ import { homePhotoSets } from "../data/homePhotoLibrary";
 
 /* ------------------------------------------------------------------ */
 /*  PREMIUM LAYER — glass cards, gold accents, smooth scroll motion    */
-/*  Palette: Midnight Slate #27364a · Slate #34445a · Gold #d6b46a    */
+/*  Palette: Forest #183b32 · Ivory #faf6ee · Gold #d6b46a            */
 /*           Champagne #ecd9a8 · Ivory #faf6ee · Sand #f1ece2          */
 /*           Espresso #17110c (warm dark accent)                      */
 /*                                                                      */
@@ -38,7 +37,7 @@ import { homePhotoSets } from "../data/homePhotoLibrary";
 /*   - pointer effects (spotlight, magnet) only run for a real mouse    */
 /* ------------------------------------------------------------------ */
 const premiumCss = `
-:root{--gold:#d6b46a;--gold-soft:#ecd9a8;--gold-deep:#a8832f;--midnight-slate:#27364a;--slate:#34445a;--ivory:#faf6ee;}
+:root{--gold:#d6b46a;--gold-soft:#ecd9a8;--gold-deep:#a8832f;--midnight-slate:#183b32;--slate:#183b32;--ivory:#faf6ee;}
 
 /* scroll progress bar (updated directly on the element) */
 .pm-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:9999;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#5f471b,#80601d,#5f471b);box-shadow:0 0 4px rgba(65,48,20,.3);pointer-events:none}
@@ -106,7 +105,7 @@ const premiumCss = `
 .pm-btn-gold{position:relative;overflow:hidden;background:#111111;color:#fff;box-shadow:0 10px 30px -10px rgba(0,0,0,.35)}
 .pm-btn-gold::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);transform:translateX(-130%);animation:pm-idle 5.5s ease-in-out 1.5s infinite;pointer-events:none}
 @keyframes pm-idle{0%,60%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
-.pm-btn-gold:hover{background:#252D39;box-shadow:0 16px 40px -10px rgba(37,45,57,.55);filter:brightness(1.04)}
+.pm-btn-gold:hover{background:#252824;box-shadow:0 16px 40px -10px rgba(37,40,36,.45);filter:brightness(1.04)}
 .pm-magnet{transition:transform .35s cubic-bezier(.22,1,.36,1),background-color .3s,color .3s,border-color .5s,box-shadow .5s,filter .5s}
 
 /* heart pop when saved */
@@ -134,19 +133,13 @@ const premiumCss = `
 @keyframes pm-kb{from{transform:scale(1)}to{transform:scale(1.09)}}
 
 /* gold marquee bands (second row runs the other way, outlined) */
-.pm-marquee{animation:pm-marquee 42s linear infinite}
-.pm-marquee-rev{animation-direction:reverse;animation-duration:55s}
-.pm-marquee-wrap:hover .pm-marquee{animation-play-state:paused}
-.pm-outline-dark{color:transparent;-webkit-text-stroke:1px rgba(11,31,26,.6)}
-@keyframes pm-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
-
 @media (prefers-reduced-motion:reduce){
   .pm-reveal{opacity:1!important;transform:none!important;transition:none!important}
   .pm-reveal .pm-curtain{clip-path:none!important;transition:none!important}
   .pm-rule-draw{transform:none!important;transition:none!important}
   .pm-w{transform:none!important;transition:none!important}
   .pm-reveal .kicker-lux,.pm-reveal .pm-li{opacity:1!important;animation:none!important}
-  .pm-orb,.pm-spark,.pm-kenburns,.pm-marquee,.pm-btn-gold::after,.pm-pop,.pm-reveal.is-in .pm-gold-em em .pm-w,.pm-reveal.is-in .pm-gold-em-dark em .pm-w{animation:none!important}
+  .pm-orb,.pm-spark,.pm-kenburns,.pm-btn-gold::after,.pm-pop,.pm-reveal.is-in .pm-gold-em em .pm-w,.pm-reveal.is-in .pm-gold-em-dark em .pm-w{animation:none!important}
   .pm-gold-em em .pm-w,.pm-gold-em-dark em .pm-w{background-position:0 0!important}
   .pm-shine::after{display:none}
 }
@@ -279,27 +272,28 @@ const unmagnet = (event) => {
   event.currentTarget.style.transform = "";
 };
 
+// Card destinations stay within the retained Villa, Amenities and Booking destinations.
 const featuredEscapes = [
-  { title: "A private villa stay", description: "A whole-villa retreat with a private pool, gardens and space to be together.", inclusions: ["Private pool", "Landscaped gardens", "Four bedrooms"], image: homePhotoSets.offers[0], to: "/the-villa", action: "Check availability" },
-  { title: "Slow days by the pool", description: "Make room for unhurried afternoons, a refreshing swim and time outdoors.", inclusions: ["Poolside living", "Outdoor spaces", "Time to unwind"], image: homePhotoSets.offers[1], to: "/experiences", action: "Discover experiences" },
-  { title: "A setting for togetherness", description: "Bring your favourite people together for a birthday, anniversary or family gathering.", inclusions: ["Private setting", "Garden pavilion", "Made for gathering"], image: homePhotoSets.offers[2], to: "/celebrations", action: "Plan a celebration" },
-  { title: "Play, pause, repeat", description: "Switch between a friendly game, quiet garden moments and the pool.", inclusions: ["Pickleball court", "Green surroundings", "Open-air moments"], image: homePhotoSets.offers[3], to: "/experiences", action: "View experiences" },
-  { title: "Dinner under open skies", description: "Share a meal and make an evening of being together outdoors.", inclusions: ["Open-air setting", "Garden surroundings", "Made for sharing"], image: homePhotoSets.offers[4], to: "/experiences", action: "Explore the villa" },
+  { title: "A private villa stay", description: "A whole-villa retreat with a private pool, gardens and space to be together.", inclusions: ["Private pool", "Landscaped gardens", "Three bedrooms"], image: homePhotoSets.offers[0], to: "/the-villa", action: "Check availability" },
+  { title: "Slow days by the pool", description: "Make room for unhurried afternoons, a refreshing swim and time outdoors.", inclusions: ["Poolside living", "Outdoor spaces", "Time to unwind"], image: homePhotoSets.offers[1], to: "/the-villa#outdoors", action: "Explore the villa" },
+  { title: "A setting for togetherness", description: "Bring your favourite people together for a birthday, anniversary or family gathering.", inclusions: ["Private setting", "Garden pavilion", "Made for gathering"], image: homePhotoSets.offers[2], to: "/booking", action: "Plan a celebration" },
+  { title: "Play, pause, repeat", description: "Switch between a friendly game, quiet garden moments and the pool.", inclusions: ["Pickleball court", "Green surroundings", "Open-air moments"], image: homePhotoSets.offers[3], to: "/the-villa#outdoors", action: "Explore the villa" },
+  { title: "Dinner under open skies", description: "Share a meal and make an evening of being together outdoors.", inclusions: ["Open-air setting", "Garden surroundings", "Made for sharing"], image: homePhotoSets.offers[4], to: "/the-villa#bar-dining", action: "Explore the villa" },
   { title: "Find a quieter corner", description: "Take a slower walk through the greenery or settle into a quiet moment outside.", inclusions: ["Landscaped grounds", "Shaded walks", "A slower pace"], image: homePhotoSets.offers[5], to: "/the-villa", action: "Explore the villa" },
 ];
 
 const editorialStories = [
-  { category: "PRIVATE DINING", title: "The art of dining together", text: "At Villa Modaro, sharing a meal is part of the experience. Gather around the table, take your time and enjoy being together.", image: homePhotoSets.editorial[0], to: "/experiences", action: "Explore dining" },
-  { category: "POOL & GARDENS", title: "Let the afternoon linger", text: homeSite.experiences[0].text, image: homePhotoSets.editorial[1], to: "/experiences", action: "Discover poolside living" },
-  { category: "PICKLEBALL", title: "A little play. A lot of connection.", text: homeSite.experiences[1].text, image: homePhotoSets.editorial[2], to: "/experiences", action: "Discover activities" },
-  { category: "TOGETHERNESS", title: "Make room for your people", text: "Celebrate a birthday, mark an anniversary or simply bring everyone together in a private setting near Mohand Forest.", image: homePhotoSets.editorial[3], to: "/celebrations", action: "Explore celebrations" },
+  { category: "PRIVATE DINING", title: "The art of dining together", text: "At Villa Modaro, sharing a meal is part of the experience. Gather around the table, take your time and enjoy being together.", image: homePhotoSets.editorial[0], to: "/the-villa#bar-dining", action: "Explore dining" },
+  { category: "POOL & GARDENS", title: "Let the afternoon linger", text: homeSite.experiences[0].text, image: homePhotoSets.editorial[1], to: "/the-villa#outdoors", action: "Explore the villa" },
+  { category: "PICKLEBALL", title: "A little play. A lot of connection.", text: homeSite.experiences[1].text, image: homePhotoSets.editorial[2], to: "/the-villa#outdoors", action: "Explore the villa" },
+  { category: "TOGETHERNESS", title: "Make room for your people", text: "Celebrate a birthday, mark an anniversary or simply bring everyone together in a private setting near Mohand Forest.", image: homePhotoSets.editorial[3], to: "/booking", action: "Plan a celebration" },
 ];
 
 const browseTiles = [
-  { title: "Dehradun", subtitle: "A private escape near the city", image: homePhotoSets.browse[0], to: "/the-villa" },
-  { title: "Pool & gardens", subtitle: "Space to slow down outdoors", image: homePhotoSets.browse[1], to: "/experiences" },
-  { title: "Time together", subtitle: "Gather for the moments that matter", image: homePhotoSets.browse[2], to: "/celebrations" },
-  { title: "A little play", subtitle: "Discover the villa experiences", image: homePhotoSets.browse[3], to: "/experiences" },
+  { title: "Mohand Forest", subtitle: "A private escape near the expressway", image: homePhotoSets.browse[0], to: "/the-villa" },
+  { title: "Pool & gardens", subtitle: "Space to slow down outdoors", image: homePhotoSets.browse[1], to: "/the-villa#outdoors" },
+  { title: "Time together", subtitle: "Gather for the moments that matter", image: homePhotoSets.browse[2], to: "/booking" },
+  { title: "A little play", subtitle: "Discover the villa experiences", image: homePhotoSets.browse[3], to: "/the-villa#outdoors" },
 ];
 
 function DiscoverStay() {
@@ -369,16 +363,16 @@ function DiscoverStay() {
   return (
     <>
       {/* Exclusive offers — warm ivory and muted gold */}
-      <section aria-labelledby="featured-heading" className="relative isolate overflow-hidden bg-[#f9dbbd] py-10 text-charcoal sm:py-12 lg:py-14">
+      <section aria-labelledby="featured-heading" className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#faf6ee_0%,#f1ece2_100%)] py-10 text-charcoal sm:py-12 lg:py-14">
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
           <Reveal className="mb-6 flex flex-col items-center gap-4 sm:relative sm:mb-8 sm:flex-row sm:justify-center">
             <div className="w-full">
-              <h2 id="featured-heading" className="pm-gold-em-dark mx-auto mt-3 text-center font-display text-4xl text-charcoal sm:text-5xl"><Words text="Featured stays" /></h2>
+              <h2 id="featured-heading" className="pm-gold-em-dark mx-auto mt-3 text-center font-display text-4xl text-charcoal sm:text-5xl"><Words text="Featured Stays" /></h2>
             </div>
             <div className="flex items-center gap-2 sm:absolute sm:right-0 sm:gap-3">
               <Link to="/the-villa" className="mr-1 hidden min-h-10 items-center gap-1 text-xs text-[#80601d] underline-offset-4 hover:underline sm:inline-flex">View all <ArrowUpRight size={14} /></Link>
-              <button type="button" onClick={() => move(rail, -1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Scroll offers left" className="pm-glass-light pm-magnet grid size-9 place-items-center rounded-full text-charcoal hover:bg-[#d6b46a] hover:text-[#27364a] sm:size-10"><ArrowLeft size={17} /></button>
-              <button type="button" onClick={() => move(rail, 1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Scroll offers right" className="pm-glass-light pm-magnet grid size-9 place-items-center rounded-full text-charcoal hover:bg-[#d6b46a] hover:text-[#27364a] sm:size-10"><ArrowRight size={17} /></button>
+              <button type="button" onClick={() => move(rail, -1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Scroll offers left" className="pm-glass-light pm-magnet grid size-9 place-items-center rounded-full text-charcoal hover:bg-[#d6b46a] hover:text-forest sm:size-10"><ArrowLeft size={17} /></button>
+              <button type="button" onClick={() => move(rail, 1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Scroll offers right" className="pm-glass-light pm-magnet grid size-9 place-items-center rounded-full text-charcoal hover:bg-[#d6b46a] hover:text-forest sm:size-10"><ArrowRight size={17} /></button>
             </div>
           </Reveal>
           <div ref={rail} onScroll={syncRailBar} className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 pt-2 [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
@@ -394,7 +388,7 @@ function DiscoverStay() {
                         <h3 className="font-display text-2xl font-medium leading-tight text-charcoal">{offer.title}</h3>
                         <p className="mt-2 min-h-12 text-sm leading-6 text-charcoal/75">{offer.description}</p>
                         <ul className="mt-3 space-y-1.5 border-t border-charcoal/12 pt-3 text-sm text-charcoal/85">{offer.inclusions.map((item, itemIndex) => <li key={item} style={{ "--i": itemIndex }} className="pm-li flex items-center gap-2"><span aria-hidden="true" className="text-xs text-[#80601d]">◉</span>{item}</li>)}</ul>
-                        <span className="mt-auto flex min-h-11 items-end justify-end pt-4 text-xs font-medium"><span className="inline-flex items-center bg-[#315D4A] px-4 py-2.5 text-white transition-colors group-hover:bg-[#25483A]">{offer.action}</span></span>
+                        <span className="mt-auto flex min-h-11 items-end justify-end pt-4 text-xs font-medium"><span className="inline-flex items-center bg-forest px-4 py-2.5 text-white transition-colors group-hover:bg-[#10291f]">{offer.action}</span></span>
                       </div>
                     </Link>
                   </div>
@@ -419,8 +413,8 @@ function DiscoverStay() {
               <h2 id="browse-heading" className="pm-gold-em mx-auto w-fit bg-black/45 px-6 py-2 text-center font-display text-4xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.9)] sm:text-5xl"><Words text="Explore the villa" /></h2>
             </div>
             <div className="absolute right-0 hidden items-center gap-2 sm:flex">
-              <button type="button" onClick={() => move(browseRail, -1)} aria-label="Scroll discovery tiles left" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-[#34445a] hover:text-white"><ArrowLeft size={16} /></button>
-              <button type="button" onClick={() => move(browseRail, 1)} aria-label="Scroll discovery tiles right" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-[#34445a] hover:text-white"><ArrowRight size={16} /></button>
+              <button type="button" onClick={() => move(browseRail, -1)} aria-label="Scroll discovery tiles left" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-forest hover:text-white"><ArrowLeft size={16} /></button>
+              <button type="button" onClick={() => move(browseRail, 1)} aria-label="Scroll discovery tiles right" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-forest hover:text-white"><ArrowRight size={16} /></button>
             </div>
           </Reveal>
           <div className="relative left-1/2 w-screen -translate-x-1/2 [perspective:1400px]">
@@ -430,7 +424,7 @@ function DiscoverStay() {
                   <span className="pm-curtain absolute inset-0 block">
                     <Img img={tile.image} className="size-full transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" />
                   </span>
-                  <span className="absolute inset-0 bg-gradient-to-t from-[#27364a]/70 via-transparent to-transparent" />
+                  <span className="absolute inset-0 bg-gradient-to-t from-[#183b32]/70 via-transparent to-transparent" />
                 </Reveal>
               ))}
             </div>
@@ -443,23 +437,23 @@ function DiscoverStay() {
       </section>
 
       {/* Villa experiences — deep forest palette with calm, static cards */}
-      <section aria-labelledby="experiences-heading" className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#f2f2f2_0%,#e5e5e5_52%,#dcdcdc_100%)] py-7 text-[#252D39] sm:py-9 lg:py-10">
+      <section aria-labelledby="experiences-heading" className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#f2f2f2_0%,#e5e5e5_52%,#dcdcdc_100%)] py-7 text-charcoal sm:py-9 lg:py-10">
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
           <header className="mb-7 sm:mb-9">
-            <h2 id="experiences-heading" className="mx-auto mt-3 max-w-3xl text-center font-display text-4xl leading-tight text-[#252D39] sm:text-5xl">Moments made to be shared</h2>
+            <h2 id="experiences-heading" className="mx-auto mt-3 max-w-3xl text-center font-display text-4xl leading-tight text-charcoal sm:text-5xl">Moments made to be shared</h2>
           </header>
           <div className="grid gap-5 sm:gap-6 lg:grid-cols-3">
             {editorialStories.map((story, index) => {
               const featured = index === 0;
               return (
-                <Reveal as="article" key={story.title} delay={index === 0 ? 0 : (index - 1) * 120} className={`group relative overflow-hidden rounded-none border border-white/10 bg-white text-[#252D39] ${featured ? "md:grid md:grid-cols-2 lg:col-span-3" : "flex flex-col"}`}>
+                <Reveal as="article" key={story.title} delay={index === 0 ? 0 : (index - 1) * 120} className={`group relative overflow-hidden rounded-none border border-charcoal/10 bg-white text-charcoal ${featured ? "md:grid md:grid-cols-2 lg:col-span-3" : "flex flex-col"}`}>
                   <div className={`pm-curtain relative overflow-hidden bg-olive/20 ${featured ? "aspect-[1.35] min-h-[280px] sm:min-h-[360px] md:aspect-auto md:min-h-[420px]" : "aspect-[1.55]"}`}><Img img={story.image} className="absolute inset-0 size-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" /></div>
                   <div className={`flex flex-1 flex-col ${featured ? "justify-center px-6 py-8 sm:px-9 sm:py-10 lg:px-12" : "px-5 py-6 sm:px-6 sm:py-7"}`}>
                     <p className="kicker-lux text-[#d2b16b]">{story.category}</p>
-                    <h3 className={`mt-3 font-display text-[#252D39] ${featured ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"}`}>{story.title}</h3>
+                    <h3 className={`mt-3 font-display text-charcoal ${featured ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"}`}>{story.title}</h3>
                     <span aria-hidden="true" className="my-4 w-full border-t border-white/15 sm:my-5" />
                     <p className="text-sm leading-7 text-[#50545A] sm:text-base">{story.text}</p>
-                    <Link to={story.to} className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 border border-[#d2b16b]/60 bg-[#315D4A] px-5 text-xs font-medium text-[#fff4ef] transition-colors hover:bg-[#3b6b55]">{story.action}<ArrowUpRight size={15} /></Link>
+                    <Link to={story.to} className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 border border-[#d2b16b]/60 bg-forest px-5 text-xs font-medium text-ivory transition-colors hover:bg-[#10291f]">{story.action}<ArrowUpRight size={15} /></Link>
                   </div>
                 </Reveal>
               );
@@ -473,13 +467,13 @@ function DiscoverStay() {
 
 const interiorSpaces = [
   { title: "The living room", note: "Room to settle in together", image: homePhotoSets.interior[0], to: "/the-villa" },
-  { title: "Restful bedrooms", note: "A quieter place to unwind", image: homePhotoSets.interior[1], to: "/the-villa" },
+  { title: "Restful bedrooms", note: "A quieter place to unwind", image: homePhotoSets.interior[1], to: "/the-villa#bedrooms" },
   { title: "The kitchen", note: "Made for slow starts", image: homePhotoSets.interior[2], to: "/the-villa" },
 ];
 
 function InteriorSpaces() {
   return (
-    <section aria-labelledby="interior-heading" className="relative isolate -mt-px overflow-hidden border-0 bg-[#fff4ef] pt-0 pb-10 text-charcoal sm:pb-12 lg:pb-16" style={{ border: "none", outline: "none", boxShadow: "none" }}>
+    <section aria-labelledby="interior-heading" className="relative isolate -mt-px overflow-hidden border-0 bg-ivory pt-0 pb-10 text-charcoal sm:pb-12 lg:pb-16" style={{ border: "none", outline: "none", boxShadow: "none" }}>
       <span aria-hidden="true" className="pm-orb pm-orb-sage -right-24 bottom-0 size-[28rem]" />
       <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
         <Reveal as="header" className="mb-8 flex flex-col items-center gap-5 sm:relative sm:mb-10 sm:flex-row sm:justify-center">
@@ -508,11 +502,56 @@ function InteriorSpaces() {
   );
 }
 
+// Placed after the room preview so guests can see capacity, key features and rates together.
+function VillaAtAGlance() {
+  const facts = [
+    ["01", "Bedrooms", "3"],
+    ["02", "Guest capacity", "6 adults + 3 children"],
+    ["03", "Highlights", "Plunge pool · Pickleball · Live bar · Bonfire lawn"],
+  ];
+
+  return (
+    <section aria-labelledby="villa-glance-heading" className="bg-[#171a18] px-4 py-12 text-[#f4f0e8] sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <Reveal variant="soft" className="mx-auto grid max-w-[1440px] overflow-hidden border border-[#c7a86a]/40 bg-[#202522] shadow-[0_28px_80px_-42px_rgba(0,0,0,.8)] lg:grid-cols-[1.35fr_.65fr]">
+        <div className="p-6 sm:p-9 lg:p-12">
+          <p className="kicker-lux text-[#d2b16b]">THE VILLA, AT A GLANCE</p>
+          <h2 id="villa-glance-heading" className="mt-3 max-w-2xl font-display text-4xl text-[#f4f0e8] sm:text-5xl">Room for the people who matter</h2>
+          <p className="mt-4 max-w-xl text-sm leading-7 text-[#f4f0e8]/70 sm:text-base">A private, three-bedroom stay near Mohand Forest, with the spaces and little pleasures that bring everyone together.</p>
+
+          <div className="mt-7 border-t border-white/15">
+            {facts.map(([number, label, value]) => (
+              <div key={label} className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-white/10 py-4 sm:grid-cols-[3rem_1fr] sm:gap-4">
+                <span className="pt-1 text-[10px] tracking-[0.18em] text-[#d2b16b]">{number}</span>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1">
+                  <p className="font-display text-xl text-[#e3d1a7] sm:text-2xl">{label}</p>
+                  <p className="max-w-sm text-xs leading-5 text-[#f4f0e8]/65 sm:text-sm">{value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Link to="/the-villa" className="mt-6 inline-flex min-h-11 items-center border-b border-[#c7a86a]/60 text-xs font-medium tracking-wide text-[#e3d1a7] transition-colors hover:text-white">Explore the villa <ArrowUpRight size={15} className="ml-2" /></Link>
+        </div>
+
+        <div className="flex flex-col justify-between border-t border-[#c7a86a]/25 bg-[#121614] p-6 sm:p-9 lg:border-l lg:border-t-0 lg:p-10">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f4f0e8]/55">Indicative nightly rate</p>
+            <p className="mt-4 whitespace-nowrap font-display text-[clamp(1.9rem,4vw,3rem)] leading-none text-[#f4f0e8]">₹12,000<span className="px-1.5 text-[#d2b16b]">—</span>₹20,000</p>
+            <p className="mt-3 text-sm text-[#f4f0e8]/65">per night</p>
+            <p className="mt-6 max-w-xs text-xs leading-6 text-[#f4f0e8]/55">Rates vary by weekday, weekend, season and festive dates. Final pricing is shared during enquiry.</p>
+          </div>
+          <Link to="/booking" className="btn mt-8 inline-flex min-h-12 items-center justify-center border border-[#d2b16b]/60 bg-[#c6a35d] px-6 text-xs tracking-widest text-[#171a18] transition-colors hover:bg-[#e0c783]">Ask about your dates <ArrowUpRight size={15} className="ml-2" /></Link>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+// Repoint removed page links to the matching retained Villa sections or booking flow.
 const exclusiveMoments = [
-  { category: "POOL & GARDENS", title: "Let the afternoon linger", text: "Slow afternoons and easy gatherings by the water.", image: homePhotoSets.moments[0], to: "/experiences", action: "Discover poolside living" },
-  { category: "DINING", title: "The art of dining together", text: "Come together around the table and make time for a meal worth sharing.", image: homePhotoSets.moments[1], to: "/experiences", action: "Explore dining" },
-  { category: "CELEBRATIONS", title: "Your people. Your moment.", text: "Mark a birthday, anniversary or family gathering in a private setting.", image: homePhotoSets.moments[2], to: "/celebrations", action: "Plan a celebration" },
-  { category: "PLAY & DISCOVERY", title: "A little play. A lot of connection.", text: "Take to the pickleball court, wander the gardens and enjoy time outdoors.", image: homePhotoSets.moments[3], to: "/experiences", action: "Discover experiences" },
+  { category: "POOL & GARDENS", title: "Let the afternoon linger", text: "Slow afternoons and easy gatherings by the water.", image: homePhotoSets.moments[0], to: "/the-villa#outdoors", action: "Explore the villa" },
+  { category: "DINING", title: "The art of dining together", text: "Come together around the table and make time for a meal worth sharing.", image: homePhotoSets.moments[1], to: "/the-villa#bar-dining", action: "Explore dining" },
+  { category: "CELEBRATIONS", title: "Your people. Your moment.", text: "Mark a birthday, anniversary or family gathering in a private setting.", image: homePhotoSets.moments[2], to: "/booking", action: "Plan a celebration" },
+  { category: "PLAY & DISCOVERY", title: "A little play. A lot of connection.", text: "Take to the pickleball court, wander the gardens and enjoy time outdoors.", image: homePhotoSets.moments[3], to: "/the-villa#outdoors", action: "Explore the villa" },
 ];
 
 function ExclusiveMoments() {
@@ -575,12 +614,12 @@ function ExclusiveMoments() {
                   {active !== index && <div className="absolute inset-0 grid place-items-center bg-[#17110c]/45 p-6 text-center"><div><p className="kicker-lux" style={{ color: "#ecd9a8" }}>{moment.category}</p><h3 className="mt-3 font-display text-3xl text-white sm:text-4xl">{moment.title}</h3></div></div>}
                   <button type="button" onClick={() => showSlide(index)} className="absolute inset-0 z-10 cursor-pointer" aria-label={`Show ${moment.title}`} />
                 </div>
-                {active === index && <div onPointerMove={spot} className="rounded-none border-x-0 border-b-0 bg-white px-6 py-6 text-[#252D39] shadow-[0_12px_32px_rgba(0,0,0,.2)] sm:px-10 sm:py-8"><p className="kicker-lux" style={{ color: "#a8832f" }}>{moment.category}</p><h3 className="mt-2 font-display text-3xl text-[#252D39] sm:text-4xl">{moment.title}</h3><p className="mt-3 max-w-xl text-sm leading-relaxed text-[#50545A] sm:text-base">{moment.text}</p><Link to={moment.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-5 inline-flex min-h-10 items-center gap-2 rounded-full px-4 text-xs font-medium">{moment.action}<ArrowUpRight size={14} /></Link></div>}
+                {active === index && <div onPointerMove={spot} className="rounded-none border-x-0 border-b-0 bg-white px-6 py-6 text-charcoal shadow-[0_12px_32px_rgba(0,0,0,.2)] sm:px-10 sm:py-8"><p className="kicker-lux" style={{ color: "#a8832f" }}>{moment.category}</p><h3 className="mt-2 font-display text-3xl text-charcoal sm:text-4xl">{moment.title}</h3><p className="mt-3 max-w-xl text-sm leading-relaxed text-charcoal/75 sm:text-base">{moment.text}</p><Link to={moment.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-5 inline-flex min-h-10 items-center gap-2 rounded-full px-4 text-xs font-medium">{moment.action}<ArrowUpRight size={14} /></Link></div>}
               </article>
             ))}
           </div>
-          <button type="button" onClick={() => shift(-1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Previous featured experience" className="pm-glass pm-magnet absolute left-1 top-[31%] z-20 grid size-11 place-items-center rounded-full text-white hover:bg-[#d6b46a] hover:text-[#27364a] sm:left-4 sm:size-12"><ArrowLeft size={19} /></button>
-          <button type="button" onClick={() => shift(1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Next featured experience" className="pm-glass pm-magnet absolute right-1 top-[31%] z-20 grid size-11 place-items-center rounded-full text-white hover:bg-[#d6b46a] hover:text-[#27364a] sm:right-4 sm:size-12"><ArrowRight size={19} /></button>
+          <button type="button" onClick={() => shift(-1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Previous featured experience" className="pm-glass pm-magnet absolute left-1 top-[31%] z-20 grid size-11 place-items-center rounded-full text-white hover:bg-[#d6b46a] hover:text-forest sm:left-4 sm:size-12"><ArrowLeft size={19} /></button>
+          <button type="button" onClick={() => shift(1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Next featured experience" className="pm-glass pm-magnet absolute right-1 top-[31%] z-20 grid size-11 place-items-center rounded-full text-white hover:bg-[#d6b46a] hover:text-forest sm:right-4 sm:size-12"><ArrowRight size={19} /></button>
           <div className="mt-6 flex justify-center gap-2">
             {exclusiveMoments.map((moment, index) => (
               <button key={moment.title} type="button" onClick={() => showSlide(index)} aria-label={`Go to ${moment.title}`} className={`h-1.5 rounded-full transition-all duration-500 ${active === index ? "w-8 bg-[#d6b46a]" : "w-3 bg-white/30"}`} />
@@ -588,34 +627,6 @@ function ExclusiveMoments() {
           </div>
         </Reveal>
       </div>
-    </section>
-  );
-}
-
-// Two gold ticker bands — solid + outlined, running in opposite directions.
-// The band itself is gold, creating a warm transition between the sections.
-const marqueeItems = ["Private villa", "Pool & gardens", "Pickleball", "Celebrations", "Outdoor dining", "Near Mohand Forest, Dehradun"];
-
-function MarqueeRow({ items, outline = false, reverse = false }) {
-  return (
-    <div className={`pm-marquee flex w-max items-center ${reverse ? "pm-marquee-rev" : ""}`}>
-      {[0, 1].map((copy) => (
-        <div key={copy} className="flex shrink-0 items-center pr-10">
-          {items.map((item) => (
-            <span key={`${copy}-${item}`} className={`flex shrink-0 items-center gap-10 pr-10 font-display text-2xl italic sm:text-3xl ${outline ? "pm-outline-dark" : "text-[#27364a]"}`}>
-              {item}
-              <span className="text-base text-[#34445a]" style={{ WebkitTextStroke: 0 }}>✦</span>
-            </span>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function GoldMarquee() {
-  return (
-    <section aria-hidden="true" className="pm-marquee-wrap relative space-y-2 overflow-hidden border-y border-[#8a6a22]/40 bg-[linear-gradient(90deg,#b8913f_0%,#f3dfa6_25%,#d6b46a_50%,#f3dfa6_75%,#b8913f_100%)] py-4 sm:py-5">
     </section>
   );
 }
@@ -640,10 +651,8 @@ export default function Home() {
       {/* 4. The property — rooms and spaces (what they are booking) */}
       <InteriorSpaces />
 
-      {/* 5. Facilities — amenities that support the decision */}
-      <Reveal variant="soft">
-        <AmenitiesGrid />
-      </Reveal>
+      {/* 5. Capacity, villa highlights and indicative pricing, placed after the room preview. */}
+      <VillaAtAGlance />
 
       {/* 6. Ways to stay — curated offers, browse tiles, editorial stories */}
       <DiscoverStay />

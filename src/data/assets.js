@@ -21,7 +21,7 @@ import bedroomThree from "../assets/BedroomIMG/3 (7).png";
 import bedroomPortrait from "../assets/BedroomIMG/4 (4).png";
 import bar from "../assets/BarIMG/1 (8).png";
 
-const photo = (src, alt, w = 1536, h = 1024, focus = "center", caption = alt) => ({ src, alt, w, h, focus, caption });
+const photo = (src, alt, w = 1536, h = 1024, focus = "center", caption = alt) => ({ src, alt: alt.startsWith("Villa Modaro") ? alt : `Villa Modaro — ${alt}`, w, h, focus, caption });
 
 export const assets = {
   entry: photo(entry, "Villa Modaro entrance with landscaped lawns and trees"),

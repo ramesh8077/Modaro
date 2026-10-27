@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { galleryPage as g } from "../data/gallery";
 import { usePageMeta } from "../lib/meta";
@@ -6,15 +5,12 @@ import { useGallery } from "../lib/useGallery";
 import Img from "../components/Img";
 import GalleryBrowser from "../components/GalleryBrowser";
 import GalleryShowcase from "../components/GalleryShowcase";
-import Enquiry from "../components/Enquiry";
 
 const wrap = "mx-auto max-w-[1440px] px-6 lg:px-12";
 
-export default function GalleryPage({ type, setType }) {
+export default function GalleryPage() {
   usePageMeta(g.meta.title, g.meta.description);
   const data = useGallery();
-  const [selected, setSelected] = useState(null); // property picked in the browser (multi-property future)
-  const property = selected || (data.status === "loaded" && data.properties.length === 1 ? data.properties[0] : null);
 
   return (
     <>
@@ -41,7 +37,7 @@ export default function GalleryPage({ type, setType }) {
         </div>
       )}
       {data.status === "loaded" && <GalleryShowcase images={data.images} categories={data.categories} />}
-      {data.status === "loaded" && <GalleryBrowser data={data} onProperty={setSelected} />}
+      {data.status === "loaded" && <GalleryBrowser data={data} />}
 
       <section className={`${wrap} pb-28 lg:pb-40`}>
         <div data-reveal className="max-w-2xl border-t border-charcoal/20 pt-12">
@@ -49,11 +45,9 @@ export default function GalleryPage({ type, setType }) {
           <p className="mt-6">Take the next step towards your time at Villa Modaro.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/the-villa" className="btn bg-forest text-ivory hover:bg-charcoal">Explore the Villa</Link>
-            <a href="#enquiry" onClick={() => setType("Stay")} className="btn border border-charcoal hover:bg-charcoal hover:text-ivory">Enquire About Your Stay</a>
           </div>
         </div>
       </section>
-      <Enquiry type={type} setType={setType} property={property && { id: property.id, name: property.name }} />
     </>
   );
 }

@@ -5,7 +5,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, MapPin, Trees, Users, Waves, ChevronRight } from "lucide-react";
+import { ArrowUpRight, MapPin, Users, Waves, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Img from "./Img";
 import { homeSite as site } from "../data/home";
@@ -26,12 +26,12 @@ export function Villa() {
 // ============================================================
 export function Story() {
   return (
-    <section aria-labelledby="brand-story-heading" className="w-full overflow-hidden border-0 bg-[#fff4ef] py-8 text-charcoal" style={{ border: "none", boxShadow: "none" }}>
-      <div className="grid w-full grid-cols-1 items-stretch bg-[#fff4ef] lg:grid-cols-[1fr_1fr]">
+    <section aria-labelledby="brand-story-heading" className="w-full overflow-hidden border-0 bg-ivory py-8 text-charcoal" style={{ border: "none", boxShadow: "none" }}>
+      <div className="grid w-full grid-cols-1 items-stretch bg-ivory lg:grid-cols-[1fr_1fr]">
         <div className="relative min-w-0 min-h-[340px] w-full overflow-hidden sm:min-h-[440px] lg:min-h-[620px]">
           <Img img={{ ...site.images.story, alt: "Tree-lined arrival to Villa Modaro near Mohand Forest" }} className="absolute inset-0 size-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/45 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 border border-white/35 bg-[#34445a]/90 px-4 py-3 text-ivory backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5">
+          <div className="absolute bottom-4 left-4 border border-white/35 bg-forest/90 px-4 py-3 text-ivory backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5">
             <p className="text-[9px] uppercase tracking-[0.22em] text-brass">A PRIVATE RETREAT</p>
             <p className="mt-1 font-display text-lg">Near Mohand Forest</p>
           </div>
@@ -40,13 +40,13 @@ export function Story() {
         <div className="relative flex w-full min-w-0 flex-col justify-center overflow-hidden bg-[#080808] px-6 py-12 text-white sm:px-10 sm:py-14 lg:px-14 lg:py-16 xl:px-20">
           <p className={`${kicker} !font-bold !text-[#d6b46a]`}>OUR STORY · VILLA MODARO</p>
           <h2 id="brand-story-heading" className="mt-5 max-w-none font-display text-4xl font-medium leading-[1.16] tracking-[-0.01em] text-white sm:text-5xl lg:text-[3rem]">
-            <span className="block">A private place to gather.</span>
+            <span className="block">A private place to gather</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base font-medium leading-7 text-white/90 sm:text-[18px] sm:leading-8">
-            Villa Modaro began with a simple wish: to make more room for the people who matter. Set along the Balupur–Paonta Sahib Expressway near Mohand Forest, it brings poolside afternoons, garden walks, shared meals and celebrations together in one private stay.
+            Villa Modaro is an oasis of celebration and calm, designed for those who seek both joy and rejuvenation. Every occasion finds its perfect setting: a quiet escape with friends and family, intimate anniversaries, birthdays, family gatherings, poolside relaxation or parties.
           </p>
           <p className="mt-3 max-w-2xl text-base font-medium leading-7 text-white/90 sm:text-[18px] sm:leading-8">
-            Every space is an invitation to slow down, reconnect and make the occasion your own.
+            Surrounded by lush gardens, vibrant plants and the pristine Himalayan air near Mohand Forest, the villa blends nature with lifestyle. Enjoy pickleball, refreshing dips in the pool and serene walks through landscaped greenery, all while staying effortlessly connected on the Balupur–Paonta Sahib Expressway. Villa Modaro is where accessibility meets exclusivity, a retreat for discerning travellers who value celebration, connection and the beauty of the outdoors.
           </p>
           <div className="mt-6 grid grid-cols-3 border-y border-white/25 py-4 sm:max-w-xl">
             <div className="pr-3"><p className="font-display text-lg leading-none text-white sm:text-xl">Private</p><p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-white/90 sm:text-xs">Villa stay</p></div>
@@ -54,8 +54,8 @@ export function Story() {
             <div className="border-l border-white/25 pl-3"><p className="font-display text-lg leading-none text-white sm:text-xl">Together</p><p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-white/90 sm:text-xs">Room to gather</p></div>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <Link to="/our-story" className="group inline-flex min-h-12 items-center gap-3 border border-[#34445a] bg-[#34445a] px-6 text-xs font-medium text-ivory shadow-[0_8px_22px_rgba(39,50,66,0.2)] transition-all hover:border-[#a77b37] hover:bg-[#26364a]">
-              Discover our story <ArrowUpRight size={15} />
+            <Link to="/amenities" className="group inline-flex min-h-12 items-center gap-3 border border-forest bg-forest px-6 text-xs font-medium text-ivory shadow-[0_8px_22px_rgba(24,59,50,0.2)] transition-all hover:border-[#a77b37] hover:bg-[#10291f]">
+              Explore Amenities <ArrowUpRight size={15} />
             </Link>
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-white"><MapPin size={15} className="text-[#d6b46a]" /> Dehradun, Uttarakhand</span>
           </div>
@@ -94,8 +94,8 @@ export function Experiences() {
           <div>
             <h2 id="exp-heading" className="h2 mt-4 max-w-2xl">Things to do at the villa</h2>
           </div>
-          <Link to="/experiences" className="inline-flex min-h-11 items-center gap-2 text-sm transition-colors hover:text-brass">
-            See every experience <ArrowUpRight size={15} />
+          <Link to="/the-villa#outdoors" className="inline-flex min-h-11 items-center gap-2 text-sm transition-colors hover:text-brass">
+            Explore the villa <ArrowUpRight size={15} />
           </Link>
         </div>
       </header>
@@ -215,11 +215,11 @@ export function Celebrations({ onPlan }) {
           </ul>
 
           <Link
-            to="/celebrations"
+            to="/booking"
             onClick={onPlan}
             className="btn mt-6 inline-flex items-center gap-2 bg-[#8a642d] text-ivory hover:bg-[#704a14]"
           >
-            Explore celebrations <ChevronRight size={15} />
+            Plan your celebration <ChevronRight size={15} />
           </Link>
         </div>
       </div>
@@ -277,72 +277,62 @@ export function GalleryMasonry({ items, title }) {
 // ============================================================
 export function Location() {
   const distances = [
-    { icon: "🚗", label: "45 min", sub: "from Dehradun city" },
-    { icon: "🛣️", label: "6 hrs", sub: "from New Delhi" },
-    { icon: "🌲", label: "5 min", sub: "to Mohand Forest Reserve" },
-    { icon: "✈️", label: "1 hr", sub: "from Jolly Grant Airport" },
+    { number: "01", label: "Easy to reach", sub: "Balupur–Paonta Sahib Expressway" },
+    { number: "02", label: "Close to nature", sub: "Mohand Forest nearby" },
+    { number: "03", label: "Room to retreat", sub: "A peaceful setting set apart" },
   ];
 
   return (
-    <section id="location" className="bg-[#eae6d8]" aria-labelledby="location-heading">
-      <div className={`${wrap} section-pad`}>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+    <section id="location" className="relative isolate overflow-hidden bg-[#eeeade] text-charcoal" aria-labelledby="location-heading">
+      {/* Editorial location feature: oversized image, route marker, and compact travel notes. */}
+      <div className={`${wrap} py-16 sm:py-20 lg:py-28`}>
+        <div className="mb-8 flex items-center justify-between border-b border-charcoal/15 pb-4 sm:mb-12">
+          <p className={`${kicker} !mb-0`}>06 — FIND YOUR WAY HERE</p>
+          <span className="hidden text-xs uppercase tracking-[0.22em] text-charcoal/45 sm:block">Accessible by road · Close to nature</span>
+        </div>
 
-          {/* Text + distances */}
-          <div className="lg:col-span-5">
-            <p className={kicker}>06 — FIND YOUR WAY HERE</p>
-            <span className="gold-rule-left my-5" />
-            <h2 id="location-heading" className="h2">
-              Find us near Mohand Forest
-            </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-charcoal/70">
+        <div className="grid gap-9 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:gap-14">
+          <div className="relative min-h-[360px] overflow-hidden sm:min-h-[480px] lg:min-h-[620px]">
+            <Img img={{ ...site.images.story, alt: "Villa Modaro grounds near the Balupur–Paonta Sahib Expressway" }} eager className="absolute inset-0 size-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/55 via-transparent to-transparent" aria-hidden="true" />
+            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 border-t border-white/60 pt-4 text-white sm:bottom-8 sm:left-8 sm:right-8">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/75">A quiet place, within reach</p>
+                <p className="mt-1 font-display text-2xl sm:text-3xl">Near Mohand Forest</p>
+              </div>
+              <span className="font-display text-4xl text-white/80" aria-hidden="true">M.</span>
+            </div>
+          </div>
+
+          <div className="lg:py-8">
+            <span className="gold-rule-left mb-6" />
+            <h2 id="location-heading" className="h2 max-w-xl !text-[clamp(2.6rem,5vw,5rem)]">A little away.<br />Easy to find.</h2>
+            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-charcoal/70 sm:text-base">
               Villa Modaro sits along the Balupur–Paonta Sahib Expressway, near
-              Mohand Forest. Ask us about availability, group size, and
-              celebration requirements.
+              Mohand Forest. Reach us by road, then settle into a secluded setting
+              for stays, celebrations and time together.
             </p>
 
-            {/* Distance matrix */}
-            <div className="mt-8 grid grid-cols-2 gap-4">
+            <div className="mt-8 border-y border-charcoal/15">
               {distances.map((d) => (
-                <div
-                  key={d.label}
-                  className="border border-charcoal/10 bg-white px-4 py-4"
-                >
-                  <span className="text-xl" aria-hidden="true">{d.icon}</span>
-                  <p className="mt-2 font-display text-2xl text-forest">{d.label}</p>
-                  <p className="text-[12px] text-olive">{d.sub}</p>
+                <div key={d.number} className="grid grid-cols-[3rem_1fr] gap-3 border-b border-charcoal/10 py-4 last:border-b-0 sm:grid-cols-[3.5rem_1fr] sm:gap-4">
+                  <span className="pt-1 text-[10px] tracking-[0.2em] text-brass">{d.number}</span>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <p className="font-display text-xl text-forest sm:text-2xl">{d.label}</p>
+                    <p className="text-xs text-olive sm:text-sm">{d.sub}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 space-y-2 text-sm text-charcoal/60">
-              <p className="flex items-center gap-2">
-                <MapPin size={13} className="text-brass shrink-0" />
-                Balupur–Paonta Sahib Expressway
-              </p>
-              <p className="flex items-center gap-2">
-                <Trees size={13} className="text-brass shrink-0" />
-                Near Mohand Forest Reserve
-              </p>
-            </div>
-
-            <a
-              href="#booking"
-              className="btn mt-8 border border-charcoal hover:bg-charcoal hover:text-ivory"
-            >
-              Ask about availability
-            </a>
+            <p className="mt-6 text-xs uppercase leading-6 tracking-[0.13em] text-charcoal/55">Balupur–Paonta Sahib Expressway<br />Near Mohand Forest Trail</p>
+            <a href="/booking" className="btn mt-7 border border-charcoal hover:bg-charcoal hover:text-ivory">Ask about availability</a>
           </div>
+        </div>
 
-          {/* Images */}
-          <div className="grid grid-cols-2 gap-3 lg:col-span-6 lg:col-start-7">
-            <div className="img-zoom aspect-[4/5] overflow-hidden">
-              <Img img={site.images.story} className="size-full" />
-            </div>
-            <div className="img-zoom mt-10 aspect-[4/5] overflow-hidden">
-              <Img img={site.images.villaSmall} className="size-full" />
-            </div>
-          </div>
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-5 lg:mt-10 lg:grid-cols-[1fr_.55fr]">
+          <div className="img-zoom aspect-[2/1] overflow-hidden"><Img img={{ ...site.images.villaMain, alt: "Villa Modaro and its landscaped grounds" }} className="size-full" /></div>
+          <div className="img-zoom aspect-[2/1] overflow-hidden"><Img img={{ ...site.images.villaSmall, alt: "A calm outdoor corner at Villa Modaro" }} className="size-full" /></div>
         </div>
       </div>
     </section>
@@ -382,22 +372,25 @@ export function ClosingInvite() {
           <p className={kicker}>READY WHEN YOU ARE</p>
           <span className="gold-rule-left my-3" />
           <h2 className="h2 max-w-2xl">
-            Plan your stay
+            Plan Your Celebration at Villa Modaro
           </h2>
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-ivory/75 sm:text-[15px]">
-            Choose your dates and let us create something unforgettable.
-            Villa Modaro is waiting — whenever you're ready.
+            Bring your favourite people together for a birthday, anniversary or
+            family gathering. Tell us what you are planning and enquire about a stay.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <a href="#booking" className="btn btn-shimmer min-h-11 px-8 tracking-widest text-xs">
-              Check Availability
+              Book Now
             </a>
-            <a
-              href="/booking"
-              className="btn min-h-11 border border-ivory/40 text-ivory hover:border-brass hover:text-brass"
-            >
-              Plan Your Stay
-            </a>
+            {site.contact.whatsapp ? (
+              <a href={site.contact.whatsapp} className="btn min-h-11 border border-ivory/40 text-ivory hover:border-brass hover:text-brass" target="_blank" rel="noopener noreferrer">
+                Enquire on WhatsApp
+              </a>
+            ) : (
+              <span aria-disabled="true" title="WhatsApp contact details pending" className="btn min-h-11 cursor-not-allowed border border-ivory/30 text-ivory/55">
+                Enquire on WhatsApp · Contact pending
+              </span>
+            )}
           </div>
         </div>
       </div>

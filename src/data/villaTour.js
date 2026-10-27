@@ -21,12 +21,14 @@ export const property = {
   id: "villa-modaro",
   name: "Villa Modaro",
   location: "Along the Balupur–Paonta Sahib Expressway, near Mohand Forest",
-  intro: "A private retreat set among landscaped gardens, with a pool, pickleball and room to gather",
+  intro: "Three bedrooms welcome six guests plus kids, with a poolside lounge and bar, drawing-cum-dining room and kitchen. Near Mohand Forest, enjoy a plunge pool, pickleball and bonfire lawn.",
+  overview: "The idea of Villa Modaro was born during the lockdown years, a time when celebrations felt at risk and the joy of gathering seemed distant. Out of that longing came the vision for a place where friends and families could reconnect freely, without disturbance or restriction. In 2020, a parcel of land was discovered along the Balupur–Paonta Sahib Expressway, offering both accessibility and seclusion. Years of dedication and effort transformed it into today's oasis of celebration: a villa designed for uninterrupted moments of joy. Surrounded by nature, with fewer restrictions on music and gatherings, Villa Modaro is the perfect setting for poolside parties, intimate anniversaries, birthdays and cherished get-togethers. It is more than a villa: it is an outhouse-style retreat shaped with passion, built to host life's milestones in harmony with nature and the clean Himalayan surroundings near Mohand Forest.",
+  details: "The villa has three bedrooms for six guests plus kids, a lounge and bar near the poolside, a drawing-cum-dining room and a kitchen with refrigerator. Highlights include a plunge pool, pickleball court, live bar and bonfire lawn. Amenities and services include parking, Wi-Fi, security, CCTV, B&B features, a clean and hygienic setup, and housekeeping. Nearby: Mohand Forest Trail.",
   bookingType: null,
-  bedrooms: null,
+  bedrooms: 3,
   bathrooms: null,
-  guestCapacity: null,
-  amenities: ["Swimming pool", "Landscaped gardens", "Pickleball"],
+  guestCapacity: "6 + kids",
+  amenities: ["Plunge pool", "Pickleball court", "Live bar", "Bonfire lawn", "Parking", "Wi-Fi", "Kitchen & refrigerator", "Security", "CCTV", "B&B features", "Clean and hygienic setup", "Housekeeping"],
 };
 
 export const booking = { searchPath: null };
@@ -46,7 +48,8 @@ export const CATEGORIES = {
 
 export const IMAGES = {};
 const add = (id, category, image, alt, caption = alt) => {
-  IMAGES[id] = { id, category, alt, caption, src: image.src, w: image.w, h: image.h, focus: image.focus || "center" };
+  const brandedAlt = alt.startsWith("Villa Modaro") ? alt : `Villa Modaro — ${alt}`;
+  IMAGES[id] = { id, category, alt: brandedAlt, caption, src: image.src, w: image.w, h: image.h, focus: image.focus || "center" };
 };
 
 add("exterior-1", "exterior", assets.entry, assets.entry.alt, "The villa entrance");
@@ -92,19 +95,19 @@ export const hero = { main: "exterior-1", previews: ["living-1", "pool-1"] };
 export const overview = { images: ["exterior-2", "garden-1"] };
 
 export const sections = [
-  { id: "bedrooms", nav: "Bedrooms", title: "Bedrooms", spaces: [{ id: "bedrooms", layout: "narrow", cta: "View Room Photos", intro: "Warm timber, soft lighting and quiet corners for a restful stay", features: [], images: ["bed-1", "bed-2", "bed-3", "bed-4", "bed-5", "bed-6", "bed-7", "bed-8", "bed-9", "bed-10"] }] },
-  { id: "bathrooms", nav: "Bathrooms", title: "Bathroom detail", spaces: [{ id: "bathrooms", layout: "masonry", cta: "View Bathroom Photo", intro: "A considered bathroom detail from the villa", features: [], images: ["bath-1"] }] },
-  { id: "living", nav: "Living", title: "Living spaces", spaces: [{ id: "living", layout: "editorial", cta: "View Living Photos", intro: "Comfortable shared spaces made for slow afternoons and time together", features: [], images: ["living-1", "living-2", "living-3", "living-4"] }] },
-  { id: "bar-dining", nav: "Bar & Dining", title: "Bar & dining", dark: true, spaces: [
-    { id: "bar", title: "Bar & games", layout: "strip", cta: "View Bar Photos", intro: "An easygoing room for drinks, conversation and a game of pool", features: [], images: ["bar-1", "bar-2", "bar-3", "bar-4"] },
+  { id: "bedrooms", nav: "Bedrooms", title: "Bedrooms", intro: "Three bedrooms offer restful spaces for up to six guests plus kids.", spaces: [{ id: "bedrooms", layout: "narrow", features: ["3 Bedrooms", "6 Guests + kids", "Housekeeping", "Clean and hygienic setup"], images: ["bed-1", "bed-2", "bed-3", "bed-4", "bed-5", "bed-6", "bed-7", "bed-8", "bed-9", "bed-10"] }] },
+  { id: "living", nav: "Living", title: "Living spaces", spaces: [{ id: "living", layout: "editorial", cta: "View Living Photos", intro: "A lounge and bar beside the pool, with a drawing-cum-dining room for time together.", features: ["Poolside lounge & bar", "Drawing-cum-dining room", "B&B features"], images: ["living-1", "living-2", "living-3", "living-4"] }] },
+  { id: "bar-dining", nav: "Bar & Dining", title: "Bar & Dining", intro: "From relaxed games to lingering meals, these shared rooms bring everyone together.", spaces: [
+    { id: "bar", layout: "strip", cta: "View Bar Photos", features: ["Live bar", "Lounge beside the pool"], images: ["bar-1", "bar-2", "bar-3", "bar-4"] },
     { id: "dining", title: "Dining", layout: "narrow", cta: "View Dining Photos", intro: "Shared meals around a generous dining table", features: [], images: ["dining-1", "dining-2", "dining-3"] },
   ] },
-  { id: "kitchen", nav: "Kitchen", title: "The kitchen", spaces: [{ id: "kitchen", layout: "editorial", cta: "View Kitchen Photos", intro: "A bright, practical space connected to the villa's shared living areas", features: [], images: ["kitchen-1", "kitchen-2", "kitchen-3"] }] },
-  { id: "outdoors", nav: "Outdoors", title: "Outdoors", spaces: [
-    { id: "pool", title: "Pool & poolside", layout: "strip", parallax: true, cta: "View Pool Photos", intro: "Poolside afternoons, shaded seating and outdoor dinners", features: [], images: ["pool-1", "pool-2", "pool-3", "pool-4"] },
+  { id: "kitchen", nav: "Kitchen", title: "The kitchen", spaces: [{ id: "kitchen", layout: "editorial", cta: "View Kitchen Photos", intro: "A bright, practical kitchen with a refrigerator, connected to the villa's shared living areas.", features: ["Kitchen", "Refrigerator"], images: ["kitchen-1", "kitchen-2", "kitchen-3"] }] },
+  { id: "outdoors", nav: "Outdoors", title: "Outdoors", intro: "A plunge pool, landscaped gardens and open-air spaces for time together.", spaces: [
+    { id: "pool", layout: "strip", parallax: true, cta: "View Pool Photos", features: ["Plunge pool", "Bonfire lawn", "Parking", "Wi-Fi", "Security", "CCTV"], images: ["pool-1", "pool-2", "pool-3", "pool-4"] },
     { id: "gardens", title: "Gardens", layout: "editorial", cta: "View Garden Photos", intro: "Landscaped grounds with room to wander and gather", features: [], images: ["garden-1", "garden-2", "garden-3", "garden-4"] },
     { id: "pickleball", title: "Pickleball & wellness", layout: "narrow", cta: "View Activity Photos", intro: "A court among the gardens, with space for an easy morning practice", features: [], images: ["pickle-1", "pickle-2", "pickle-3"] },
   ] },
+  { id: "bathrooms", nav: "Bathrooms", title: "Bathrooms", spaces: [{ id: "bathrooms", layout: "masonry", cta: "View Bathroom Photo", intro: "A considered bathroom detail from the villa", features: [], images: ["bath-1"] }] },
 ];
 
 export const hasSrc = (id) => !!IMAGES[id]?.src;

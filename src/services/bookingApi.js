@@ -1,13 +1,15 @@
 const API = import.meta.env.VITE_BOOKING_API_URL || "/api";
-const json = (response) => response.json().then((body) => {
-  if (response.ok) return body;
-  const message = response.status === 404
-    ? `Booking API route was not found at ${API}. Check the server service rewrite.`
-    : body.message || "Booking request failed";
-  return Promise.reject(Object.assign(new Error(message), { code: body.code, details: body.details, status: response.status }));
-});
+const json = async (response) => {
+  const isJson = response.headers.get("content-type")?.includes("application/json");
+  const body = isJson ? await response.json() : null;
+  if (response.ok && isJson) return body;
+  const message = response.status === 404 || !isJson
+    ? "Live availability is temporarily unavailable. Please try again later or contact us to plan your stay."
+    : body?.message || "Booking request failed";
+  throw Object.assign(new Error(message), { code: body?.code, details: body?.details, status: response.status });
+};
 const request = (url, options) => fetch(url, options).then(json).catch((error) => {
-  if (error instanceof TypeError || error.name === "NetworkError") throw new Error(`Booking service is unavailable at ${API}. Check the server deployment and database configuration.`);
+  if (error instanceof TypeError || error instanceof SyntaxError || error.name === "NetworkError") throw new Error("Live availability is temporarily unavailable. Please try again later or contact us to plan your stay.");
   throw error;
 });
 export const bookingApi = {

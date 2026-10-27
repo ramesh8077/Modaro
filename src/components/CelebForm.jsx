@@ -12,7 +12,8 @@ export default function CelebClosing() {
   const [v, setV] = useState({ occasion: "", date: "", name: "", email: "", message: "" });
   const [err, setErr] = useState({}), [prepared, setPrepared] = useState(null), [copied, setCopied] = useState(false);
   const set = (key) => (e) => setV({ ...v, [key]: e.target.value });
-  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const a = (key) => ({ id: key, "aria-invalid": !!err[key], "aria-describedby": err[key] ? `${key}-e` : undefined });
   const E = ({ id }) => err[id] && <p id={`${id}-e`} className="mt-1 text-sm text-[#9a3b2a]">{err[id]}</p>;
 

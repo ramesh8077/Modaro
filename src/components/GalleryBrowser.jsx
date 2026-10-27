@@ -7,7 +7,7 @@ import Lightbox from "./Lightbox";
 const PAGE = 24; // "Show more" page size
 const tab = (on) => `min-h-[44px] shrink-0 whitespace-nowrap border-b-2 px-4 text-sm transition-colors ${on ? "border-forest text-charcoal" : "border-transparent text-charcoal/65 hover:text-charcoal"}`;
 
-export default function GalleryBrowser({ data, onProperty, sticky = true }) {
+export default function GalleryBrowser({ data, onProperty, sticky = true, gridMode = false }) {
   const { properties, categories, images } = data;
   const [prop, setProp] = useState("all"), [cat, setCat] = useState("all"), [shown, setShown] = useState(PAGE), [view, setView] = useState(null);
   const grid = useRef(null), first = useRef(true);
@@ -61,13 +61,13 @@ export default function GalleryBrowser({ data, onProperty, sticky = true }) {
             <button onClick={() => { setProp("all"); setCat("all"); onProperty(null); }} className="btn mt-4 border border-charcoal hover:bg-charcoal hover:text-ivory">Show all photographs</button></div>
         )}
         {/* CSS columns keep each image at its true ratio (no cropping, no layout shift); featured landscapes span the full width. */}
-        <ul ref={grid} className="columns-1 gap-x-6 sm:columns-2 lg:columns-3">
+        <ul ref={grid} className={gridMode ? "grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-2" : "columns-1 gap-x-6 sm:columns-2 lg:columns-3"}>
           {list.map((i, k) => {
             const wide = i.isFeatured && i.width > i.height;
             return (
-              <li key={i.id} className={`mb-8 break-inside-avoid ${wide ? "[column-span:all]" : ""}`}>
+              <li key={i.id} className={gridMode ? "min-w-0" : `mb-8 break-inside-avoid ${wide ? "[column-span:all]" : ""}`}>
                 <figure className="group">
-                  <button data-cursor="view" onClick={() => setView(k)} aria-label={`View photo: ${i.alt}`} className="block w-full overflow-hidden" style={{ aspectRatio: `${i.width} / ${i.height}` }}>
+                  <button data-cursor="view" onClick={() => setView(k)} aria-label={`View photo: ${i.alt}`} className="block w-full overflow-hidden" style={{ aspectRatio: gridMode ? "4 / 3" : `${i.width} / ${i.height}` }}>
                     <Img img={{ src: i.thumbnailSrc || i.src, alt: i.alt, w: i.width, h: i.height }} eager={k < 3} className="size-full transition-transform duration-700 group-hover:scale-[1.03]" />
                   </button>
                   <figcaption className="mt-2 flex flex-wrap justify-between gap-x-4 text-xs uppercase tracking-[0.15em]">

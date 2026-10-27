@@ -1,18 +1,16 @@
 // Nav.jsx — Enhanced luxury navigation
 // Inspired by: Four Seasons (transparent→white on scroll) + Roseate Hotels (elegant typography)
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { site } from "../data/site";
 import L from "./NavLink";
 import Logo from ".././assets/ModeroLogo.png";
 
-// Extended nav with Dining anchor added
+// Header navigation contains only the approved pages and existing section anchors.
 const navLinks = [
   ["The Villa", "/the-villa"],
-  ["Our Story", "/our-story"],
-  ["Experiences", "/experiences"],
-  ["Celebrations", "/celebrations"],
+  ["Rooms", "/the-villa#bedrooms"],
+  ["Amenities", "/amenities"],
   ["Gallery", "/gallery"],
 ];
 
@@ -25,7 +23,11 @@ export default function Nav() {
     document.body.style.overflow = previousOverflow.current;
     previousOverflow.current = null;
   };
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+  const isActive = (to) => {
+    const [route, section] = to.split("#");
+    return pathname === route && (!section || hash === `#${section}`);
+  };
   useEffect(() => {
     dlg.current?.close();
     unlock();
@@ -34,12 +36,12 @@ export default function Nav() {
   useEffect(() => {
     const f = () => {
       const y = window.scrollY;
-      setSolid(y > 40);
+      setSolid(y > 40 || pathname === "/the-villa");
     };
     f();
     window.addEventListener("scroll", f, { passive: true });
     return () => window.removeEventListener("scroll", f);
-  }, []);
+  }, [pathname]);
   const open = () => {
     previousOverflow.current = document.body.style.overflow;
     dlg.current.showModal();
@@ -53,7 +55,7 @@ export default function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
         solid
-          ? "bg-[#f1ece2] text-[#183b32] shadow-[0_1px_0_rgba(24,59,50,0.12)] backdrop-blur-sm"
+          ? "bg-ivory text-forest shadow-[0_1px_0_rgba(24,59,50,0.12)] backdrop-blur-sm"
           : "bg-transparent text-white"
       }`}
     >
@@ -69,7 +71,7 @@ export default function Nav() {
         >
           <img
             src={Logo}
-            alt="Villa Modaro Luxury Stay"
+            alt="Modaro Luxury Stay"
             width="500"
             height="500"
             className={`h-16 w-16 max-w-full object-contain ${solid ? "" : "brightness-0 invert"}`}
@@ -81,8 +83,8 @@ export default function Nav() {
           <li>
             <L
               to="/"
-              aria-current={pathname === "/" ? "page" : undefined}
-              className={`${linkCls} ${pathname === "/" ? (solid ? "text-brass" : "text-white") : ""}`}
+              aria-current={pathname === "/" && !hash ? "page" : undefined}
+              className={`${linkCls} ${pathname === "/" && !hash ? (solid ? "text-brass" : "text-white") : ""}`}
             >
               Home
             </L>
@@ -91,21 +93,17 @@ export default function Nav() {
             <li key={h}>
               <L
                 to={h}
-                aria-current={pathname === h ? "page" : undefined}
-                className={`${linkCls} ${pathname === h ? (solid ? "text-brass" : "text-white") : ""}`}
+                aria-current={isActive(h) ? "page" : undefined}
+                className={`${linkCls} ${isActive(h) ? (solid ? "text-brass" : "text-white") : ""}`}
               >
                 {l}
               </L>
             </li>
           ))}
-          {/* Dining anchor — scrolls to dining section on homepage */}
           <li>
-            <a
-              href="/#dining"
-              className={`${linkCls} ${pathname === "/" ? "" : solid ? "opacity-80" : "text-white"}`}
-            >
-              Dining
-            </a>
+            <L to="/location" aria-current={isActive("/location") ? "page" : undefined} className={`${linkCls} ${isActive("/location") ? (solid ? "text-brass" : "text-white") : solid ? "" : "text-white"}`}>
+              Location
+            </L>
           </li>
         </ul>
 
@@ -147,7 +145,7 @@ export default function Nav() {
           >
             <img
               src={Logo}
-              alt="Villa Modaro"
+              alt="Modaro Luxury Stay"
               width="500"
               height="500"
               className="h-16 w-16 max-w-full object-contain"
@@ -168,8 +166,8 @@ export default function Nav() {
             <L
               to="/"
               onClick={close}
-              aria-current={pathname === "/" ? "page" : undefined}
-              className={`block py-4 font-display text-3xl tracking-wide ${pathname === "/" ? "text-brass" : ""}`}
+              aria-current={pathname === "/" && !hash ? "page" : undefined}
+              className={`block py-4 font-display text-3xl tracking-wide ${pathname === "/" && !hash ? "text-brass" : ""}`}
             >
               Home
             </L>
@@ -179,9 +177,9 @@ export default function Nav() {
               <L
                 to={h}
                 onClick={close}
-                aria-current={pathname === h ? "page" : undefined}
+                aria-current={isActive(h) ? "page" : undefined}
                 className={`block py-4 font-display text-3xl tracking-wide ${
-                  pathname === h ? "text-brass" : ""
+                  isActive(h) ? "text-brass" : ""
                 }`}
               >
                 {l}
@@ -189,13 +187,7 @@ export default function Nav() {
             </li>
           ))}
           <li className="border-b border-ivory/10">
-            <a
-              href="/#dining"
-              onClick={close}
-              className="block py-4 font-display text-3xl tracking-wide"
-            >
-              Dining
-            </a>
+            <L to="/location" onClick={close} aria-current={isActive("/location") ? "page" : undefined} className={`block py-4 font-display text-3xl tracking-wide ${isActive("/location") ? "text-brass" : ""}`}>Location</L>
           </li>
           <li className="pt-8">
             <a
@@ -203,7 +195,7 @@ export default function Nav() {
               onClick={close}
               className="btn header-book-btn inline-flex w-full justify-center py-4 text-xs tracking-widest"
             >
-              Book Your Stay
+              Book Now
             </a>
           </li>
         </ul>

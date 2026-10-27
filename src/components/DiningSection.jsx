@@ -9,8 +9,8 @@ const diningFeatures = [
     desc: "An open-air setting for long lunches, relaxed dinners and time together.",
   },
   {
-    title: "A Chef on Request",
-    desc: "Ask about chef-prepared meals, from a slow breakfast to dinner with your guests.",
+    title: "B&B Features",
+    desc: "Enjoy a clean, hygienic setup and the comforts of a bed-and-breakfast stay.",
   },
   {
     title: "Celebration Dining",
@@ -69,17 +69,9 @@ export default function DiningSection() {
 
             <ul className="mt-10 space-y-6">
               {diningFeatures.map((f) => (
-                <li key={f.title} className="flex gap-4">
-                  <span
-                    className="mt-0.5 text-2xl shrink-0"
-                    aria-hidden="true"
-                  >
-                    {f.icon}
-                  </span>
-                  <div>
+                <li key={f.title}>
                     <h3 className="font-display text-lg text-ivory">{f.title}</h3>
                     <p className="mt-1 text-[13px] text-ivory/60">{f.desc}</p>
-                  </div>
                 </li>
               ))}
             </ul>

@@ -18,7 +18,7 @@ export default function Footer() {
   ].filter(Boolean);
 
   return (
-    <footer className="bg-[#183b32] text-ivory">
+    <footer className="bg-forest text-ivory">
       {/* Gold top border */}
       <div
         className="h-px w-full"
@@ -39,8 +39,8 @@ export default function Footer() {
               <img src={Logo} alt="Villa Modaro Luxury Stay" width="500" height="500" className="h-20 w-20 object-contain brightness-0 invert" />
             </L>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">
-              Where celebration meets calm — a private retreat near Mohand
-              Forest, Uttarakhand.
+              An oasis of celebration and calm near Mohand Forest — designed
+              for those who seek both joy and rejuvenation.
             </p>
 
             {/* Social links */}
@@ -62,10 +62,10 @@ export default function Footer() {
             )}
 
             <a
-              href="#booking"
+              href="/booking"
               className="btn mt-6 inline-flex border border-ivory/30 text-ivory hover:border-brass hover:text-brass"
             >
-              Check availability
+              Book Now
             </a>
           </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
           <nav aria-label="Footer navigation — pages">
             <p className="kicker-lux mb-5 text-ivory/40">EXPLORE</p>
             <ul className="space-y-2">
-              {[["Home", "/"], ...site.nav].map(([label, href]) => (
+              {[["Home", "/"], ...site.nav.slice(0, 2)].map(([label, href]) => (
                 <li key={href}>
                   <L
                     to={href}
@@ -86,24 +86,18 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Col 3 — Experiences */}
-          <nav aria-label="Footer navigation — experiences">
-            <p className="kicker-lux mb-5 text-ivory/40">EXPERIENCES</p>
+          {/* Footer links are restricted to the approved navigation destinations. */}
+          <nav aria-label="Footer navigation — amenities and location">
+            <p className="kicker-lux mb-5 text-ivory/40">YOUR STAY</p>
             <ul className="space-y-2">
-              {[
-                ["Poolside Living", "#villa"],
-                ["Gardens & Nature", "#experiences"],
-                ["Celebrations", "/celebrations"],
-                ["Dining", "#dining"],
-                ["Gallery", "/gallery"],
-              ].map(([label, href]) => (
+              {site.nav.slice(2).map(([label, href]) => (
                 <li key={label}>
-                  <a
-                    href={href}
+                  <L
+                    to={href}
                     className="inline-flex min-h-[36px] items-center text-sm text-ivory/70 transition-colors hover:text-brass"
                   >
                     {label}
-                  </a>
+                  </L>
                 </li>
               ))}
             </ul>

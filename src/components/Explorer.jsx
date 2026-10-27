@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import Img from "./Img";
 import { experiencesPage as e } from "../data/site";
 
-export default function Explorer({ setType }) {
+export default function Explorer() {
   const items = e.explorer;
   const [sel, setSel] = useState({ cur: 0, prev: null });
   const root = useRef(null), tabs = useRef([]);
@@ -59,7 +59,7 @@ export default function Explorer({ setType }) {
               <p className="text-xs tracking-[0.3em] text-charcoal/70"><span aria-hidden className="mr-2 inline-block size-2 rounded-full bg-[var(--accent)]" />0{sel.cur + 1} / 0{items.length}</p>
               <h3 className="mt-3 text-4xl">{it.title}</h3>
               <p className="mt-3 max-w-sm">{it.text}</p>
-              <a href="#enquiry" onClick={() => setType(it.type)} className="btn mt-6 bg-[var(--accent)] text-charcoal hover:bg-charcoal hover:text-ivory">{it.cta}</a>
+              <a href="/booking" className="btn mt-6 bg-[var(--accent)] text-charcoal hover:bg-charcoal hover:text-ivory">{it.cta}</a>
             </div>
           </div>
         </div>

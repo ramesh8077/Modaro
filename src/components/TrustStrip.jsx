@@ -2,14 +2,12 @@
 // Displays a scrolling marquee of stats, awards & credentials
 
 const items = [
-  { icon: "★", value: "4.9/5", label: "Guest Rating" },
-  { icon: "🏆", value: "Award-Winning", label: "Private Retreat" },
-  { icon: "🌿", value: "Mohand Forest", label: "Doorstep Nature" },
-  { icon: "👥", value: "500+", label: "Celebrations Hosted" },
-  { icon: "🔒", value: "Exclusively Private", label: "Never Shared" },
-  { icon: "🛏️", value: "4 Luxury", label: "Bedrooms" },
-  { icon: "🏊", value: "Infinity Pool", label: "Poolside Living" },
-  { icon: "✨", value: "Bespoke", label: "Guest Experience" },
+  { icon: "🛏️", value: "3 Bedrooms", label: "Room to rest" },
+  { icon: "👥", value: "6 Guests + kids", label: "Guest capacity" },
+  { icon: "🏊", value: "Plunge Pool", label: "Poolside living" },
+  { icon: "🏓", value: "Pickleball Court", label: "Play together" },
+  { icon: "🍸", value: "Live Bar", label: "By the poolside" },
+  { icon: "🔥", value: "Bonfire Lawn", label: "Evenings outdoors" },
 ];
 
 function TrustItem({ icon, value, label }) {
@@ -34,8 +32,8 @@ export default function TrustStrip() {
   const allItems = [...items, ...items];
   return (
     <section
-      aria-label="Awards and credentials"
-      className="overflow-hidden border-y border-charcoal/10 bg-[#f0ece0] py-4"
+      aria-label="Villa Modaro highlights"
+      className="overflow-hidden border-y border-charcoal/10 bg-ivory py-4"
     >
       <div className="marquee-track">
         {allItems.map((item, i) => (

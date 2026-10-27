@@ -15,8 +15,8 @@ export const getHashTarget = (hash) => {
   return id ? document.getElementById(id) : null;
 };
 export const resetScroll = () => {
-  if (lenis) lenis.scrollTo(0, { immediate: true });
-  else window.scrollTo(0, 0);
+  lenis?.scrollTo(0, { immediate: true });
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 };
 
 export function useMotion(ref, route) {
@@ -66,7 +66,7 @@ export function useMotion(ref, route) {
         gsap.from(el, { x: +el.dataset.slide, autoAlpha: 0, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } }));
       const wrapEl = ref.current.querySelector("[data-tones]");
       if (wrapEl) {
-        const tones = { ivory: ["#F5F1E8", "#242824"], mist: ["#E6ECE8", "#242824"], sage: ["#D3D9C6", "#242824"], night: ["#183B32", "#F5F1E8"] };
+        const tones = { ivory: ["#F7F4EE", "#252824"], mist: ["#E6ECE8", "#252824"], sage: ["#D3D9C6", "#252824"], night: ["#183B32", "#F7F4EE"] };
         gsap.utils.toArray("[data-tone]", wrapEl).forEach((sec) => {
           const [bg, color] = tones[sec.dataset.tone];
           ScrollTrigger.create({ trigger: sec, start: "top 55%", end: "bottom 55%", onToggle: (self) => self.isActive && gsap.to(wrapEl, { backgroundColor: bg, color, duration: 0.7, overwrite: true }) });

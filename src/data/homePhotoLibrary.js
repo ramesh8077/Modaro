@@ -37,7 +37,8 @@ function photo(path, alt) {
   assignedPaths.add(key);
   const portrait = path === "BedroomIMG/4 (4).png";
   const jpeg = path.startsWith("ModeroIMG/");
-  return { src, alt, w: portrait ? 1024 : jpeg ? 1600 : 1536, h: portrait ? 1536 : jpeg ? 1200 : 1024 };
+  const brandedAlt = alt.startsWith("Villa Modaro") ? alt : `Villa Modaro — ${alt}`;
+  return { src, alt: brandedAlt, w: portrait ? 1024 : jpeg ? 1600 : 1536, h: portrait ? 1536 : jpeg ? 1200 : 1024 };
 }
 
 export const homePhotoSets = {
@@ -120,7 +121,10 @@ export const homeGalleryPhotos = availablePaths
     const jpeg = path.startsWith("../assets/ModeroIMG/");
     return {
       src: imageModules[path],
-      alt: specificGalleryLabels[path.replace("../assets/", "")] || galleryLabels[category] || "Villa Modaro photo",
+      alt: (() => {
+        const label = specificGalleryLabels[path.replace("../assets/", "")] || galleryLabels[category] || "photo";
+        return label.startsWith("Villa Modaro") ? label : `Villa Modaro — ${label}`;
+      })(),
       w: portrait ? 1024 : jpeg ? 1600 : 1536,
       h: portrait ? 1536 : jpeg ? 1200 : 1024,
     };

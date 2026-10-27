@@ -19,13 +19,7 @@ export default function TheVilla() {
       <TourHero count={all.length} openAll={(id) => openList(all, id)} />
       <SpaceNav items={nav} />
       <Overview />
-      {sections.map((s) => <TourSection key={s.id} section={s} open={(space, id) => openList(spaceImages(space), id)} />)}
-      {all.length > 0 && (
-        <section id="photos" data-scroll-extra="56" style={{ scrollMarginTop: 128 }} className="bg-ivory">
-          <div className="mx-auto max-w-360 px-6 pt-20 lg:px-12 lg:pt-28"><h2 data-reveal className="h2">All photographs</h2></div>
-          <GalleryBrowser data={gallery} onProperty={() => {}} sticky={false} />
-        </section>
-      )}
+      {sections.map((s, index) => <TourSection key={s.id} section={s} tone={index % 2 ? "white" : "ivory"} open={(space, id) => openList(spaceImages(space), id)} />)}
       <AvailabilityPanel />
       <Lightbox items={lb.items} index={lb.index} onIndex={(i) => setLb((s) => ({ ...s, index: i }))} onClose={() => setLb((s) => ({ ...s, index: null }))} thumbs label="Villa photographs" />
     </>

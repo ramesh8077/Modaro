@@ -8,18 +8,19 @@ const img = (alt, focus = "center", w = 1600, h = 1066) => ({ src: "", alt, focu
 
 export const site = {
   name: "Villa Modaro",
-  tagline: "The Luxury Stay",
+  tagline: "An Oasis of Celebration & Calm",
   conceptImagery: false,
   contact: {
-    email: "",    // verified email -> enables a "Open in email app" button
+    email: "stay@villamodaro.com", // client-provided placeholder; replace if the final address changes
     phone: "",    // verified phone -> shown in footer
     whatsapp: "", // full https://wa.me/... URL, only when verified
     instagram: "",
     mapUrl: "",   // exact Google Maps URL -> enables "Get directions"
   },
+  // Footer allowlist mirrors the approved header items (Home and Book Now are separate controls).
   nav: [
-    ["The Villa", "/the-villa"], ["Our Story", "/our-story"], ["Experiences", "/experiences"],
-    ["Celebrations", "/celebrations"], ["Gallery", "/gallery"],
+    ["The Villa", "/the-villa"], ["Rooms", "/the-villa#bedrooms"],
+    ["Amenities", "/amenities"], ["Gallery", "/gallery"], ["Location", "/location"],
   ],
   images: {
     hero: img("Villa Modaro surrounded by greenery", "center 60%", 2000, 1200),
@@ -29,9 +30,9 @@ export const site = {
     celebrations: img("A gathering at the villa", "center", 1800, 1200),
   },
   chapters: [
-    { title: "Celebrate", text: "Make every moment worth remembering. From intimate gatherings to joyful celebrations, discover beautiful spaces designed to bring people together, create lasting memories, and turn life’s special occasions into extraordinary experiences.", img: img("Guests gathered for a celebration", "center", 1400, 1000) },
-    { title: "Unwind", text: "The pool, a slow afternoon, and nowhere else you need to be to find serenity and relaxation in a private setting that is made for being together with loved ones and friends at the villa Modaro.", img: img("The pool in afternoon light", "center", 1400, 1000) },
-    { title: "Reconnect", text: "Reconnect with the people and moments that matter most. Surrounded by nature and the comfort of thoughtfully designed spaces, find time to share meaningful conversations, create lasting memories, and rediscover the joy of being together.", img: img("Garden path among greenery", "center", 1400, 1000) },
+    { title: "Celebrate", text: "Bring friends and family together for birthdays, intimate anniversaries and gatherings in a private setting made for sharing life's milestones.", img: img("Guests gathered for a celebration", "center", 1400, 1000) },
+    { title: "Unwind", text: "Spend a slow afternoon by the plunge pool, wander the landscaped gardens or enjoy a quiet getaway near Mohand Forest.", img: img("The pool in afternoon light", "center", 1400, 1000) },
+    { title: "Reconnect", text: "Three bedrooms, a lounge and bar, a drawing-cum-dining room and kitchen make space for six guests plus kids to reconnect and enjoy time together.", img: img("Garden path among greenery", "center", 1400, 1000) },
   ],
   experiences: [
     { title: "Poolside living", text: "Slow afternoons and easy gatherings by the water.", category: "Pool", img: img("Poolside seating", "center", 1400, 1000), span: "lg:col-span-7" },
@@ -50,8 +51,8 @@ export const site = {
     { ...img("Outdoor seating", "center", 1200, 1200), cls: "" },
   ],
   meta: {
-    title: "Villa Modaro · The Luxury Stay",
-    description: "Villa Modaro is a private villa retreat for celebrations, connection and relaxation, along the Balupurâ€“Paonta Sahib Expressway near Mohand Forest.",
+    title: "Villa Modaro — Luxury Stay in Uttarakhand",
+    description: "Book Villa Modaro — an oasis of celebration & calm near Mohand Forest. Pool, pickleball, bonfire, live bar & bespoke celebrations.",
   },
 };
 
@@ -61,28 +62,28 @@ const si = (alt, focus = "center", w = 1600, h = 1066, caption) => ({ src: "", a
 export const storyPage = {
   meta: {
     title: "Our Story · Villa Modaro",
-    description: "Villa Modaro began with a wish to be together. Discover how land found along the Balupurâ€“Paonta Sahib Expressway in 2020 became a private retreat near Mohand Forest.",
+    description: "Discover how a wish to gather during the lockdown years led to Villa Modaro, a private retreat found along the Balupur–Paonta Sahib Expressway near Mohand Forest.",
   },
   hero: si("Greenery surrounding Villa Modaro", "center 55%", 2000, 1300),
   longing: {
-    title: "When gathering became something we missed.",
-    text: "During the lockdown years, the simplest pleasures slipped out of reach. Birthdays were marked from a distance. Family get-togethers waited. Afternoons with friends became something to remember rather than something to plan. Out of that quiet came a clear wish: a private place where people could come back together, celebrate what matters, and feel at ease doing it.",
+    title: "A wish to gather again.",
+    text: "The idea of Villa Modaro was born during the lockdown years, a time when celebrations felt at risk and the joy of gathering seemed distant. Out of that longing came the vision for a place where friends and families could reconnect freely, without disturbance or restriction.",
     img: si("Friends and family gathered outdoors", "center", 1200, 1500),
   },
   discovery: {
     title: "A place for the possibility.",
-    text: "In 2020, a parcel of land was discovered along the Balupurâ€“Paonta Sahib Expressway. It offered a rare balance: close to the road, yet set apart, near Mohand Forest and wrapped in greenery. It was not yet a villa. It was a possibility, and it held the promise of the place we had been imagining.",
+    text: "In 2020, a parcel of land was discovered along the Balupur–Paonta Sahib Expressway. It offered a rare balance: close to the road, yet set apart, near Mohand Forest and wrapped in greenery. It was not yet a villa. It was a possibility, and it held the promise of the place we had been imagining.",
     img: si("Greenery on the grounds of Villa Modaro", "center", 1200, 1500, "The grounds of Villa Modaro today"),
     img2: si("Trees near the villa", "center", 900, 900),
   },
   stage: [
-    { label: "A wish", text: "To gather again, with the people who matter most.", img: si("Friends and family gathering together", "center", 1400, 1000) },
-    { label: "A place", text: "Land along the expressway, near Mohand Forest, held the possibility.", img: si("Greenery near Mohand Forest", "center", 1400, 1000) },
-    { label: "A shared experience", text: "A retreat for celebration, connection and calm.", img: si("Guests together at the villa", "center", 1400, 1000) },
+    { label: "A wish", text: "A place where friends and families could reconnect freely, celebrate birthdays and anniversaries, and enjoy music and gatherings with fewer restrictions.", img: si("Friends and family sharing a meal together", "center", 1400, 1000) },
+    { label: "A place", text: "The expressway offered accessibility while the greenery near Mohand Forest gave the land a sense of seclusion. Years of dedication transformed that possibility into an oasis of celebration.", img: si("Greenery near Mohand Forest", "center", 1400, 1000) },
+    { label: "A shared experience", text: "Today Villa Modaro welcomes poolside parties, intimate anniversaries, birthdays and cherished get-togethers in harmony with nature and the clean Himalayan surroundings.", img: si("Guests sharing time together at the villa", "center", 1400, 1000) },
   ],
   transformation: {
     title: "Shaped with patience. Made for people.",
-    text: "Over the following years, the land was thoughtfully transformed into a villa retreat. It took dedication, and it was guided by one intention throughout: a place made for connection, for shared occasions, and for unhurried time outdoors.",
+    text: "Years of dedication transformed the land into an outhouse-style retreat shaped with passion and built to host life's milestones. Surrounded by nature and clean Himalayan air near Mohand Forest, Villa Modaro makes room for celebration, connection and unhurried time outdoors.",
     img: si("Villa Modaro today", "center", 1400, 1000, "The villa today"),
     img2: si("Time outdoors at the villa", "center", 900, 1100, "Time outdoors"),
   },
@@ -93,7 +94,7 @@ export const storyPage = {
   ],
   today: {
     title: "Today, the story continues with you.",
-    items: ["Afternoons by the pool", "Moments in the gardens", "A game of pickleball", "Birthdays, anniversaries and family time"],
+    items: ["Quiet rooms to recharge", "Pickleball and outdoor play", "Slow mornings on the lawn", "Time together in shared spaces"],
     imgs: [si("Poolside afternoon", "center", 1000, 1300), si("Garden moment", "center", 1000, 1300), si("A game of pickleball", "center", 1000, 1300)],
   },
 };

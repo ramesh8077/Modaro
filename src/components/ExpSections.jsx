@@ -5,7 +5,7 @@ const wrap = "mx-auto max-w-[1440px] px-6 lg:px-12";
 const lab = "mb-4 text-xs tracking-[0.3em] opacity-75";
 const drift = "M0 20 q150 -20 300 0" + " t300 0".repeat(7);
 
-export function ExpHero({ setType }) {
+export function ExpHero() {
   return (
     <section id="top" className="relative flex h-[100svh] min-h-[600px] items-end overflow-hidden bg-forest text-ivory">
       <Img img={e.hero} eager data-hero-img data-parallax="6" className="absolute inset-x-0 top-0 h-[115%] w-full" />
@@ -17,7 +17,7 @@ export function ExpHero({ setType }) {
         <div data-hero className="mt-9 flex flex-wrap gap-3">
           <a href="#explorer" className="btn bg-brass text-charcoal hover:bg-ivory">Find Your Moment</a>
           <a href="#guest-notes" className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Guest Notes</a>
-          <a href="#enquiry" onClick={() => setType("Stay")} className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Plan Your Stay</a>
+          <a href="/booking" className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Plan Your Stay</a>
         </div>
       </div>
       {/* Ripple-inspired line, kept to the bottom edge and away from the text; stops under reduced motion. */}
@@ -46,7 +46,7 @@ export function Pool() {
   const p = e.pool;
   return (
     <section data-tone="mist" className="py-20 lg:py-28">
-      <div className={wrap}><p className={`${lab} text-[#3E6E7B]`}>03 POOLSIDE</p><h2 data-reveal className="h2 max-w-2xl">{p.title}</h2></div>
+      <div className={wrap}><p className={`${lab} text-brass`}>03 POOLSIDE</p><h2 data-reveal className="h2 max-w-2xl">{p.title}</h2></div>
       <div data-expand className="mx-auto mt-12 h-[58svh] min-h-[360px] max-w-[1600px] overflow-hidden"><Img img={p.img} data-parallax="6" className="h-[115%] w-full" /></div>
       <div className={`${wrap} mt-12 grid gap-10 lg:grid-cols-12`}>
         <p data-reveal className="max-w-md lg:col-span-4 lg:col-start-2">{p.text}</p>
@@ -98,7 +98,7 @@ export function Pickle() {
   );
 }
 
-export function Together({ setType }) {
+export function Together() {
   const t = e.together;
   return (
     <section data-tone="night" className={`${wrap} grid gap-14 py-20 lg:grid-cols-12 lg:gap-10 lg:py-32`}>
@@ -111,7 +111,7 @@ export function Together({ setType }) {
           {t.items.map(([a, b]) => <li key={a} className="flex flex-col border-t border-current/25 py-3 sm:flex-row sm:items-baseline sm:justify-between"><span className="font-display text-2xl">{a}</span><span className="text-sm opacity-80">{b}</span></li>)}
           <li className="border-t border-current/25" />
         </ul>
-        <a href="#enquiry" onClick={() => setType("Celebration")} className="btn mt-8 bg-brass text-charcoal hover:bg-ivory">Plan Your Gathering</a>
+        <a href="/booking" className="btn mt-8 bg-brass text-charcoal hover:bg-ivory">Plan Your Gathering</a>
       </div>
     </section>
   );
@@ -193,13 +193,13 @@ export function DayRow() {
   );
 }
 
-export function ExpClosing({ setType }) {
+export function ExpClosing() {
   return (
     <section data-tone="ivory" className={`${wrap} py-20 lg:py-28`}>
       <div data-reveal className="max-w-2xl border-t border-current/25 pt-12">
         <h2 className="h2">Which moment will be yours?</h2>
         <p className="mt-6">Tell us what you have in mind, and begin planning your time at Villa Modaro.</p>
-        <a href="#enquiry" onClick={() => setType("Stay")} className="btn mt-8 bg-forest text-ivory hover:bg-charcoal">Enquire About Your Stay</a>
+        <a href="/booking" className="btn mt-8 bg-forest text-ivory hover:bg-charcoal">Enquire About Your Stay</a>
       </div>
     </section>
   );
