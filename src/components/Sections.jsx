@@ -54,7 +54,7 @@ export function Story() {
             <div className="border-l border-white/25 pl-3"><p className="font-display text-lg leading-none text-white sm:text-xl">Together</p><p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-white/90 sm:text-xs">Room to gather</p></div>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <Link to="/amenities" className="group inline-flex min-h-12 items-center gap-3 border border-forest bg-forest px-6 text-xs font-medium text-ivory shadow-[0_8px_22px_rgba(24,59,50,0.2)] transition-all hover:border-[#a77b37] hover:bg-[#10291f]">
+            <Link to="/amenities" className="btn group inline-flex min-h-12 items-center gap-3 border border-forest bg-forest px-6 text-xs font-medium text-ivory shadow-[0_8px_22px_rgba(24,59,50,0.2)] transition-all hover:border-[#a77b37] hover:bg-[#10291f]">
               Explore Amenities <ArrowUpRight size={15} />
             </Link>
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-white"><MapPin size={15} className="text-[#d6b46a]" /> Dehradun, Uttarakhand</span>
@@ -92,7 +92,7 @@ export function Experiences() {
       <header className="mb-6 border-b border-charcoal/15 pb-5 sm:mb-8 sm:pb-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <h2 id="exp-heading" className="h2 mt-4 max-w-2xl">Things to do at the villa</h2>
+            <h2 id="exp-heading" className="mt-4 whitespace-nowrap text-[clamp(1rem,5vw,4.5rem)]">POOL, PLAY &amp; GARDEN EXPERIENCES</h2>
           </div>
           <Link to="/the-villa#outdoors" className="inline-flex min-h-11 items-center gap-2 text-sm transition-colors hover:text-brass">
             Explore the villa <ArrowUpRight size={15} />
@@ -105,7 +105,7 @@ export function Experiences() {
           {expCategories.map((cat) => (
             <button key={cat} type="button" role="tab" aria-selected={active === cat}
               onClick={() => setActive(cat)}
-              className={`min-h-10 rounded-full border px-5 text-xs tracking-[0.12em] transition-colors ${active === cat
+              className={`min-h-10 rounded-md border px-5 text-xs tracking-[0.12em] transition-colors ${active === cat
                 ? "border-brass bg-brass text-charcoal"
                 : "border-charcoal/20 bg-transparent text-charcoal/70 hover:border-brass hover:text-charcoal"}`}>
               {cat}
@@ -127,10 +127,10 @@ export function Experiences() {
                 className="size-full transition-transform duration-700 group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent transition-colors duration-300 group-hover:from-charcoal/90" />
-              <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-5 text-ivory sm:p-7 lg:p-8">
-                <span className="text-[10px] uppercase tracking-[0.22em] text-ivory/75">{e.category}</span>
-                <h3 className="font-display text-3xl leading-none sm:text-4xl lg:text-5xl">{e.title}</h3>
-                <p className="max-w-md text-sm leading-6 text-ivory/80">{e.text}</p>
+              <figcaption className="absolute bottom-5 left-5 flex max-w-[85%] flex-col gap-2 border border-[#d6b46a]/40 bg-[#3f342a]/85 px-5 py-4 text-ivory shadow-lg backdrop-blur-sm sm:bottom-7 sm:left-7 sm:px-6 sm:py-5">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#e2c27b]">{e.category}</span>
+                <h3 className="font-display text-2xl leading-tight sm:text-3xl">{e.title}</h3>
+                <p className="max-w-md text-sm leading-6 text-ivory/85">{e.text}</p>
               </figcaption>
             </div>
           </figure>

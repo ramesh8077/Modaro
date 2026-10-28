@@ -77,9 +77,9 @@ export const storyPage = {
     img2: si("Trees near the villa", "center", 900, 900),
   },
   stage: [
-    { label: "A wish", text: "A place where friends and families could reconnect freely, celebrate birthdays and anniversaries, and enjoy music and gatherings with fewer restrictions.", img: si("Friends and family sharing a meal together", "center", 1400, 1000) },
-    { label: "A place", text: "The expressway offered accessibility while the greenery near Mohand Forest gave the land a sense of seclusion. Years of dedication transformed that possibility into an oasis of celebration.", img: si("Greenery near Mohand Forest", "center", 1400, 1000) },
-    { label: "A shared experience", text: "Today Villa Modaro welcomes poolside parties, intimate anniversaries, birthdays and cherished get-togethers in harmony with nature and the clean Himalayan surroundings.", img: si("Guests sharing time together at the villa", "center", 1400, 1000) },
+    { label: "Arrive with ease", text: "On-site parking is available for guests arriving at Villa Modaro. Stay connected throughout your time at the villa with Wi-Fi.", img: si("Villa Modaro driveway and guest parking", "center", 1400, 1000) },
+    { label: "Everyday comforts", text: "A kitchen and refrigerator are available for practical needs during your stay, with the comforts of a clean and thoughtfully maintained setup.", img: si("Villa Modaro kitchen with refrigerator", "center", 1400, 1000) },
+    { label: "Peace of mind", text: "Security arrangements are in place at the property, with CCTV included as part of Villa Modaro's security setup.", img: si("Villa Modaro property entrance and security", "center", 1400, 1000) },
   ],
   transformation: {
     title: "Shaped with patience. Made for people.",
@@ -217,9 +217,9 @@ Object.assign(storyPage, {
   longing: { ...storyPage.longing, img: photoRecord(assets.living, "Friends sharing time in the villa living room", "Shared time at Villa Modaro") },
   discovery: { ...storyPage.discovery, img: photoRecord(assets.driveway, "Tree-lined driveway leading to Villa Modaro", "The grounds of Villa Modaro today"), img2: photoRecord(assets.pavilion, "Open garden pavilion surrounded by greenery", "The garden pavilion today") },
   stage: [
-    { ...storyPage.stage[0], img: photoRecord(assets.dining, "Friends sharing dinner around the villa dining table", "A place made for gathering") },
-    { ...storyPage.stage[1], img: photoRecord(assets.poolside, "Shaded seating beside the villa pool", "A setting close to nature") },
-    { ...storyPage.stage[2], img: photoRecord(assets.court, "Outdoor pickleball court set among the gardens", "A shared experience today") },
+    { ...storyPage.stage[0], img: photoRecord(assets.driveway, "Villa Modaro driveway and guest parking", "Parking and arrival") },
+    { ...storyPage.stage[1], img: photoRecord(assets.kitchen, "Villa Modaro kitchen with refrigerator", "Kitchen and refrigerator") },
+    { ...storyPage.stage[2], img: photoRecord(assets.entry, "Villa Modaro property entrance and security", "Security and CCTV") },
   ],
   transformation: { ...storyPage.transformation, img: photoRecord(assets.outdoorDining, "Covered outdoor dining area prepared for a gathering", "The villa today"), img2: photoRecord(assets.outdoorSeating, "Poolside lounge seating under a garden umbrella", "Time outdoors") },
   today: { ...storyPage.today, imgs: [photoRecord(assets.bedroomOne, "Warmly lit villa bedroom with a double bed", "A quiet room"), photoRecord(assets.pickleball, "Guests playing pickleball on the garden court", "A game together"), photoRecord(assets.yoga, "Yoga mats on the lawn beside the pickleball court", "A slower morning")] },

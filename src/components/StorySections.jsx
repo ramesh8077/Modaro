@@ -76,7 +76,7 @@ export function Stage() {
         backgroundPosition: "center",
       }}
     >
-      <h2 id="stage-h" className="sr-only">How the story unfolded</h2>
+      <h2 id="stage-h" className="sr-only">Villa amenities and essentials</h2>
       {s.stage.map((c, i) => (
         <article key={c.label} data-sc className={`${wrap} grid items-center gap-8 py-16 lg:h-full lg:grid-cols-12 lg:py-0`}>
           <div data-stext className="lg:col-span-4">

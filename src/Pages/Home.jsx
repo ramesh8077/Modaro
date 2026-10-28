@@ -283,10 +283,10 @@ const featuredEscapes = [
 ];
 
 const editorialStories = [
-  { category: "PRIVATE DINING", title: "The art of dining together", text: "At Villa Modaro, sharing a meal is part of the experience. Gather around the table, take your time and enjoy being together.", image: homePhotoSets.editorial[0], to: "/the-villa#bar-dining", action: "Explore dining" },
-  { category: "POOL & GARDENS", title: "Let the afternoon linger", text: homeSite.experiences[0].text, image: homePhotoSets.editorial[1], to: "/the-villa#outdoors", action: "Explore the villa" },
-  { category: "PICKLEBALL", title: "A little play. A lot of connection.", text: homeSite.experiences[1].text, image: homePhotoSets.editorial[2], to: "/the-villa#outdoors", action: "Explore the villa" },
-  { category: "TOGETHERNESS", title: "Make room for your people", text: "Celebrate a birthday, mark an anniversary or simply bring everyone together in a private setting near Mohand Forest.", image: homePhotoSets.editorial[3], to: "/booking", action: "Plan a celebration" },
+  { category: "DINING", title: "Gather around the table", text: "The villa’s dining room gives family and friends a comfortable place to share meals and spend time together.", image: homePhotoSets.editorial[0], to: "/the-villa#bar-dining", action: "Explore dining" },
+  { category: "POOL & GARDENS", title: "Take time by the pool", text: "Enjoy a refreshing dip, unwind beside the pool or spend a slow afternoon in the landscaped gardens.", image: homePhotoSets.editorial[1], to: "/the-villa#outdoors", action: "Explore pool & gardens" },
+  { category: "PICKLEBALL", title: "Play a game together", text: "Enjoy a friendly game on the outdoor pickleball court, with the villa gardens all around.", image: homePhotoSets.editorial[2], to: "/the-villa#outdoors", action: "Explore pickleball" },
+  { category: "CELEBRATIONS", title: "A private setting to celebrate", text: "Bring family and friends together near Mohand Forest for birthdays, anniversaries and private gatherings.", image: homePhotoSets.editorial[3], to: "/booking", action: "Plan a gathering" },
 ];
 
 const browseTiles = [
@@ -367,7 +367,7 @@ function DiscoverStay() {
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
           <Reveal className="mb-6 flex flex-col items-center gap-4 sm:relative sm:mb-8 sm:flex-row sm:justify-center">
             <div className="w-full">
-              <h2 id="featured-heading" className="pm-gold-em-dark mx-auto mt-3 text-center font-display text-4xl text-charcoal sm:text-5xl"><Words text="Featured Stays" /></h2>
+              <h2 id="featured-heading" className="max-w-full bg-gradient-to-r from-[#080a09] via-[#343a35] to-[#080a09] bg-clip-text text-center font-display text-4xl font-semibold uppercase tracking-[0.08em] text-transparent sm:text-6xl lg:text-7xl"><Words text="Featured Stays" /></h2>
             </div>
             <div className="flex items-center gap-2 sm:absolute sm:right-0 sm:gap-3">
               <Link to="/the-villa" className="mr-1 hidden min-h-10 items-center gap-1 text-xs text-[#80601d] underline-offset-4 hover:underline sm:inline-flex">View all <ArrowUpRight size={14} /></Link>
@@ -385,10 +385,10 @@ function DiscoverStay() {
                         <Img img={offer.image} className="size-full transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" eager />
                       </div>
                       <div className="flex min-h-[250px] flex-col p-5 sm:p-6">
-                        <h3 className="font-display text-2xl font-medium leading-tight text-charcoal">{offer.title}</h3>
-                        <p className="mt-2 min-h-12 text-sm leading-6 text-charcoal/75">{offer.description}</p>
+                        <h3 className="font-display text-2xl font-medium leading-tight text-[#111511] capitalize sm:text-3xl">{offer.title}</h3>
+                        <p className="mt-2 min-h-12 text-base leading-7 text-charcoal/80">{offer.description}</p>
                         <ul className="mt-3 space-y-1.5 border-t border-charcoal/12 pt-3 text-sm text-charcoal/85">{offer.inclusions.map((item, itemIndex) => <li key={item} style={{ "--i": itemIndex }} className="pm-li flex items-center gap-2"><span aria-hidden="true" className="text-xs text-[#80601d]">◉</span>{item}</li>)}</ul>
-                        <span className="mt-auto flex min-h-11 items-end justify-end pt-4 text-xs font-medium"><span className="inline-flex items-center bg-forest px-4 py-2.5 text-white transition-colors group-hover:bg-[#10291f]">{offer.action}</span></span>
+                        <span className="mt-auto flex min-h-11 items-end justify-end pt-4 text-xs font-semibold"><span className="inline-flex items-center bg-[#e4b02f] px-4 py-2.5 text-charcoal transition-colors group-hover:bg-[#f0d9aa]">{offer.action}</span></span>
                       </div>
                     </Link>
                   </div>
@@ -403,14 +403,14 @@ function DiscoverStay() {
       {/* Browse tiles — ivory with glass captions */}
       <section aria-labelledby="browse-heading" className="relative isolate overflow-hidden pt-6 pb-12 text-charcoal sm:pt-8 sm:pb-16">
         <div aria-hidden="true" className="absolute inset-0 z-0">
-          <Img img={homePhotoSets.story} className="size-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/15" />
+          <Img img={homePhotoSets.story} className="size-full scale-110 object-cover object-center blur-[5px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/25" />
         </div>
         <span aria-hidden="true" className="pm-orb pm-orb-gold -right-24 top-0 size-80" />
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
           <Reveal as="header" className="relative mb-10 flex items-center justify-center gap-4">
             <div>
-              <h2 id="browse-heading" className="pm-gold-em mx-auto w-fit bg-black/45 px-6 py-2 text-center font-display text-4xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.9)] sm:text-5xl"><Words text="Explore the villa" /></h2>
+              <h2 id="browse-heading" className="mx-auto w-fit px-6 py-2 text-center font-display text-4xl font-semibold uppercase tracking-[0.08em] text-white sm:text-6xl"><Words text="Explore the villa" /></h2>
             </div>
             <div className="absolute right-0 hidden items-center gap-2 sm:flex">
               <button type="button" onClick={() => move(browseRail, -1)} aria-label="Scroll discovery tiles left" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-forest hover:text-white"><ArrowLeft size={16} /></button>
@@ -440,20 +440,20 @@ function DiscoverStay() {
       <section aria-labelledby="experiences-heading" className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#f2f2f2_0%,#e5e5e5_52%,#dcdcdc_100%)] py-7 text-charcoal sm:py-9 lg:py-10">
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
           <header className="mb-7 sm:mb-9">
-            <h2 id="experiences-heading" className="mx-auto mt-3 max-w-3xl text-center font-display text-4xl leading-tight text-charcoal sm:text-5xl">Moments made to be shared</h2>
+            <h2 id="experiences-heading" className="mx-auto max-w-full bg-gradient-to-r from-[#080a09] via-[#343a35] to-[#080a09] bg-clip-text text-center font-display text-4xl font-semibold uppercase tracking-[0.08em] text-transparent sm:text-6xl lg:text-7xl">Experiences at Villa Modaro</h2>
           </header>
-          <div className="grid gap-5 sm:gap-6 lg:grid-cols-3">
+          <div className="grid items-stretch gap-5 sm:gap-6 lg:grid-cols-3">
             {editorialStories.map((story, index) => {
               const featured = index === 0;
               return (
-                <Reveal as="article" key={story.title} delay={index === 0 ? 0 : (index - 1) * 120} className={`group relative overflow-hidden rounded-none border border-charcoal/10 bg-white text-charcoal ${featured ? "md:grid md:grid-cols-2 lg:col-span-3" : "flex flex-col"}`}>
+                <Reveal as="article" key={story.title} delay={index === 0 ? 0 : (index - 1) * 120} className={`group relative h-full overflow-hidden rounded-none border border-charcoal/10 bg-white text-charcoal ${featured ? "md:grid md:grid-cols-2 lg:col-span-3" : "flex flex-col"}`}>
                   <div className={`pm-curtain relative overflow-hidden bg-olive/20 ${featured ? "aspect-[1.35] min-h-[280px] sm:min-h-[360px] md:aspect-auto md:min-h-[420px]" : "aspect-[1.55]"}`}><Img img={story.image} className="absolute inset-0 size-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]" /></div>
-                  <div className={`flex flex-1 flex-col ${featured ? "justify-center px-6 py-8 sm:px-9 sm:py-10 lg:px-12" : "px-5 py-6 sm:px-6 sm:py-7"}`}>
-                    <p className="kicker-lux text-[#d2b16b]">{story.category}</p>
-                    <h3 className={`mt-3 font-display text-charcoal ${featured ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"}`}>{story.title}</h3>
+                  <div className={`flex flex-1 flex-col ${featured ? "justify-center px-6 py-8 sm:px-9 sm:py-10 lg:px-12" : "min-h-[320px] px-5 py-6 sm:px-6 sm:py-7"}`}>
+                    <p className="kicker-lux w-fit bg-[#f5edda] px-2 py-1 text-sm font-extrabold tracking-[0.16em] !text-[#5c420a]">{story.category}</p>
+                    <h3 className={`mt-3 font-display text-[#111511] capitalize ${featured ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"}`}>{story.title}</h3>
                     <span aria-hidden="true" className="my-4 w-full border-t border-white/15 sm:my-5" />
                     <p className="text-sm leading-7 text-[#50545A] sm:text-base">{story.text}</p>
-                    <Link to={story.to} className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 border border-[#d2b16b]/60 bg-forest px-5 text-xs font-medium text-ivory transition-colors hover:bg-[#10291f]">{story.action}<ArrowUpRight size={15} /></Link>
+                    <Link to={story.to} className="mt-auto inline-flex min-h-11 w-fit items-center gap-2 border border-[#d2b16b]/60 bg-[#e4b02f] px-5 py-2 text-xs font-semibold text-charcoal transition-colors hover:bg-[#f0d9aa]">{story.action}<ArrowUpRight size={15} /></Link>
                   </div>
                 </Reveal>
               );
@@ -476,11 +476,8 @@ function InteriorSpaces() {
     <section aria-labelledby="interior-heading" className="relative isolate -mt-px overflow-hidden border-0 bg-ivory pt-0 pb-10 text-charcoal sm:pb-12 lg:pb-16" style={{ border: "none", outline: "none", boxShadow: "none" }}>
       <span aria-hidden="true" className="pm-orb pm-orb-sage -right-24 bottom-0 size-[28rem]" />
       <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
-        <Reveal as="header" className="mb-8 flex flex-col items-center gap-5 sm:relative sm:mb-10 sm:flex-row sm:justify-center">
-          <div className="w-full">
-            <h2 id="interior-heading" className="mx-auto max-w-3xl text-center font-display text-4xl font-medium text-charcoal sm:text-5xl lg:text-6xl">Inside the villa</h2>
-          </div>
-          <Link to="/the-villa" className="pm-glass-light inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs text-charcoal transition-colors hover:bg-[#e8dfce] sm:absolute sm:right-0">Explore the villa<ArrowUpRight size={15} /></Link>
+        <Reveal as="header" className="mb-8 flex justify-center sm:mb-10">
+          <h2 id="interior-heading" className="max-w-full bg-gradient-to-r from-[#080a09] via-[#343a35] to-[#080a09] bg-clip-text text-center font-display text-4xl font-semibold uppercase tracking-[0.08em] text-transparent sm:text-6xl lg:text-7xl">Inside the villa</h2>
         </Reveal>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
           {interiorSpaces.map((space, index) => (
@@ -491,8 +488,8 @@ function InteriorSpaces() {
                 </span>
               </Link>
               <div className="shrink-0 border-t border-charcoal/15 bg-white px-5 py-3 text-charcoal sm:px-6 sm:py-4">
-                <p className="font-display text-2xl font-medium leading-tight sm:text-3xl">{space.title}</p>
-                <p className="mt-1 text-sm font-medium text-charcoal">{space.note}</p>
+                <p className="font-display text-3xl font-medium leading-tight text-[#b8892c] capitalize sm:text-4xl">{space.title}</p>
+                <p className="mt-1 text-base font-medium text-[#111511] capitalize sm:text-lg">{space.note}</p>
               </div>
             </Reveal>
           ))}
@@ -514,32 +511,34 @@ function VillaAtAGlance() {
     <section aria-labelledby="villa-glance-heading" className="bg-[#171a18] px-4 py-12 text-[#f4f0e8] sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <Reveal variant="soft" className="mx-auto grid max-w-[1440px] overflow-hidden border border-[#c7a86a]/40 bg-[#202522] shadow-[0_28px_80px_-42px_rgba(0,0,0,.8)] lg:grid-cols-[1.35fr_.65fr]">
         <div className="p-6 sm:p-9 lg:p-12">
-          <p className="kicker-lux text-[#d2b16b]">THE VILLA, AT A GLANCE</p>
-          <h2 id="villa-glance-heading" className="mt-3 max-w-2xl font-display text-4xl text-[#f4f0e8] sm:text-5xl">Room for the people who matter</h2>
-          <p className="mt-4 max-w-xl text-sm leading-7 text-[#f4f0e8]/70 sm:text-base">A private, three-bedroom stay near Mohand Forest, with the spaces and little pleasures that bring everyone together.</p>
+          <h2 id="villa-glance-heading" className="mt-3 max-w-2xl font-display text-4xl text-[#b8892c] sm:text-5xl">A private three-bedroom villa near Mohand Forest</h2>
+          <p className="mt-4 max-w-xl text-sm leading-7 text-[#f4f0e8]/75 sm:text-base">Enjoy a private pool, landscaped gardens and room for family and friends, with three bedrooms and space for up to six adults and three children.</p>
 
           <div className="mt-7 border-t border-white/15">
             {facts.map(([number, label, value]) => (
               <div key={label} className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-white/10 py-4 sm:grid-cols-[3rem_1fr] sm:gap-4">
                 <span className="pt-1 text-[10px] tracking-[0.18em] text-[#d2b16b]">{number}</span>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1">
-                  <p className="font-display text-xl text-[#e3d1a7] sm:text-2xl">{label}</p>
-                  <p className="max-w-sm text-xs leading-5 text-[#f4f0e8]/65 sm:text-sm">{value}</p>
+                  <p className="font-display text-xl text-[#b8892c] sm:text-2xl">{label}</p>
+                  <p className="max-w-sm text-xs leading-5 text-[#f4f0e8]/75 sm:text-sm">{value}</p>
                 </div>
               </div>
             ))}
           </div>
-          <Link to="/the-villa" className="mt-6 inline-flex min-h-11 items-center border-b border-[#c7a86a]/60 text-xs font-medium tracking-wide text-[#e3d1a7] transition-colors hover:text-white">Explore the villa <ArrowUpRight size={15} className="ml-2" /></Link>
+          <Link to="/the-villa" className="btn mt-6 inline-flex min-h-12 w-full items-center justify-center border border-[#d2ae6c]/60 bg-[#e4b02f] px-6 text-xs font-semibold tracking-widest text-[#171a18] transition-colors hover:bg-[#f0d9aa]">Explore the villa <ArrowUpRight size={15} className="ml-2" /></Link>
         </div>
 
         <div className="flex flex-col justify-between border-t border-[#c7a86a]/25 bg-[#121614] p-6 sm:p-9 lg:border-l lg:border-t-0 lg:p-10">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f4f0e8]/55">Indicative nightly rate</p>
-            <p className="mt-4 whitespace-nowrap font-display text-[clamp(1.9rem,4vw,3rem)] leading-none text-[#f4f0e8]">₹12,000<span className="px-1.5 text-[#d2b16b]">—</span>₹20,000</p>
-            <p className="mt-3 text-sm text-[#f4f0e8]/65">per night</p>
-            <p className="mt-6 max-w-xs text-xs leading-6 text-[#f4f0e8]/55">Rates vary by weekday, weekend, season and festive dates. Final pricing is shared during enquiry.</p>
+            <h3 className="font-display text-2xl font-medium leading-tight text-[#d2b16b] sm:text-3xl">A special rate for your stay</h3>
+            <p className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-2 font-display leading-none">
+              <span className="text-2xl text-[#a9aaa5] line-through decoration-[#d2b16b] decoration-2 sm:text-3xl">₹20,000</span>
+              <span className="text-[clamp(2rem,4vw,3rem)] text-[#f4f0e8]">₹17,000</span>
+            </p>
+            <p className="mt-3 text-sm font-medium text-[#f4f0e8]/75">per night <span className="ml-2 inline-block bg-[#3b3424] px-2 py-1 text-xs font-bold text-[#e3c577]">15% off</span></p>
+            <p className="mt-6 max-w-xs text-sm font-semibold leading-6 text-[#f4f0e8]/80">Rates vary by weekday, weekend, season and festive dates. Final pricing is shared during enquiry.</p>
           </div>
-          <Link to="/booking" className="btn mt-8 inline-flex min-h-12 items-center justify-center border border-[#d2b16b]/60 bg-[#c6a35d] px-6 text-xs tracking-widest text-[#171a18] transition-colors hover:bg-[#e0c783]">Ask about your dates <ArrowUpRight size={15} className="ml-2" /></Link>
+          <Link to="/booking" className="btn mt-8 inline-flex min-h-12 items-center justify-center border border-[#d2b16b]/60 bg-[#e4b02f] px-6 text-xs tracking-widest text-[#171a18] transition-colors hover:bg-[#f0d9aa]">Ask about your dates <ArrowUpRight size={15} className="ml-2" /></Link>
         </div>
       </Reveal>
     </section>
@@ -611,15 +610,15 @@ function ExclusiveMoments() {
               <article key={moment.title} className="pm-edge relative shrink-0 snap-center overflow-hidden rounded-none shadow-[0_30px_70px_-30px_rgba(0,0,0,.8)]" style={{ flex: "0 0 clamp(280px, 48vw, 680px)" }}>
                 <div className="pm-curtain group relative aspect-[1.6] overflow-hidden bg-charcoal">
                   <Img img={moment.image} className={`size-full object-cover transition-opacity duration-700 ${active === index ? "pm-kenburns opacity-100" : "opacity-50"}`} eager={index === active} />
-                  {active !== index && <div className="absolute inset-0 grid place-items-center bg-[#17110c]/45 p-6 text-center"><div><p className="kicker-lux" style={{ color: "#ecd9a8" }}>{moment.category}</p><h3 className="mt-3 font-display text-3xl text-white sm:text-4xl">{moment.title}</h3></div></div>}
-                  <button type="button" onClick={() => showSlide(index)} className="absolute inset-0 z-10 cursor-pointer" aria-label={`Show ${moment.title}`} />
+                  {active !== index && <div className="absolute inset-0 grid place-items-center bg-[#17110c]/45 p-6 text-center"><div><p className="kicker-lux" style={{ color: "#ecd9a8" }}>{moment.category}</p><h3 className="mt-3 font-display text-3xl capitalize text-white sm:text-4xl">{moment.title}</h3></div></div>}
+                  <button type="button" onClick={() => showSlide(index)} className="moment-slide-hit-area absolute inset-0 z-10 cursor-pointer" aria-label={`Show ${moment.title}`} />
                 </div>
-                {active === index && <div onPointerMove={spot} className="rounded-none border-x-0 border-b-0 bg-white px-6 py-6 text-charcoal shadow-[0_12px_32px_rgba(0,0,0,.2)] sm:px-10 sm:py-8"><p className="kicker-lux" style={{ color: "#a8832f" }}>{moment.category}</p><h3 className="mt-2 font-display text-3xl text-charcoal sm:text-4xl">{moment.title}</h3><p className="mt-3 max-w-xl text-sm leading-relaxed text-charcoal/75 sm:text-base">{moment.text}</p><Link to={moment.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-5 inline-flex min-h-10 items-center gap-2 rounded-full px-4 text-xs font-medium">{moment.action}<ArrowUpRight size={14} /></Link></div>}
+                {active === index && <div onPointerMove={spot} className="rounded-none border-x-0 border-b-0 bg-white px-6 py-6 text-charcoal shadow-[0_12px_32px_rgba(0,0,0,.2)] sm:px-10 sm:py-8"><p className="kicker-lux" style={{ color: "#a8832f" }}>{moment.category}</p><h3 className="mt-2 font-display text-3xl capitalize text-charcoal sm:text-4xl">{moment.title}</h3><p className="mt-3 max-w-xl text-sm capitalize leading-relaxed text-charcoal/75 sm:text-base">{moment.text}</p><Link to={moment.to} onPointerMove={magnet} onPointerLeave={unmagnet} className="pm-btn-gold pm-magnet mt-5 inline-flex min-h-10 items-center gap-2 rounded-none px-4 text-xs font-medium capitalize">{moment.action}<ArrowUpRight size={14} /></Link></div>}
               </article>
             ))}
           </div>
-          <button type="button" onClick={() => shift(-1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Previous featured experience" className="pm-glass pm-magnet absolute left-1 top-[31%] z-20 grid size-11 place-items-center rounded-full text-white hover:bg-[#d6b46a] hover:text-forest sm:left-4 sm:size-12"><ArrowLeft size={19} /></button>
-          <button type="button" onClick={() => shift(1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Next featured experience" className="pm-glass pm-magnet absolute right-1 top-[31%] z-20 grid size-11 place-items-center rounded-full text-white hover:bg-[#d6b46a] hover:text-forest sm:right-4 sm:size-12"><ArrowRight size={19} /></button>
+          <button type="button" onClick={() => shift(-1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Previous featured experience" className="pm-glass pm-magnet absolute left-1 top-[31%] z-20 grid size-11 place-items-center rounded-none text-white hover:bg-[#d6b46a] hover:text-forest sm:left-4 sm:size-12"><ArrowLeft size={19} /></button>
+          <button type="button" onClick={() => shift(1)} onPointerMove={magnet} onPointerLeave={unmagnet} aria-label="Next featured experience" className="pm-glass pm-magnet absolute right-1 top-[31%] z-20 grid size-11 place-items-center rounded-none text-white hover:bg-[#d6b46a] hover:text-forest sm:right-4 sm:size-12"><ArrowRight size={19} /></button>
           <div className="mt-6 flex justify-center gap-2">
             {exclusiveMoments.map((moment, index) => (
               <button key={moment.title} type="button" onClick={() => showSlide(index)} aria-label={`Go to ${moment.title}`} className={`h-1.5 rounded-full transition-all duration-500 ${active === index ? "w-8 bg-[#d6b46a]" : "w-3 bg-white/30"}`} />

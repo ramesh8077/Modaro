@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Col 1 — Brand */}
           <div>
             <L to="/" aria-label="Villa Modaro home" className="mb-3 inline-flex items-center justify-center">
-              <img src={Logo} alt="Villa Modaro Luxury Stay" width="500" height="500" className="h-20 w-20 object-contain brightness-0 invert" />
+              <img src={Logo} alt="Villa Modaro Luxury Stay" width="500" height="500" className="h-28 w-28 object-contain brightness-0 invert" />
             </L>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">
               An oasis of celebration and calm near Mohand Forest — designed

@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
             id="testimonials-heading"
             className="h2"
           >
-            Guest reviews
+            Guest Reviews
           </h2>
 
         </div>

@@ -22,12 +22,12 @@ export default function Hero() {
       <video ref={video} src={Video} poster={entryPoster} autoPlay muted={muted} loop playsInline onVolumeChange={() => setMuted(video.current?.muted ?? true)} className="absolute inset-0 h-full w-full object-cover" data-hero-img data-parallax="3" />
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/65 via-charcoal/40 to-charcoal/15" aria-hidden />
       <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-[clamp(8rem,18vh,11rem)] pt-32 lg:px-12">
-        <p data-hero className="mb-5 max-w-3xl text-[11px] leading-5 tracking-[0.24em] text-brass [text-shadow:0_2px_10px_rgba(0,0,0,0.8)] sm:text-xs sm:tracking-[0.3em]">Where celebration meets calm, in the heart of the Himalayas</p>
+        <p data-hero className="mb-5 max-w-3xl text-base font-bold leading-7 tracking-[0.08em] text-[#ffd166] [text-shadow:0_2px_5px_rgba(0,0,0,0.95)] sm:text-lg sm:tracking-[0.1em]">Where celebration meets calm, in the heart of the Himalayas</p>
         <h1 data-hero className="max-w-5xl text-[clamp(2.75rem,7vw,6rem)] leading-[1.02] text-ivory [text-shadow:0_3px_18px_rgba(0,0,0,0.8)]">Villa Modaro: Where Celebration Meets Calm</h1>
         <p data-hero className="mt-5 max-w-xl text-sm leading-6 text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.95)] sm:mt-6 sm:text-lg sm:leading-7">Villa Modaro is an oasis of celebration and calm — three bedrooms, one plunge pool, and the pristine Himalayan air near Mohand Forest. Designed for those who seek both joy and rejuvenation.</p>
-        <div data-hero className="mt-7 flex flex-wrap gap-3 sm:mt-9">
-          <a href="#booking" className="btn border border-white/80 bg-transparent text-white transition-colors hover:bg-white/15">Book Now</a>
-          <a href="/the-villa" className="btn border border-white/80 bg-transparent text-white transition-colors hover:bg-white/15">Explore the Villa</a>
+        <div data-hero className="mt-7 grid w-full max-w-[22rem] grid-cols-2 gap-3 sm:mt-9">
+          <a href="#booking" className="btn justify-center whitespace-nowrap border border-white/80 bg-transparent px-3 text-center text-white transition-colors hover:bg-white/15">Book Now</a>
+          <a href="/the-villa" className="btn justify-center whitespace-nowrap border border-white/80 bg-transparent px-3 text-center text-white transition-colors hover:bg-white/15">Explore the Villa</a>
         </div>
       </div>
       {/* <figure className="absolute bottom-28 right-6 hidden w-56 border border-ivory/35 bg-charcoal/25 p-2 backdrop-blur-sm lg:block xl:right-12"><div className="aspect-[4/3] overflow-hidden"><img src={poolside} alt="Shaded seating beside the villa pool" width="1536" height="1024" className="size-full object-cover" /></div><figcaption className="flex items-center justify-between px-1 pt-2 text-[10px] uppercase tracking-[0.18em] text-ivory/75"><span>Poolside living</span><span className="text-brass">01</span></figcaption></figure> */}

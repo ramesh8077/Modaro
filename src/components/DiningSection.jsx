@@ -62,7 +62,7 @@ export default function DiningSection() {
               Dining at Villa Modaro
             </h2>
 
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ivory/70">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-ivory/75 sm:text-lg">
               Settle beneath the pavilion for relaxed meals beside the garden.
               Ask us about a private chef or dining arrangements for your stay.
             </p>
@@ -70,22 +70,22 @@ export default function DiningSection() {
             <ul className="mt-10 space-y-6">
               {diningFeatures.map((f) => (
                 <li key={f.title}>
-                    <h3 className="font-display text-lg text-ivory">{f.title}</h3>
-                    <p className="mt-1 text-[13px] text-ivory/60">{f.desc}</p>
+                    <h3 className="font-display text-xl text-ivory">{f.title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-ivory/70 sm:text-base">{f.desc}</p>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 grid w-full max-w-md grid-cols-1 gap-3 sm:grid-cols-2">
               <a
                 href="/booking"
-                className="btn bg-brass text-charcoal hover:bg-ivory"
+                className="btn min-h-12 w-full justify-center px-3 text-center text-xs sm:text-sm bg-brass text-charcoal hover:bg-ivory"
               >
                 Ask About a Chef
               </a>
               <a
                 href="/booking"
-                className="btn border border-ivory/30 text-ivory hover:border-brass hover:text-brass"
+                className="btn min-h-12 w-full justify-center px-3 text-center text-xs sm:text-sm border border-ivory/30 text-ivory hover:border-brass hover:text-brass"
               >
                 Plan Your Dining
               </a>

@@ -130,7 +130,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 /* Shimmer CTA button variant */
 .btn-shimmer { background: #183B32; color: #fff; animation: none; }
 .btn-shimmer:hover { background: #10291f; }
-.header-book-btn { border-radius: 9999px; background: #183B32; color: #fff; transition: background-color .2s ease; }
+.header-book-btn { background: #183B32; color: #fff; transition: background-color .2s ease; }
 .header-book-btn:hover { background: #10291f; }
 
 /* Trust strip marquee container */
@@ -412,5 +412,25 @@ html.has-custom-cursor.is-selecting * {
   html.has-custom-cursor body,
   html.has-custom-cursor * {
     cursor: revert !important;
+  }
+}
+
+/* Apply the requested treatment to every native button, submit control, and button-style link. */
+@layer utilities {
+  #app-root :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, a[class*="btn"], [role="button"]) {
+    background: #e4b02f !important;
+    color: #000 !important;
+    font-weight: 900 !important;
+  }
+
+  #app-root button.moment-slide-hit-area {
+    background: transparent !important;
+    color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  #app-root :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, a[class*="btn"], [role="button"]) :is(span, svg) {
+    color: #000 !important;
+    font-weight: 900 !important;
   }
 }
