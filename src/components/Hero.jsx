@@ -27,7 +27,7 @@ export default function Hero() {
         <p data-hero className="mt-5 max-w-xl text-sm leading-6 text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.95)] sm:mt-6 sm:text-lg sm:leading-7">Villa Modaro is an oasis of celebration and calm — three bedrooms, one plunge pool, and the pristine Himalayan air near Mohand Forest. Designed for those who seek both joy and rejuvenation.</p>
         <div data-hero className="mt-7 grid w-full max-w-[22rem] grid-cols-2 gap-3 sm:mt-9">
           <a href="#booking" className="btn justify-center whitespace-nowrap border border-white/80 bg-transparent px-3 text-center text-white transition-colors hover:bg-white/15">Book Now</a>
-          <a href="/the-villa" className="btn justify-center whitespace-nowrap border border-white/80 bg-transparent px-3 text-center text-white transition-colors hover:bg-white/15">Explore the Villa</a>
+          <a href="/the-villa" className="btn justify-center whitespace-nowrap border border-white/80 bg-transparent px-3 text-center text-white transition-colors hover:bg-white/15">Explore The Villa</a>
         </div>
       </div>
       {/* <figure className="absolute bottom-28 right-6 hidden w-56 border border-ivory/35 bg-charcoal/25 p-2 backdrop-blur-sm lg:block xl:right-12"><div className="aspect-[4/3] overflow-hidden"><img src={poolside} alt="Shaded seating beside the villa pool" width="1536" height="1024" className="size-full object-cover" /></div><figcaption className="flex items-center justify-between px-1 pt-2 text-[10px] uppercase tracking-[0.18em] text-ivory/75"><span>Poolside living</span><span className="text-brass">01</span></figcaption></figure> */}

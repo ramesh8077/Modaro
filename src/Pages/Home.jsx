@@ -274,25 +274,25 @@ const unmagnet = (event) => {
 
 // Card destinations stay within the retained Villa, Amenities and Booking destinations.
 const featuredEscapes = [
-  { title: "A private villa stay", description: "A whole-villa retreat with a private pool, gardens and space to be together.", inclusions: ["Private pool", "Landscaped gardens", "Three bedrooms"], image: homePhotoSets.offers[0], to: "/the-villa", action: "Check availability" },
-  { title: "Slow days by the pool", description: "Make room for unhurried afternoons, a refreshing swim and time outdoors.", inclusions: ["Poolside living", "Outdoor spaces", "Time to unwind"], image: homePhotoSets.offers[1], to: "/the-villa#outdoors", action: "Explore the villa" },
-  { title: "A setting for togetherness", description: "Bring your favourite people together for a birthday, anniversary or family gathering.", inclusions: ["Private setting", "Garden pavilion", "Made for gathering"], image: homePhotoSets.offers[2], to: "/booking", action: "Plan a celebration" },
-  { title: "Play, pause, repeat", description: "Switch between a friendly game, quiet garden moments and the pool.", inclusions: ["Pickleball court", "Green surroundings", "Open-air moments"], image: homePhotoSets.offers[3], to: "/the-villa#outdoors", action: "Explore the villa" },
-  { title: "Dinner under open skies", description: "Share a meal and make an evening of being together outdoors.", inclusions: ["Open-air setting", "Garden surroundings", "Made for sharing"], image: homePhotoSets.offers[4], to: "/the-villa#bar-dining", action: "Explore the villa" },
-  { title: "Find a quieter corner", description: "Take a slower walk through the greenery or settle into a quiet moment outside.", inclusions: ["Landscaped grounds", "Shaded walks", "A slower pace"], image: homePhotoSets.offers[5], to: "/the-villa", action: "Explore the villa" },
+  { title: "A private villa stay", description: "A whole-villa retreat with a private pool, gardens and space to be together.", inclusions: ["Private pool", "Landscaped gardens", "Three bedrooms"], image: homePhotoSets.offers[0], to: "/the-villa", action: "Check Availability" },
+  { title: "Slow days by the pool", description: "Make room for unhurried afternoons, a refreshing swim and time outdoors.", inclusions: ["Poolside Living", "Outdoor spaces", "Time to unwind"], image: homePhotoSets.offers[1], to: "/the-villa#outdoors", action: "Explore The Villa" },
+  { title: "A setting for togetherness", description: "Bring your favourite people together for a birthday, anniversary or family gathering.", inclusions: ["Private setting", "Garden pavilion", "Made for gathering"], image: homePhotoSets.offers[2], to: "/booking", action: "Plan A Celebration" },
+  { title: "Play, pause, repeat", description: "Switch between a friendly game, quiet garden moments and the pool.", inclusions: ["Pickleball court", "Green surroundings", "Open-air moments"], image: homePhotoSets.offers[3], to: "/the-villa#outdoors", action: "Explore The Villa" },
+  { title: "Dinner under open skies", description: "Share a meal and make an evening of being together outdoors.", inclusions: ["Open-air setting", "Garden surroundings", "Made for sharing"], image: homePhotoSets.offers[4], to: "/the-villa#bar-dining", action: "Explore The Villa" },
+  { title: "Find a quieter corner", description: "Take a slower walk through the greenery or settle into a quiet moment outside.", inclusions: ["Landscaped grounds", "Shaded walks", "A slower pace"], image: homePhotoSets.offers[5], to: "/the-villa", action: "Explore The Villa" },
 ];
 
 const editorialStories = [
-  { category: "DINING", title: "Gather around the table", text: "The villa’s dining room gives family and friends a comfortable place to share meals and spend time together.", image: homePhotoSets.editorial[0], to: "/the-villa#bar-dining", action: "Explore dining" },
-  { category: "POOL & GARDENS", title: "Take time by the pool", text: "Enjoy a refreshing dip, unwind beside the pool or spend a slow afternoon in the landscaped gardens.", image: homePhotoSets.editorial[1], to: "/the-villa#outdoors", action: "Explore pool & gardens" },
-  { category: "PICKLEBALL", title: "Play a game together", text: "Enjoy a friendly game on the outdoor pickleball court, with the villa gardens all around.", image: homePhotoSets.editorial[2], to: "/the-villa#outdoors", action: "Explore pickleball" },
-  { category: "CELEBRATIONS", title: "A private setting to celebrate", text: "Bring family and friends together near Mohand Forest for birthdays, anniversaries and private gatherings.", image: homePhotoSets.editorial[3], to: "/booking", action: "Plan a gathering" },
+  { category: "DINING", title: "Gather around the table", text: "The villa’s dining room gives family and friends a comfortable place to share meals and spend time together.", image: homePhotoSets.editorial[0], to: "/the-villa#bar-dining", action: "Explore Dining" },
+  { category: "POOL & GARDENS", title: "Take time by the pool", text: "Enjoy a refreshing dip, unwind beside the pool or spend a slow afternoon in the landscaped gardens.", image: homePhotoSets.editorial[1], to: "/the-villa#outdoors", action: "Explore Pool & Gardens" },
+  { category: "PICKLEBALL", title: "Play a game together", text: "Enjoy a friendly game on the outdoor pickleball court, with the villa gardens all around.", image: homePhotoSets.editorial[2], to: "/the-villa#outdoors", action: "Explore Pickleball" },
+  { category: "CELEBRATIONS", title: "A private setting to celebrate", text: "Bring family & friends together near Mohand Forest for birthdays, anniversaries & private gatherings.", image: homePhotoSets.editorial[3], to: "/booking", action: "Plan A Celebration" },
 ];
 
 const browseTiles = [
   { title: "Mohand Forest", subtitle: "A private escape near the expressway", image: homePhotoSets.browse[0], to: "/the-villa" },
   { title: "Pool & gardens", subtitle: "Space to slow down outdoors", image: homePhotoSets.browse[1], to: "/the-villa#outdoors" },
-  { title: "Time together", subtitle: "Gather for the moments that matter", image: homePhotoSets.browse[2], to: "/booking" },
+  { title: "Time Together", subtitle: "Gather for the moments that matter", image: homePhotoSets.browse[2], to: "/booking" },
   { title: "A little play", subtitle: "Discover the villa experiences", image: homePhotoSets.browse[3], to: "/the-villa#outdoors" },
 ];
 
@@ -410,7 +410,7 @@ function DiscoverStay() {
         <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
           <Reveal as="header" className="relative mb-10 flex items-center justify-center gap-4">
             <div>
-              <h2 id="browse-heading" className="mx-auto w-fit px-6 py-2 text-center font-display text-4xl font-semibold uppercase tracking-[0.08em] text-white sm:text-6xl"><Words text="Explore the villa" /></h2>
+              <h2 id="browse-heading" className="mx-auto w-fit px-6 py-2 text-center font-display text-4xl font-semibold uppercase tracking-[0.08em] text-white sm:text-6xl"><Words text="Explore The Villa" /></h2>
             </div>
             <div className="absolute right-0 hidden items-center gap-2 sm:flex">
               <button type="button" onClick={() => move(browseRail, -1)} aria-label="Scroll discovery tiles left" className="pm-glass-light grid size-9 place-items-center rounded-full transition-colors hover:bg-forest hover:text-white"><ArrowLeft size={16} /></button>
@@ -511,7 +511,7 @@ function VillaAtAGlance() {
     <section aria-labelledby="villa-glance-heading" className="bg-[#171a18] px-4 py-12 text-[#f4f0e8] sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <Reveal variant="soft" className="mx-auto grid max-w-[1440px] overflow-hidden border border-[#c7a86a]/40 bg-[#202522] shadow-[0_28px_80px_-42px_rgba(0,0,0,.8)] lg:grid-cols-[1.35fr_.65fr]">
         <div className="p-6 sm:p-9 lg:p-12">
-          <h2 id="villa-glance-heading" className="mt-3 max-w-2xl font-display text-4xl text-[#b8892c] sm:text-5xl">A private three-bedroom villa near Mohand Forest</h2>
+          <h2 id="villa-glance-heading" className="mt-3 max-w-2xl font-display text-4xl text-[#b8892c] sm:text-5xl">A Private Three-Bedroom Villa Near Mohand Forest</h2>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#f4f0e8]/75 sm:text-base">Enjoy a private pool, landscaped gardens and room for family and friends, with three bedrooms and space for up to six adults and three children.</p>
 
           <div className="mt-7 border-t border-white/15">
@@ -525,12 +525,12 @@ function VillaAtAGlance() {
               </div>
             ))}
           </div>
-          <Link to="/the-villa" className="btn mt-6 inline-flex min-h-12 w-full items-center justify-center border border-[#d2ae6c]/60 bg-[#e4b02f] px-6 text-xs font-semibold tracking-widest text-[#171a18] transition-colors hover:bg-[#f0d9aa]">Explore the villa <ArrowUpRight size={15} className="ml-2" /></Link>
+          <Link to="/the-villa" className="btn mt-6 inline-flex min-h-12 w-full items-center justify-center border border-[#d2ae6c]/60 bg-[#e4b02f] px-6 text-xs font-semibold tracking-widest text-[#171a18] transition-colors hover:bg-[#f0d9aa]">Explore The Villa <ArrowUpRight size={15} className="ml-2" /></Link>
         </div>
 
         <div className="flex flex-col justify-between border-t border-[#c7a86a]/25 bg-[#121614] p-6 sm:p-9 lg:border-l lg:border-t-0 lg:p-10">
           <div>
-            <h3 className="font-display text-2xl font-medium leading-tight text-[#d2b16b] sm:text-3xl">A special rate for your stay</h3>
+            <h3 className="font-display text-2xl font-medium leading-tight text-[#d2b16b] sm:text-3xl">A Special Rate For Your Stay</h3>
             <p className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-2 font-display leading-none">
               <span className="text-2xl text-[#a9aaa5] line-through decoration-[#d2b16b] decoration-2 sm:text-3xl">₹20,000</span>
               <span className="text-[clamp(2rem,4vw,3rem)] text-[#f4f0e8]">₹17,000</span>
@@ -538,7 +538,7 @@ function VillaAtAGlance() {
             <p className="mt-3 text-sm font-medium text-[#f4f0e8]/75">per night <span className="ml-2 inline-block bg-[#3b3424] px-2 py-1 text-xs font-bold text-[#e3c577]">15% off</span></p>
             <p className="mt-6 max-w-xs text-sm font-semibold leading-6 text-[#f4f0e8]/80">Rates vary by weekday, weekend, season and festive dates. Final pricing is shared during enquiry.</p>
           </div>
-          <Link to="/booking" className="btn mt-8 inline-flex min-h-12 items-center justify-center border border-[#d2b16b]/60 bg-[#e4b02f] px-6 text-xs tracking-widest text-[#171a18] transition-colors hover:bg-[#f0d9aa]">Ask about your dates <ArrowUpRight size={15} className="ml-2" /></Link>
+          <Link to="/booking" className="btn mt-8 inline-flex min-h-12 items-center justify-center border border-[#d2b16b]/60 bg-[#e4b02f] px-6 text-xs tracking-widest text-[#171a18] transition-colors hover:bg-[#f0d9aa]">Ask About Your Dates <ArrowUpRight size={15} className="ml-2" /></Link>
         </div>
       </Reveal>
     </section>
@@ -599,7 +599,7 @@ function ExclusiveMoments() {
       <div className="container-lux relative z-10" style={{ maxWidth: "none", paddingInline: "clamp(1rem, 4vw, 4rem)" }}>
         <Reveal as="header" className="grid gap-5 md:grid-cols-2 md:items-end md:gap-10">
           <div>
-            <h2 id="exclusive-heading" className="pm-gold-em max-w-2xl font-display text-5xl text-white sm:text-6xl"><Words text="Private experiences" /></h2>
+            <h2 id="exclusive-heading" className="pm-gold-em max-w-2xl font-display text-5xl text-white sm:text-6xl"><Words text="Private Experiences" /></h2>
             <span className="pm-rule pm-rule-draw mt-5 block w-40" />
           </div>
           <p className="max-w-xl pb-1 text-sm leading-7 text-white/75 sm:text-base">Find your own rhythm at Villa Modaro—from slow afternoons by the pool to celebrations and shared meals in the gardens.</p>
@@ -671,7 +671,7 @@ export default function Home() {
       <Reveal variant="soft">
         <GalleryMasonry
           items={homeSite.gallery}
-          title="Villa gallery"
+          title="Villa Gallery"
         />
       </Reveal>
 

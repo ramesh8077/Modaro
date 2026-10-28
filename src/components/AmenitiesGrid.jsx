@@ -44,7 +44,7 @@ export default function AmenitiesGrid() {
             id="amenities-heading"
             className="h2 mx-auto max-w-2xl text-charcoal"
           >
-            Thoughtful essentials
+            Thoughtful Essentials
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base font-medium text-charcoal/75">
             The everyday comforts that help make each Villa Modaro stay easy.

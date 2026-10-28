@@ -32,13 +32,13 @@ export const site = {
   chapters: [
     { title: "Celebrate", text: "Bring friends and family together for birthdays, intimate anniversaries and gatherings in a private setting made for sharing life's milestones.", img: img("Guests gathered for a celebration", "center", 1400, 1000) },
     { title: "Unwind", text: "Spend a slow afternoon by the plunge pool, wander the landscaped gardens or enjoy a quiet getaway near Mohand Forest.", img: img("The pool in afternoon light", "center", 1400, 1000) },
-    { title: "Reconnect", text: "Three bedrooms, a lounge and bar, a drawing-cum-dining room and kitchen make space for six guests plus kids to reconnect and enjoy time together.", img: img("Garden path among greenery", "center", 1400, 1000) },
+    { title: "Reconnect", text: "Three bedrooms, a lounge and bar, a drawing-cum-dining room and kitchen make space for six guests plus kids to reconnect &enjoy time together.", img: img("Garden path among greenery", "center", 1400, 1000) },
   ],
   experiences: [
-    { title: "Poolside living", text: "Slow afternoons and easy gatherings by the water.", category: "Pool", img: img("Poolside seating", "center", 1400, 1000), span: "lg:col-span-7" },
-    { title: "Pickleball and play", text: "Friendly games, shared between friends and family.", category: "Activities", img: img("Pickleball court", "center", 900, 1200), span: "lg:col-span-5 lg:mt-24" },
-    { title: "Garden escapes", text: "Landscaped paths for quiet walks among the greenery.", category: "Nature", img: img("Landscaped gardens", "center", 900, 1200), span: "lg:col-span-5" },
-    { title: "Time together", text: "Easy conversation and nowhere else to be.", category: "Social", img: img("Friends and family together", "center", 1400, 1000), span: "lg:col-span-7 lg:mt-24" },
+      { title: "Poolside Living", text: "Slow afternoons and easy gatherings by the water.", category: "Pool", img: img("Poolside seating", "center", 1400, 1000), span: "lg:col-span-7" },
+    { title: "Pickleball & Play", text: "Friendly games, shared between friends and family.", category: "Activities", img: img("Pickleball court", "center", 900, 1200), span: "lg:col-span-5 lg:mt-24" },
+    { title: "Garden Escapes", text: "Landscaped paths for quiet walks among the greenery.", category: "Nature", img: img("Landscaped gardens", "center", 900, 1200), span: "lg:col-span-5" },
+    { title: "Time Together", text: "Easy conversation and nowhere else to be.", category: "Social", img: img("Friends and family together", "center", 1400, 1000), span: "lg:col-span-7 lg:mt-24" },
   ],
   gallery: [
     { ...img("Villa exterior", "center", 1200, 1600), cls: "row-span-2" },
@@ -150,14 +150,14 @@ export const experiencesPage = {
   day: [
     { time: "Morning", text: "Quiet moments in the gardens.", img: ei("Morning in the gardens", "center", 800, 1000) },
     { time: "Afternoon", text: "Poolside relaxation and a game of pickleball.", img: ei("Afternoon by the pool", "center", 800, 1000) },
-    { time: "Evening", text: "Time together.", img: ei("Evening at the villa", "center", 800, 1000) },
+    { time: "Evening", text: "Time Together.", img: ei("Evening at the villa", "center", 800, 1000) },
   ],
   gallery: [
     { ...ei("The pool", "center", 1600, 1066, "The pool"), cls: "col-span-2" },
     { ...ei("Garden greenery", "center", 1200, 1600, "Garden greenery"), cls: "row-span-2" },
     { ...ei("Pickleball", "center", 1200, 1200, "Pickleball"), cls: "" },
     { ...ei("Poolside detail", "center", 1200, 1200, "Poolside detail"), cls: "" },
-    { ...ei("Gathering outdoors", "center", 1600, 1066, "Time together"), cls: "col-span-2" },
+    { ...ei("Gathering outdoors", "center", 1600, 1066, "Time Together"), cls: "col-span-2" },
     { ...ei("Garden path", "center", 1200, 1600, "Garden path"), cls: "row-span-2" },
     { ...ei("Evening light", "center", 1200, 1200, "Evening light"), cls: "" },
     { ...ei("Outdoor seating", "center", 1200, 1200, "Outdoor seating"), cls: "" },

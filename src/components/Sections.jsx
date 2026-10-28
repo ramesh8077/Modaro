@@ -13,6 +13,11 @@ import { homeSite as site } from "../data/home";
 const kicker = "kicker-lux";
 const wrap = "container-lux";
 
+// WhatsApp number (country code ke saath, bina + ya spaces ke). Message yahan edit kar sakte ho.
+const WHATSAPP_NUMBER = "919311744444";
+const WHATSAPP_MESSAGE = "Hello Villa Modaro, I would like to enquire about a stay.";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
 // ============================================================
 // 01 — VILLA SHOWCASE
 // (Inspired by Four Seasons "Featured Properties" + Roseate editorial grid)
@@ -40,7 +45,7 @@ export function Story() {
         <div className="relative flex w-full min-w-0 flex-col justify-center overflow-hidden bg-[#080808] px-6 py-12 text-white sm:px-10 sm:py-14 lg:px-14 lg:py-16 xl:px-20">
           <p className={`${kicker} !font-bold !text-[#d6b46a]`}>OUR STORY · VILLA MODARO</p>
           <h2 id="brand-story-heading" className="mt-5 max-w-none font-display text-4xl font-medium leading-[1.16] tracking-[-0.01em] text-white sm:text-5xl lg:text-[3rem]">
-            <span className="block">A private place to gather</span>
+            <span className="block">A Private Place To Gather</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base font-medium leading-7 text-white/90 sm:text-[18px] sm:leading-8">
             Villa Modaro is an oasis of celebration and calm, designed for those who seek both joy and rejuvenation. Every occasion finds its perfect setting: a quiet escape with friends and family, intimate anniversaries, birthdays, family gatherings, poolside relaxation or parties.
@@ -95,7 +100,7 @@ export function Experiences() {
             <h2 id="exp-heading" className="mt-4 whitespace-nowrap text-[clamp(1rem,5vw,4.5rem)]">POOL, PLAY &amp; GARDEN EXPERIENCES</h2>
           </div>
           <Link to="/the-villa#outdoors" className="inline-flex min-h-11 items-center gap-2 text-sm transition-colors hover:text-brass">
-            Explore the villa <ArrowUpRight size={15} />
+            Explore The Villa <ArrowUpRight size={15} />
           </Link>
         </div>
       </header>
@@ -263,7 +268,7 @@ export function GalleryMasonry({ items, title }) {
 
         <div className="mt-12 text-center">
           <Link to="/gallery" className="btn border border-charcoal hover:bg-charcoal hover:text-ivory">
-            View full gallery
+            View Full Gallery
           </Link>
         </div>
       </div>
@@ -382,15 +387,14 @@ export function ClosingInvite() {
             <a href="#booking" className="btn btn-shimmer min-h-11 px-8 tracking-widest text-xs">
               Book Now
             </a>
-            {site.contact.whatsapp ? (
-              <a href={site.contact.whatsapp} className="btn min-h-11 border border-ivory/40 text-ivory hover:border-brass hover:text-brass" target="_blank" rel="noopener noreferrer">
-                Enquire on WhatsApp
-              </a>
-            ) : (
-              <span aria-disabled="true" title="WhatsApp contact details pending" className="btn min-h-11 cursor-not-allowed border border-ivory/30 text-ivory/55">
-                Enquire on WhatsApp · Contact pending
-              </span>
-            )}
+            <a
+              href={WHATSAPP_URL}
+              className="btn min-h-11 border border-ivory/40 text-ivory hover:border-brass hover:text-brass"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Enquire on WhatsApp
+            </a>
           </div>
         </div>
       </div>

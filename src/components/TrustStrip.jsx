@@ -4,7 +4,7 @@
 const items = [
   { icon: "🛏️", value: "3 Bedrooms", label: "Room to rest" },
   { icon: "👥", value: "6 Guests + kids", label: "Guest capacity" },
-  { icon: "🏊", value: "Plunge Pool", label: "Poolside living" },
+  { icon: "🏊", value: "Plunge Pool", label: "Poolside Living" },
   { icon: "🏓", value: "Pickleball Court", label: "Play together" },
   { icon: "🍸", value: "Live Bar", label: "By the poolside" },
   { icon: "🔥", value: "Bonfire Lawn", label: "Evenings outdoors" },

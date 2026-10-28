@@ -4,6 +4,9 @@ import Logo from "../assets/ModeroLogo.png";
 import L from "./NavLink";
 
 const EMAIL = "modarotheluxuryvilla@gmail.com";
+const PHONE_LABEL = "+91 93117 44444";
+const PHONE_HREF = "tel:+919311744444";
+const INSTAGRAM = "https://www.instagram.com/modaro__theluxurystay";
 
 // Address yahan ek jagah edit karo. Pura/sahi address mile toh bas ye lines badal do.
 const ADDRESS_LINES = [
@@ -31,18 +34,21 @@ const YOUR_STAY = [
 ];
 
 const linkCls = "inline-flex min-h-[36px] items-center text-sm text-ivory/70 transition-colors hover:text-brass";
+const contactCls = "flex min-h-[36px] items-center gap-2 text-sm text-ivory/70 transition-colors hover:text-brass";
+
+function InstagramIcon({ size = 16 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
 
 export default function Footer() {
-  const { phone, instagram, whatsapp } = site.contact;
-  const email = EMAIL;
+  const { whatsapp } = site.contact;
   const year = new Date().getFullYear();
-
-  const socials = [
-    instagram && { href: instagram, label: "Instagram", icon: "📷" },
-    whatsapp && { href: whatsapp, label: "WhatsApp", icon: "💬" },
-    email && { href: `mailto:${email}`, label: "Email", icon: "✉️" },
-    phone && { href: `tel:${phone}`, label: phone, icon: "📞" },
-  ].filter(Boolean);
 
   return (
     <footer className="bg-forest text-ivory">
@@ -63,27 +69,6 @@ export default function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">
               An oasis of celebration and calm near Mohand Forest — designed for those who seek both joy and rejuvenation.
             </p>
-
-            {socials.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-3">
-                {socials.map(({ href, label, icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-ivory/15 px-4 text-xs text-ivory/70 transition-all hover:border-brass hover:text-brass"
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    <span aria-hidden="true">{icon}</span>
-                    {label}
-                  </a>
-                ))}
-              </div>
-            )}
-
-            <a href="/booking" className="btn mt-6 inline-flex border border-ivory/30 text-ivory hover:border-brass hover:text-brass">
-              Book Now
-            </a>
           </div>
 
           {/* Col 2 — Explore (thoda right me) */}
@@ -131,16 +116,17 @@ export default function Footer() {
             </a>
 
             <div className="mt-3 space-y-1">
-              {phone && (
-                <a href={`tel:${phone}`} className="flex min-h-[36px] items-center gap-2 text-sm text-ivory/70 transition-colors hover:text-brass">
-                  📞 {phone}
-                </a>
-              )}
-              <a href={`mailto:${email}`} className="flex min-h-[36px] items-center gap-2 break-all text-sm text-ivory/70 transition-colors hover:text-brass">
-                ✉️ {email}
+              <a href={PHONE_HREF} aria-label={`Call ${PHONE_LABEL}`} className={contactCls}>
+                📞 {PHONE_LABEL}
+              </a>
+              <a href={`mailto:${EMAIL}`} className={`${contactCls} break-all`}>
+                ✉️ {EMAIL}
+              </a>
+              <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={contactCls}>
+                <InstagramIcon /> @modaro__theluxurystay
               </a>
               {whatsapp && (
-                <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="flex min-h-[36px] items-center gap-2 text-sm text-ivory/70 transition-colors hover:text-brass">
+                <a href={whatsapp} target="_blank" rel="noopener noreferrer" className={contactCls}>
                   💬 Chat on WhatsApp
                 </a>
               )}

@@ -113,7 +113,7 @@ export default function Nav() {
             href="/booking"
             className="btn header-book-btn min-h-[40px] px-7 text-xs tracking-widest shadow-md"
           >
-            Book Now
+          Enquire Now
           </a>
         </div>
 

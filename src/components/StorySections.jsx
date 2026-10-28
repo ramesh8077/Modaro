@@ -136,7 +136,7 @@ export function Closing({ setType }) {
       <div className={`${wrap} py-20 lg:py-28`}>
         <h2 data-reveal className="h2 max-w-3xl">Make your next memory part of the story.</h2>
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link to="/the-villa" className="btn bg-brass text-charcoal hover:bg-ivory">Explore the Villa</Link>
+          <Link to="/the-villa" className="btn bg-brass text-charcoal hover:bg-ivory">Explore The Villa</Link>
           <a href="#enquiry" onClick={() => setType("Stay")} className="btn border border-ivory/70 hover:bg-ivory hover:text-charcoal">Plan Your Stay</a>
         </div>
       </div>
