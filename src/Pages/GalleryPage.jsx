@@ -18,9 +18,10 @@ export default function GalleryPage() {
         <Img img={{ src: g.hero.src, alt: g.hero.alt, w: g.hero.width, h: g.hero.height, focus: g.hero.focus }} eager data-hero-img className="absolute inset-0 size-full" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/75 via-charcoal/25 to-charcoal/15" aria-hidden />
         <div className={`relative w-full ${wrap} pb-20 lg:pb-24`}>
-            <h1 data-hero className="max-w-4xl text-[clamp(2.9rem,8vw,7rem)]">A closer look at your escape.</h1>
-          <p data-hero className="mt-6 max-w-lg text-base text-ivory/90 sm:text-lg">Explore the spaces, surroundings, and details that make Villa Modaro.</p>
-        </div>
+            <h1 data-hero className="max-w-4xl text-[clamp(2.9rem,8vw,7rem)]">A closer look at your escape</h1>
+<p data-hero className="mt-6 text-base text-ivory/90 sm:text-lg">
+  Explore the spaces, surroundings, and details that make Villa Modaro.
+</p>        </div>
       </section>
 
       {data.status === "loading" && (

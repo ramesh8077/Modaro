@@ -11,8 +11,10 @@ export function StoryHero() {
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/35 to-charcoal/20" aria-hidden />
       <div data-depth className={`relative w-full ${wrap} pb-24 lg:pb-28`}>
         <p data-hero className="mb-5 text-xs tracking-[0.3em]">THE STORY OF VILLA MODARO</p>
-        <h1 data-hero className="max-w-5xl text-[clamp(2.9rem,8vw,7.5rem)]">It began with a wish to be together.</h1>
-        <p data-hero className="mt-6 max-w-lg text-base text-ivory/90 sm:text-lg">A longing for shared moments became a place to celebrate them.</p>
+        <h1 data-hero className="max-w-5xl text-[clamp(2.9rem,8vw,7.5rem)]">It began with a wish to be together</h1>
+        <p data-hero className="mt-6 text-base text-ivory/90 sm:text-lg">
+  A longing for shared moments became a place to celebrate them
+</p>
       </div>
     </section>
   );

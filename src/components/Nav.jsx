@@ -14,6 +14,18 @@ const navLinks = [
   ["Gallery", "/gallery"],
 ];
 
+
+// Green CTA (header + mobile menu). Shade badalni ho toh yahan change karo.
+const GREEN = "#2f8f5b";
+const GREEN_HOVER = "#247549";
+const greenStyle = { backgroundColor: GREEN, color: "#ffffff", border: "none" };
+const greenHover = {
+  onMouseEnter: (e) => (e.currentTarget.style.backgroundColor = GREEN_HOVER),
+  onMouseLeave: (e) => (e.currentTarget.style.backgroundColor = GREEN),
+};
+const enquireBtn =
+  "inline-flex items-center justify-center font-semibold shadow-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+
 export default function Nav() {
   const [solid, setSolid] = useState(false);
   const dlg = useRef(null);
@@ -33,10 +45,10 @@ export default function Nav() {
     unlock();
     return unlock;
   }, [pathname]);
-  useEffect(() => {
+useEffect(() => {
     const f = () => {
       const y = window.scrollY;
-      setSolid(y > 40 || pathname === "/the-villa");
+      setSolid(y > 40); 
     };
     f();
     window.addEventListener("scroll", f, { passive: true });
@@ -107,13 +119,15 @@ export default function Nav() {
           </li>
         </ul>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA — green */}
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href="/booking"
-            className="btn header-book-btn min-h-[40px] px-7 text-xs tracking-widest shadow-md"
+            style={greenStyle}
+            {...greenHover}
+            className={`${enquireBtn} min-h-[40px] px-7 text-xs tracking-widest`}
           >
-          Enquire Now
+            Enquire Now
           </a>
         </div>
 
@@ -193,9 +207,11 @@ export default function Nav() {
             <a
               href="/booking"
               onClick={close}
-              className="btn header-book-btn inline-flex w-full justify-center py-4 text-xs tracking-widest"
+              style={greenStyle}
+              {...greenHover}
+              className={`${enquireBtn} w-full py-4 text-xs tracking-widest`}
             >
-              Book Now
+              Enquire Now
             </a>
           </li>
         </ul>

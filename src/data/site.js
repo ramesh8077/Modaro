@@ -81,7 +81,7 @@ export const storyPage = {
     { label: "Peace of mind", text: "Security arrangements are in place at the property, with CCTV included as part of Villa Modaro's security setup.", img: si("Villa Modaro property entrance and security", "center", 1400, 1000) },
   ],
   transformation: {
-    title: "Shaped with patience. Made for people.",
+    title: "Shaped with patience. Made for people",
     text: "Years of dedication transformed the land into an outhouse-style retreat shaped with passion and built to host life's milestones. Surrounded by nature and clean Himalayan air near Mohand Forest, Villa Modaro makes room for celebration, connection and unhurried time outdoors.",
     img: si("Villa Modaro today", "center", 1400, 1000, "The villa today"),
     img2: si("Time outdoors at the villa", "center", 900, 1100, "Time outdoors"),

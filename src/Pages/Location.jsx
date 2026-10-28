@@ -5,9 +5,9 @@ import Img from "../components/Img";
 const wrap = "mx-auto max-w-[1440px] px-6 lg:px-12";
 
 const points = [
-  { n: "01", title: "Easy to reach", text: "Balupur–Paonta Sahib Expressway" },
-  { n: "02", title: "Close to nature", text: "Mohand Forest nearby" },
-  { n: "03", title: "Room to retreat", text: "A peaceful setting set apart" },
+  { n: "01", title: "Easy To Reach", text: "Balupur–Paonta Sahib Expressway" },
+  { n: "02", title: "Close To Nature", text: "Mohand Forest nearby" },
+  { n: "03", title: "Room To Retreat", text: "A peaceful setting set apart" },
 ];
 
 export default function LocationPage() {
@@ -29,7 +29,7 @@ export default function LocationPage() {
             <span className="text-brass">BALUPUR–PAONTA SAHIB</span> EXPRESSWAY
           </p>
           <h1 id="location-page-heading" className="max-w-4xl font-display text-[clamp(2.4rem,6vw,5.5rem)] leading-[1.02] text-ivory [text-shadow:0_2px_16px_rgba(0,0,0,.5)]">
-            Find your way to Villa Modaro.
+            Find your way to Villa Modaro
           </h1>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
             A secluded stay near Mohand Forest, with an easy road approach.
@@ -61,9 +61,9 @@ export default function LocationPage() {
 
             <div>
               <h2 className="font-display text-[clamp(2.25rem,4.5vw,4rem)] leading-[1.05]">
-                A little away.
+                A little away
                 <br />
-                Easy to find.
+                Easy to find
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-charcoal/80 sm:text-lg">
                 Villa Modaro sits along the Balupur–Paonta Sahib Expressway, near Mohand Forest. Reach us by road, then settle into a secluded setting for stays, celebrations and time together.
@@ -75,7 +75,7 @@ export default function LocationPage() {
               </p>
 
               <a href="#enquiry" className="btn mt-8 inline-flex bg-brass text-charcoal hover:bg-charcoal hover:text-ivory">
-                Ask about availability
+                Ask About Availability
               </a>
             </div>
           </div>

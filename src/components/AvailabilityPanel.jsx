@@ -36,7 +36,7 @@ export default function AvailabilityPanel() {
   return (
     <section id="enquiry" data-scroll-extra="56" style={{ scrollMarginTop: 128 }} className="bg-ivory px-6 py-10 text-charcoal sm:py-12 lg:px-12 lg:py-14">
       <div className="mx-auto max-w-4xl border border-charcoal bg-[#111111] p-6 text-ivory shadow-[0_24px_60px_rgba(0,0,0,.18)] sm:p-10 lg:p-14">
-        <h2 className="h2 !text-[clamp(2rem,4vw,3rem)]">Plan your stay.</h2>
+        <h2 className="h2 !text-[clamp(2rem,4vw,3rem)]">Plan Your Stay</h2>
         <p className="mt-3 max-w-md">Choose your dates and party size for {property.name}.</p>
         <form onSubmit={submit} noValidate className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-3">
           <div><label htmlFor="checkIn" className={lab}>Check-in</label><input {...a("checkIn")} type="date" min={today} value={v.checkIn} onChange={set("checkIn")} className={f} /><E id="checkIn" /></div>
