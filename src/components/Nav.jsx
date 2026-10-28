@@ -61,20 +61,20 @@ export default function Nav() {
     >
       <nav
         aria-label="Main"
-        className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-12"
+        className="mx-auto flex h-18 max-w-[1440px] items-center justify-between px-6 lg:px-12"
       >
         {/* Logo */}
         <L
           to="/"
           aria-label="Villa Modaro home"
-          className="flex h-20 w-32 shrink-0 items-center justify-center"
+          className="flex h-18 w-28 shrink-0 items-center justify-center overflow-hidden"
         >
           <img
             src={Logo}
             alt="Modaro Luxury Stay"
             width="500"
             height="500"
-            className={`h-20 w-20 max-w-full object-contain ${solid ? "" : "brightness-0 invert"}`}
+            className={`h-16 w-16 max-w-full object-contain ${solid ? "" : "brightness-0 invert"}`}
           />
         </L>
 
@@ -111,7 +111,7 @@ export default function Nav() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href="/booking"
-            className="btn header-book-btn min-h-[40px]  text-xs tracking-widest shadow-md"
+            className="btn header-book-btn min-h-[40px] px-7 text-xs tracking-widest shadow-md"
           >
             Book Now
           </a>
@@ -136,19 +136,19 @@ export default function Nav() {
         className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-forest p-0 text-ivory"
       >
         {/* Mobile menu header */}
-        <div className="flex h-20 items-center justify-between px-6 border-b border-ivory/10">
+        <div className="flex h-18 items-center justify-between px-6 border-b border-ivory/10">
           <L
             to="/"
             onClick={close}
             aria-label="Villa Modaro home"
-            className="flex h-20 w-32 items-center justify-center"
+            className="flex h-18 w-28 items-center justify-center overflow-hidden"
           >
             <img
               src={Logo}
               alt="Modaro Luxury Stay"
               width="500"
               height="500"
-              className="h-20 w-20 max-w-full object-contain"
+              className="h-16 w-16 max-w-full object-contain"
             />
           </L>
           <button

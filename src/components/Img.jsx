@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-export default function Img({ img, className = "", eager = false, ...rest }) {
+export default function Img({ img, className = "", eager = false, hideIfMissing = false, ...rest }) {
   const [bad, setBad] = useState(false);
 
-  if (!img?.src || bad)
+  if (!img?.src || bad) {
+    if (hideIfMissing) return null;
     return (
       <div
         role="img"
@@ -14,6 +15,7 @@ export default function Img({ img, className = "", eager = false, ...rest }) {
         Photo to come
       </div>
     );
+  }
 
   return (
     <img

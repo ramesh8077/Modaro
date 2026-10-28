@@ -41,7 +41,7 @@ export function Overview() {
     <div className="flex min-w-0 items-center bg-black px-6 py-12 sm:px-10 sm:py-16 lg:px-[clamp(2.5rem,6vw,7rem)] lg:py-20">
       <div className="mx-auto w-full max-w-2xl">
         <p className="text-xs font-medium tracking-[0.3em] text-brass">EXPLORE EVERY CORNER OF MODARO</p>
-        <h2 className="mt-4 font-display text-[clamp(2.4rem,4.2vw,4.5rem)] leading-[1.03] text-ivory">Our story &amp; the villa</h2>
+        <h2 className="mt-4 font-display text-[clamp(2.4rem,4.2vw,4.5rem)] leading-[1.03] text-ivory">Our Story &amp; The Villa</h2>
         <p className="mt-7 text-sm leading-7 text-white/80 sm:text-base sm:leading-8">{property.overview}</p>
         <p className="mt-5 border-t border-white/15 pt-5 text-sm leading-7 text-white/65 sm:text-base sm:leading-8">{property.details}</p>
       </div>
