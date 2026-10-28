@@ -15,7 +15,7 @@ export default function SpaceNav({ items }) {
   }, [active]);
   return (
     <nav aria-label="Villa sections" className="sticky top-[72px] z-30 border-b border-charcoal/15 bg-ivory">
-      <ul ref={bar} className="mx-auto flex max-w-[1440px] gap-1 overflow-x-auto px-6 [scrollbar-width:none] lg:px-12">
+      <ul ref={bar} className="mx-auto flex max-w-[1440px] gap-1 overflow-x-auto px-6 [scrollbar-width:none] lg:px-12 mb-[30px] mt-[30px]">
         {items.map((i) => (
           <li key={i.id} className="shrink-0">
             <a href={`#${i.id}`} aria-current={active === i.id ? "location" : undefined}

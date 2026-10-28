@@ -68,7 +68,6 @@ export const storyPage = {
   longing: {
     title: "A wish to gather again.",
     text: "The idea of Villa Modaro was born during the lockdown years, a time when celebrations felt at risk and the joy of gathering seemed distant. Out of that longing came the vision for a place where friends and families could reconnect freely, without disturbance or restriction.",
-    img: si("Friends and family gathered outdoors", "center", 1200, 1500),
   },
   discovery: {
     title: "A place for the possibility.",
@@ -215,7 +214,7 @@ const importedPhoto = (src, alt, w = 1536, h = 1024, focus = "center", caption =
 Object.assign(storyPage, {
   hero: photoRecord(assets.entry, "Villa Modaro surrounded by landscaped lawns", "The villa today"),
   longing: { ...storyPage.longing, img: photoRecord(assets.living, "Friends sharing time in the villa living room", "Shared time at Villa Modaro") },
-  discovery: { ...storyPage.discovery, img: photoRecord(assets.driveway, "Tree-lined driveway leading to Villa Modaro", "The grounds of Villa Modaro today"), img2: photoRecord(assets.pavilion, "Open garden pavilion surrounded by greenery", "The garden pavilion today") },
+  discovery: { ...storyPage.discovery, img: photoRecord(assets.driveway, "Tree-lined driveway leading to Villa Modaro", "The grounds of Villa Modaro today"),  },
   stage: [
     { ...storyPage.stage[0], img: photoRecord(assets.driveway, "Villa Modaro driveway and guest parking", "Parking and arrival") },
     { ...storyPage.stage[1], img: photoRecord(assets.kitchen, "Villa Modaro kitchen with refrigerator", "Kitchen and refrigerator") },

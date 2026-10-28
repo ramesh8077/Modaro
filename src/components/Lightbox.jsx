@@ -35,17 +35,17 @@ export default function Lightbox({ items, index, onIndex, onClose, thumbs = fals
     const dx = e.clientX - s.x, dy = e.clientY - s.y;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
   };
-  const ctl = "grid size-11 shrink-0 place-items-center bg-ivory/10 hover:bg-ivory/25";
+  const ctl = "grid size-11 shrink-0 place-items-center bg-charcoal/10 text-charcoal transition-colors hover:bg-charcoal/20";
 
   return (
     <dialog ref={dlg} onClose={closed} onKeyDown={key} aria-label={label} data-lenis-prevent
-      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-charcoal p-0 text-ivory">
+      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-ivory p-0 text-charcoal">
       {open && (
         <div className="flex h-full flex-col p-3 sm:p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0 text-sm">
               <p aria-live="polite" className="tracking-widest">{index + 1} / {n}</p>
-              {(it.property || it.caption) && <p className="mt-1 break-words text-ivory/80">{[it.property, it.caption].filter(Boolean).join(" · ")}</p>}
+              {(it.property || it.caption) && <p className="mt-1 break-words text-charcoal/70">{[it.property, it.caption].filter(Boolean).join(" · ")}</p>}
             </div>
             <button onClick={() => dlg.current.close()} aria-label="Close viewer" className={ctl}><X /></button>
           </div>
@@ -57,9 +57,8 @@ export default function Lightbox({ items, index, onIndex, onClose, thumbs = fals
                 onLoad={() => setStatus("ready")} onError={() => setStatus("error")}
                 className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${status === "ready" ? "opacity-100" : "opacity-0"}`} />
             ) : (
-              <div role="img" aria-label={it.alt} style={{ aspectRatio: `${it.w} / ${it.h}` }} className="grid h-full max-w-full place-items-center bg-olive/25 text-sm tracking-widest text-ivory/70">Photo to come</div>
+              <div role="img" aria-label={it.alt} style={{ aspectRatio: `${it.w} / ${it.h}` }} className="h-full max-w-full bg-olive/15" />
             )}
-            {status === "loading" && <p className="absolute text-sm text-ivory/70">Loading…</p>}
             {status === "error" && <p role="alert" className="absolute text-sm">This photo could not be loaded.</p>}
             {n > 1 && <button onClick={() => go(1)} aria-label="Next image" className={`${ctl} absolute right-0 z-10`}><ChevronRight /></button>}
           </div>
@@ -68,7 +67,7 @@ export default function Lightbox({ items, index, onIndex, onClose, thumbs = fals
               {items.map((x, k) => (
                 <li key={x.id} className="shrink-0">
                   <button onClick={() => onIndex(k)} aria-label={`Show image ${k + 1}: ${x.alt}`} aria-current={k === index} className={`block h-12 w-16 overflow-hidden border-2 ${k === index ? "border-brass" : "border-transparent opacity-70 hover:opacity-100"}`}>
-                    {x.thumb ? <img src={x.thumb} alt="" loading="lazy" className="size-full object-cover" /> : <span className="block size-full bg-olive/30" />}
+                    {x.thumb ? <img src={x.thumb} alt="" loading="lazy" className="size-full object-cover" /> : <span className="block size-full bg-olive/20" />}
                   </button>
                 </li>
               ))}

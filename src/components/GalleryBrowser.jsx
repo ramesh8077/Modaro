@@ -41,20 +41,12 @@ export default function GalleryBrowser({ data, onProperty, sticky = true, gridMo
               ))}
             </div>
           )}
-          <div role="group" aria-label="Filter photographs by space" className="flex items-center gap-1 overflow-x-auto [scrollbar-width:none]">
-            <span className="shrink-0 pr-2 text-xs uppercase tracking-[0.2em] text-olive">Show</span>
-            {[{ id: "all", label: "All", n: inProp.length }, ...cats.map((c) => ({ ...c, n: count(c.id) }))].map((c) => (
-              <button key={c.id} aria-pressed={active === c.id} onClick={() => choose(setCat, c.id)} className={tab(active === c.id)}>
-                {c.label} <span className="text-xs opacity-70">({c.n})</span>
-              </button>
-            ))}
-          </div>
+      
         </div>
       </div>
 
       <section id="collection" className="mx-auto max-w-[1440px] px-6 py-14 lg:px-12 lg:py-20">
         <h2 className="sr-only">Photographs</h2>
-        <p aria-live="polite" className="mb-8 text-sm text-olive">Showing {list.length} of {filtered.length} photographs</p>
         {images.length === 0 && <p className="py-20 text-center">Photographs are coming soon.</p>}
         {images.length > 0 && filtered.length === 0 && (
           <div className="py-20 text-center"><p>No photographs match this selection.</p>
