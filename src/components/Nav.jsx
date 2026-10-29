@@ -14,6 +14,9 @@ const navLinks = [
   ["Gallery", "/gallery"],
 ];
 
+// Enquire button ka destination. Jo page actually exist karta ho wahi rakho
+// (e.g. "/contact" ya "/booking" agar route bana liya hai).
+const ENQUIRE_PATH = "/booking";
 
 // Green CTA (header + mobile menu). Shade badalni ho toh yahan change karo.
 const GREEN = "#2f8f5b";
@@ -45,10 +48,10 @@ export default function Nav() {
     unlock();
     return unlock;
   }, [pathname]);
-useEffect(() => {
+  useEffect(() => {
     const f = () => {
       const y = window.scrollY;
-      setSolid(y > 40); 
+      setSolid(y > 40);
     };
     f();
     window.addEventListener("scroll", f, { passive: true });
@@ -121,14 +124,14 @@ useEffect(() => {
 
         {/* Desktop CTA — green */}
         <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href="/booking"
+          <L
+            to={ENQUIRE_PATH}
             style={greenStyle}
             {...greenHover}
             className={`${enquireBtn} min-h-[40px] px-7 text-xs tracking-widest`}
           >
             Enquire Now
-          </a>
+          </L>
         </div>
 
         {/* Mobile hamburger */}
@@ -204,15 +207,15 @@ useEffect(() => {
             <L to="/location" onClick={close} aria-current={isActive("/location") ? "page" : undefined} className={`block py-4 font-display text-3xl tracking-wide ${isActive("/location") ? "text-brass" : ""}`}>Location</L>
           </li>
           <li className="pt-8">
-            <a
-              href="/booking"
+            <L
+              to={ENQUIRE_PATH}
               onClick={close}
               style={greenStyle}
               {...greenHover}
               className={`${enquireBtn} w-full py-4 text-xs tracking-widest`}
             >
               Enquire Now
-            </a>
+            </L>
           </li>
         </ul>
 

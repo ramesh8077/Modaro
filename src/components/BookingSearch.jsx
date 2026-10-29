@@ -39,8 +39,8 @@ export default function BookingSearch({ embedded = false }) {
     <div className="bg-forest pb-28 pt-36 text-ivory lg:pb-32 lg:pt-44">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-12">
         <p className="mb-4 text-xs tracking-[0.3em] text-brass">BOOK YOUR STAY</p>
-        <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5.5vw,4.75rem)] leading-[1.03] text-ivory">Reserve your time at Villa Modaro.</h1>
-        <p className="mt-5 max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">Choose your dates and guests to check availability for a private stay near Mohand Forest.</p>
+        <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5.5vw,4.75rem)] leading-[1.03] text-ivory">Reserve your time at Villa Modaro</h1>
+       <p className="mt-5 text-base leading-7 text-white/85 sm:text-lg sm:leading-9">Choose your dates and guests to check availability for a private stay near Mohand Forest.</p>
       </div>
     </div>
     {card}
